@@ -1,0 +1,178 @@
+body {
+    padding     : 0px;
+    margin      : 0px;
+    margin-top  : 10px;
+    height      : 100%;
+    font-family : Verdana, Arial, Helvetica, sans-serif;
+    font-size   : 10pt;
+    background-image : url(../images/webFond.jpg) ;
+    /*background: #FDFDCB url(backg2.png) repeat-x;
+    background-attachment:fixed;
+    background-color : #F6F6F6*/
+}
+
+div#titre{
+    float:left;
+    width:765px;
+    padding-top:20px;
+    text-align : center;
+    }
+
+div#logo{
+    float:right;
+    width:140px;
+    height : 140px;
+    text-align : center;
+    }
+
+div{
+    font-size : 10pt;
+    font-style : normal;
+    text-align : justify;
+}
+
+
+a{ color:blue; }
+
+.gauche a{
+    color: blue;
+    text-decoration:none; 
+}
+
+.gauche a:hover{
+    color:gray; /*#365D95;*/
+}
+
+a:hover{
+    color:blue;
+}
+
+
+.haut {
+    color: #006633;
+    background-color : #C1C2C1;
+    width: 100%;
+    overflow:hidden;
+}
+
+.code {
+    margin : 0px;
+    padding-top : 2px;
+    padding-bottom : 2px;
+    text-align : left;
+    font-size : 10pt;
+    background-color : #F0F8FF;
+    color : black;
+}
+
+
+.TegIdentifier{ color : #8B4513; }
+.TegComment{ color : #808080; }
+.TegNumeric{ color : #008080; }
+.TegConstant{ color : #808000; }
+.TegString{ color : blue; }
+.TegSymbol{ color : red; }
+.TegKeyWord{ color : black; }
+.TegVarGlob{ color : #000080; }
+.TegMacUser{ color : #800080; }
+.TegVarPredef{ color : #006400; }
+.TegMacPredef{ color : #800000; }
+.TegParam{ color : #FF00FF; }
+.TegGraphElem{ color : #708090; }
+
+.corps{
+    color: black;
+    font-size : 10pt;
+    font-style : normal;
+    text-align : justify;
+    line-height: 1.5;
+    padding-left: 10px;
+    padding-right: 10px;
+    /*padding-bottom:0px;
+    padding-top:0px;
+    margin-bottom:10px;
+    margin-top:10px;*/
+    overflow:auto;
+}
+
+.gauche{
+    float:left;
+    width : 20%;
+    font-size : 10pt;
+}
+
+.droit{
+    float:right;
+    width : 74%;
+    border-left:1px solid #AAA;
+}
+
+.gauche ul{margin:0;padding:0;list-style:none;border-bottom:1px solid #DDD;}
+.gauche ul li{margin:0.20em 0;padding:0.20em;border-top:1px solid #DDD;}
+.corps h3{font-style:italic; text-align:center;}
+
+.bas {
+    color: black;
+    padding:3px;
+    background : #C1C2C1; 
+    clear:both;
+/*margin-top:10px;*/
+}
+
+/*pour la galerie*/
+.contenu{
+    padding:0% 0% 0% 0% ;
+    border: 2px solid gray;
+    color:black;
+    background : #FFFF url(../images/fond.png) repeat-y;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    width : 920px;
+    margin      : 0px auto;
+    -moz-box-shadow: #343434 10px 10px 10px ;
+    -webkit-box-shadow: #343434 10px 10px 10px ;
+    box-shadow: #343434 10px 10px 10px ;
+}
+
+h2 {
+    padding:5px;
+    background: #F3F3F3 ;
+    color: #806B00 ; /*#D60000;;*/
+    font-size:1.4em;
+}
+
+img { border: 1px solid transparent; }
+
+.tegpresentation {
+    padding:3px;
+    /*margin-bottom:20px;
+    margin-top:10px;*/
+    color: black;
+}
+
+.tegcomment {
+    color:black;
+    padding:3px;
+    /*margin:5px 0px 0px 0px;
+    margin-top:20px;*/
+}
+
+.tegcomment ul{margin:0;padding:0;list-style:none;font-size:10pt;}
+.tegcomment ul li{margin:0.10em 0;padding:0.10em;}
+
+
+.center {
+    text-align : center;
+}
+.left {
+    text-align : left;
+}
+.right {
+    text-align : right;
+}
+.justify {
+    text-align : justify;
+}
+.noborder {
+    border-width : 0;
+}
