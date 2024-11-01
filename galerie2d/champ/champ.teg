@@ -1,0 +1,44 @@
+TeXgraph#
+Cmd [view(-5,5,-5,5), Marges(0,0,0,0), size(10)];
+Var
+    longueur = 0.5 {long. des vecteurs};
+    deltaX = 0.5 {valeur du pas sur X};
+    deltaY = 0.5 {valeur du pas sur Y};
+    A = 0.476190476190476+2.43386243386243*i;
+    strf = "i*sin(x)+y";
+Mac
+    Init = Bouton(RefPoint,"Modifier","Modifier()");
+    Modifier = if Input("f(x,y)= ",
+	         "Champ de vecteurs: x'+iy'= f(x,y)",strf)
+	then
+	 NewMac("f",chaine(),x,y),
+	 ReCalc(EqDif),
+	 strf:=chaine()
+	fi;
+    ClicG = [ {clic gauche souris}
+	A:=%1, ReCalc(EqDif)
+	];
+    Champ = [{Champ() }
+	Arrows:=1,
+	if  longueur<=0
+	    then Message("La variable longueur doit être positive!"),
+	         $facteur:=1
+	    else facteur:=longueur
+	fi,
+	Ligne(for y from Ymin to Ymax step deltaY do
+		for x from Xmin to Xmax step deltaX do
+	            v:= f(x,y),
+	            v:= v/abs(v)*facteur,
+	            x+i*y, x+i*y+v,jump
+	        od
+	      od,0)
+	];
+    f = i*sin(%1)+%2;
+Graph EqDif = [
+	background(full,beige),
+	Width:=4, Axes(0,1+i), NbPoints:=100,
+	Width:=6, Arrows:=1, Color:=blue, Champ(), Arrows:=0,
+	Width:=14, Color:=red, EquaDif(f(x,y),0, A),
+	Color:=black, DotScale:=1.5, LabelSize:=large,
+	LabelDot(A,"$A$","S",1)
+	];

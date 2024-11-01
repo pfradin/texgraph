@@ -1,0 +1,146 @@
+TeXgraph#
+Cmd [view(-5.2,5.2,-2,3), Marges(0,0,0,0), size(10)];
+Var
+    A = 0;
+    d = 3 {distance entre 2 tours};
+    h = 1.5;
+    ep = 0.25 {epaisseur d'un disque};
+    l = 0.5 {largeur d'une tour};
+    T1 = rectangl(A-d-l,l,h);
+    T2 = rectangl(A,l,h);
+    T3 = rectangl(A+d+l,l,h);
+    n = 4;
+    Tour1 = [3,4];
+    Tour2 = 1;
+    Tour3 = 2;
+    compteur = 6;
+    source = -3.5+0.875*i;
+    but = 3.5+0.875*i;
+    L = 1/0;
+    draw2dVer = 0.7;
+Include
+	"markers.mac";
+	"gradients.mac";
+	"draw2d.mac";
+Mac
+    rectangl = [
+	$centre:=%1, $z:= (%2+i*%3)/2,
+	centre+z, centre-bar(z), centre-z,centre+bar(z), jump
+	];
+    Draw = draw("line", %1,
+	     [close:=1, radius:=0.125, FillStyle:=gradient, GradStyle:=radial,
+	      FillColorA:=white, FillColorB:=FillColor]);
+    join = [
+	if %5=Nil then $long:=abs(%2-%1)
+	else long:=abs(%2-%1)/%5
+	fi,
+	Bezier(%1,%1+long*exp(i*%3*pi/180),%2+long*exp(i*%4*pi/180),%2)
+	];
+    get = [
+	$num:=0,
+	for $z in %1 By 1 do Inc(num,1), if num=%2 then z fi od
+	];
+    diametre = if %1=1 then 2*l else (-2*l+d+l/2)/(n-1)*(%1-1)+2*l fi;
+    Init = [
+	Initialiser(),
+	Bouton( RefPoint, "Tour1->Tour2", "deplacer(1,2)"),
+	Bouton( RefPoint+DeltaB, "Tour1->Tour3", "deplacer(1,3)"),
+	Bouton( RefPoint+2*DeltaB, "Tour2->Tour1", "deplacer(2,1)"),
+	Bouton( RefPoint+3*DeltaB, "Tour2->Tour3", "deplacer(2,3)"),
+	Bouton( RefPoint+4*DeltaB, "Tour3->Tour1", "deplacer(3,1)"),
+	Bouton( RefPoint+5*DeltaB, "Tour3->Tour2", "deplacer(3,2)"),
+	Bouton( RefPoint+6*DeltaB, "Nb disques", "ChangerN()"),
+	Bouton( RefPoint+7*DeltaB, "Nouveau", "Initialiser()"),
+	Bouton( RefPoint+8*DeltaB, "Solution", "[Initialiser(), Hanoi(n,1,2), Timer(800)]"),
+	TimerMac("[z:=L[1], Del(L,1,1), deplacer(Re(z),Im(z)), if L=Nil then Timer(0) fi]")
+	];
+    deplacer = [
+	if %1=1 then source:=get(T1,1)-l/2+ep*i/2, Tourdep:=Tour1
+	elif %1=2 then source:=get(T2,1)-l/2+ep*i/2, Tourdep:=Tour2
+	else source:=get(T3,1)-l/2+ep*i/2, Tourdep:= Tour3
+	fi,
+	if %2=1 then but:=get(T1,1)-l/2+ep*i/2, Tourbut:=Tour1,
+	elif %2=2 then but:=get(T2,1)-l/2+ep*i/2, Tourbut:=Tour2
+	else but:=get(T3,1)-l/2+ep*i/2, Tourbut:=Tour3
+	fi,
+	$disque:=Tourdep[1], $disque2:=Tourbut[1],
+	if disque2=Nil then disque2:=n+1 fi,
+	if disque<>Nil
+	 then
+	      if disque2<disque then Message("Déplacement impossible")
+	      else
+	        Eval(["Del(Tour",%1,",1,1)"]),
+	        ReCalc(deplacement),
+	        Eval(["Insert(Tour",%2,",",disque,",1)"]),
+	        Inc(compteur,1), ReCalc(Compteur,disques)
+	      fi
+	fi
+	];
+    Initialiser = [
+	Tour1:=for k from 1 to n do k od,
+	Tour2:=Nil, Tour3:=Nil, source:=Nil,
+	compteur:=0, L:=1/0,
+	ReCalc()
+	];
+    ChangerN = if Input("Nombre de disques= (entre 1 et 5)", ["Le nombre actuel est de ",n],n)
+	then $new:=Eval(chaine()),
+	     if (new>0) And (new<6)
+	     then n:=new, h:=(n+2)*ep, Initialiser()
+	     else Message("Cette valeur n'est pas valable")
+	     fi
+	fi;
+    Hanoi = if %1=1 then
+	 Insert(L,%2+i*%3)
+	 else
+	       Hanoi(%1-1,%2,6-%2-%3),
+	       Insert(L,%2+i*%3),
+	       Hanoi(%1-1,6-%2-%3,%3)
+	fi;
+    defaultGradLineOptions = [
+	LineColorA:=white {début}, 
+	LineColorB:=red {fin}, 
+	close:=0 {fermée ou non},
+	GradLineStep:=0.35 {pas}
+	];
+    defaultShadePathOptions = [
+	FillColorA:=white {début},
+	FillColorB:=red {fin}, 
+	GradStyle:=linear {ou radial},
+	GradAngle:=0 {degrés},
+	RadialCenter:=0.25+0.75*i {dans [0;1]x[0;1]},
+	];
+
+Graph Compteur = [
+	background(full,beige), FrenchBabel:=1,
+	Label(A-(h/2+1/Yscale)*i,["Nombre de déplacement(s): ",compteur])
+	];
+Graph Tours = [
+	FillColor:=darkred,
+	draw("line", T1, [close:=1, FillStyle:=gradient,
+	             FillColorB:=FillColor]),
+	draw("line", T2, [close:=1, FillStyle:=gradient,
+	             FillColorB:=FillColor]),
+	draw("line", T3, [close:=1, FillStyle:=gradient,
+	             FillColorB:=FillColor]),
+	draw("line", rect(A-d-l*2.5-h*i/2,A-d-l*2.5-h*i/2-0.125*i,A+d+l*2.5-h*i/2-0.125*i),
+	             [close:=1, FillStyle:=full, FillColor:=brown]),
+	dist:=0.5/Yscale,
+	Label( A-d-l-(h/2+dist)*i, "Tour 1",
+	       A-(h/2+dist)*i, "Tour 2",
+	       A+d+l-(h/2+dist)*i, "Tour 3")
+	];
+Graph deplacement = [Width:=8,Arrows:=1,join(source,but,90,90,3)];
+Graph disques = [
+	centre:=A-d-l+(3*ep/2-h)/2*i, Width:=2, FillColor:=blue,
+	for z in reverse(Tour1) do
+	    Draw(rectangl(centre,diametre(z),ep)), Inc(centre,ep*i)
+	od,
+	centre:=A+(3*ep/2-h)/2*i,
+	for z in reverse(Tour2) do
+	    Draw(rectangl(centre,diametre(z),ep)), Inc(centre,ep*i)
+	od,
+	centre:=A+d+l+(3*ep/2-h)/2*i,
+	for z in reverse(Tour3) do
+	    Draw(rectangl(centre,diametre(z),ep)), Inc(centre,ep*i)
+	od
+	];

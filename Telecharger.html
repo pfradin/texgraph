@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>TeXgraph - Télécharger</title>
+     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="Logiciel de dessin pour LaTeX, création de courbes, graphiques, tableaux de variations,... au format tikz, Pstricks, Svg ..." 
+        name="description">
+    <meta content="TeXgraph, graphiques, Tex, LaTeX, PsTricks, dessin, courbes, figures" name="keywords">
+    <meta name="author" content="Patrick Fradin">
+        <script type="text/x-mathjax-config">
+                MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script 
+                src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+</head>
+<body>
+<A id="gotop"></A>
+
+<div class="contenu">
+<div class="haut">
+<div id="titre">
+<h1>TeXgraph - Téléchargement</h1>
+<p class="center"> <a href="index.html">Accueil</a></p>
+</div>
+<div id="logo">
+<p><img src="images/logoTeXgraph.png" alt=""></p>
+</div>
+</div>
+
+<div class="corps">
+<div class="gauche">
+    
+<h3> Version stable 1.995</h3>
+<ul>
+<li> <a href="telechargement/TeXgraph1.995-64bits.zip">Windows 64b</a></li>
+<li> <a href="telechargement/TeXgraph1.995-64bits.tar.gz">Linux 64b</a></li>
+<li> <a href="telechargement/TeXgraph1.995-64bits.dmg.zip">Mac OS X intel 64b</a></li>
+</ul>    
+    
+<h3> Version stable 1.99</h3>
+<ul>
+<li> <a href="https://download.tuxfamily.org/texgraph/version_stable/windows/TeXgraph1.99.zip">Windows 32b</a></li>
+<li> <a href="https://download.tuxfamily.org/texgraph/version_stable/linux/TeXgraph1.99-64bits.tar.gz">Linux 64b</a></li>
+<li> <a href="https://download.tuxfamily.org/texgraph/version_stable/mac/TeXgraph1.99-64bits.dmg.zip">Mac OS X intel 64b</a></li>
+</ul>
+</div>
+
+<div class="droit">
+<ul>
+<li><b>Avertissement</b>:  TeXgraph est distribué sous les termes de la licence GPL (General Public Licence). Ce programme est libre, vous pouvez le redistribuer et/ou le modifier selon les termes de la Licence Publique Générale GNU publiée par la Free Software Foundation (version 2 ou bien toute autre version ultérieure choisie par vous). Ce programme est distribué car potentiellement utile, mais SANS AUCUNE GARANTIE,
+ ni explicite ni implicite, y compris les garanties de commercialisation ou d'adaptation dans un but spécifique. Reportez-vous à la Licence Publique Générale GNU pour plus de détails.
+</li>
+
+<li>
+<b>Note</b>: La version 1.995 a été écrite en Free pascal et développée avec <a href="https://pascal.developpez.com/telecharger/detail/id/6209/FPCUpDeluxe"> Lazarus fpcupdeluxe</a>. La version en ligne de commande (TeXgraphCmd) a également été écrite et compilée en Free Pascal.
+</li>
+
+<li>
+<b>Installation sous windows</b>:  décompresser l'archive dans un répertoire, un nouveau répertoire est créé: TeXgraph+n°version (par exemple: TeXgraph1.995). Celui-ci contient un script d'installation (install.bat) et le fichier LisezMoi.txt, reportez-vous aux instructions de ce fichier.
+</li> 
+
+<li>
+<b>Installation sous linux</b>: décompresser l'archive dans votre home, un nouveau répertoire est créé: TeXgraph+n°version (par exemple: TeXgraph1.995). Celui-ci contient un script d'installation (install.sh) et le fichier LisezMoi.txt, reportez-vous aux instructions de ce fichier.
+</li> 
+
+<li>
+<b>Installation du mode commande</b>: l'archive contient également une version sans interface graphique permettant d'utiliser du code texgraph directement dans un document LaTeX par le biais du package <b>texgraph.sty</b> qui est dans le dossier <b>TeXgraph1.995</b> . Sous linux cette version est automatiquement installée. Mais sous Windows, il vous faudra copier le fichier texgraph.sty (qui est dans le dossier TeXgraph1.995) dans votre texmf local et rafraîchir la base de données de TeX (texhash).
+</li>
+
+<li>
+<b>IMPORTANT: sous les deux OS, la compilation doit se faire avec l'option --shell-escape (ou --enable-write18 suivant la distribution).</b>
+Reportez-vous au fichier d'aide <i>TeXgraph-fr.pdf</i> (chapitre 12) pour avoir les détails du mode commande et des exemples.
+</li>
+
+
+<li>
+<b>PolyedresII.pdf</b>: pour des raisons de volume, l'archive contient seulement un memo concernant le fichier de macros <i>PolyedresII.mac</i> 
+d'<i>Alphonse Capriani</i>. Un document plus complet et très illustré peut être chargé (34Mo!) <a href="https://www.mediafire.com/file/qtygtmvzwjh/PolyedresII.pdf">à cette addresse</a>.
+</li> 
+
+<li>
+<b>Correctifs</b>: lorsque des bugs sont trouvés dans les macros de TeXgraph, des correctifs sont proposés dans le forum dans <a href="https://texgraph.tuxfamily.org/forum/viewtopic.php?f=2&amp;t=344">ce sujet</a>.
+</li>
+</ul>
+
+<h3> Changements </h3>
+<ul>
+    
+<li>Version 1.995
+    <ul>
+    <li> La version windows est maintenant une version en 64 bits.</li>
+    <li>Correction de divers bogues.</li>
+   </ul> 
+</li>   
+     
+<li>Version 1.99
+    <ul>
+    <li> Un export vers WebGL a été ajouté (un nouveau bouton à côté de ceux de javaview et geomview, non testé sous windows).</li>
+    <li> Interface graphique : intégration de la librairie <a href="https://lazarus.developpez.com/telecharger/detail/id/433/Bibliotheque-BGRABitmap">BRGABitmap</a> pour le rendu graphique (antialiasing, transparence, gradient).</li>
+    <li> Interface graphique :  modifications des suppléments 2D et 3D.</li>
+    <li> TeXgraph charge automatiquement draw2d, draw3d (anciennement scene3d) et axes (anciennement le modèle grid).</li>
+    <li> TeXgraphMac devient un sous-dossier du dossier caché .TeXgraph sous linux.</li>
+    <li> Expressions régulières possibles dans l'édition (recherche et remplacement).</li>
+    <li> Export svg : changement d'unités (pixels), corrections de bugs dans l'export des arcs.</li> 
+    <li> Nouveau style de remplissage <b>FillStyle:=gradient</b> avec de nouvelles variables :  <b>GradStyle</b> (<b>linear</b> ou <b>radial</b>), <b>GradCenter</b> (xc+i*yc), <b>GradColor</b> (color1+i*color2).</li>
+    <li> Nouveau style de ligne : <b>LineStyle:=freehand</b> (main levée), accessible uniquement  aux objets dessinés avec draw("path",... ) ou draw("line",...).</li>
+    <li> Nouvelles commandes : <b>break()</b> qui permet de casser la boucle courante, <b>exit()</b> qui permet de sortir de la commande courante.</li>
+    <li>Correction de divers bogues.</li>
+   </ul> 
+</li>      
+    
+<li>Version 1.98
+    <ul>
+    <li>Internationalisation de l'interface graphique (un sous-dossier languages fait son apparition dans le dossier src de TeXgraph). Certaines commandes prédéfinies ont maintenant leur équivalent en anglais (Ligne/Line, Droite/StraightL, Point/Dot, Sommets/Vertices, Aretes/Edges, Bord/Outline...). Il y a désormais deux fichiers d'aide en pdf: la version française TeXgraph-fr.pdf, et la version anglaise TeXgraph.pdf fournie par jean23 que je remercie vivement !</li>
+    <li> Le paquet texgraph.sty propose en plus l'environnement <i>tegprog</i> et la macro <i>\tegrun{nom}{param1 param2 ...}</i> qui vont de paire. L'environnement crée un programme (fichier) texgraph, celui-ci est capable de lire des paramètres, et dispose d'une macro <i>Return</i> qui permet d'écrire dans un fichier de sortie. La macro <i>tegrun{nom}{param1 param2 ...}</i> écrit les paramètres dans un fichier, demande à TeXgraph d'exécuter le fichier nom.teg, et inclut le fichier de sortie.</li>
+    <li>Une nouvelle option globale fait son apparition dans le paquet texgraph.sty, c'est l'option server. Lorsqu'elle est activée, le programme n'est exécuté qu'une seule fois lors de la compilation du document, il est lancé lors du chargement du paquet, et fermé à la fin de la compilation du document. En mode "server", le paquet définit la macro <i>\directTeg{commande TeXgraph}</i> qui demande à TeXgraph d'exécuter une commande et de récupérer un résultat. Toujours en mode "server", le paquet fournit l'environnement tegcode, cet environnement doit contenir du code texgraph, celui-ci est lu, et reste en mémoire jusqu'à la fin de la compilation.</li>
+    <li>La commande <i>ReadData( file, type, séparateur)</i> s'est enrichie d'un nouveau type, le type 4, qui permet de lire des fichiers csv.
+    <li>Correction de bogues.</li>
+   </ul> 
+</li>   
+<li>Version 1.97
+    <ul>
+    <li>Les variables peuvent désormais contenir des chaînes de caractères.</li>
+    <li> Évaluation optimisée des booléens.</li>
+    <li>Les mises à jour des modèles et du logiciel se font désormais par le menu de l'interface graphique.</li>
+    <li>Correction de bogues.</li>
+   </ul> 
+</li>
+<li>Version 1.95
+    <ul>
+    <li>Changement de syntaxe dans les fichiers sources (l'ancienne syntaxe reste lisible).</li>
+    <li>Ajout du modèle <b>draw2d.mod</b> amenant une nouvelle syntaxe plus homogène: <i>draw("type", données, options)</i>, et permettant notamment la prise en compte du gradient et de nombreux types de marqueurs de lignes.</li>
+    <li>De nombreuses macros supplémentaires notamment pour la gestion de listes de chaînes.</li>
+    <li>Correction de bogues.</li>
+   </ul> 
+</li>
+<li> Version 1.94
+    <ul>
+    <li>Passage en utf8: <b>tous les fichiers exportés sont désormais en utf8, y compris les fichiers sources.</b></li>
+    <li>Nouveaux exports pour la 3D: <b>obj</b>, <b>geom</b> (pour geomview), <b>jvx</b> (pour javaView) ainsi qu'un export vers <b>povray</b> mais qui nécessite le téléchargement d'un modèle (voir le tableau plus haut).</li>
+    <li>Ajout d'une matrice de transformation 3D en interne et des commandes qui vont avec.</li>
+    <li>Ajout de la projection centrale pour la 3D et des commandes qui vont avec.</li>
+    <li>Styles de lignes personnalisables (style <b>userdash</b>). Nouvelles variables: <b>DashPattern</b>, <b>LineCap</b>, <b>LineJoin</b>, <b>MiterLimit</b> </li>
+    <li>Ajout de nouveaux style de points. Nouvelles variables: <b>DotScale</b>, <b>DotSize</b>, <b>DotAngle</b></li>
+    <li>De nombreuses macros supplémentaires notamment pour la 3D.</li>
+    <li>Ajout de très nombreux polyèdres dans le fichier PolyedresII.mac par <i>Alphonse Capriani</i>.</li>
+    <li>Correction de bogues.</li>
+   </ul> 
+</li>
+<li> Version 1.93
+   <ul>
+   <li>Nouvelles commandes pour créer et afficher une scène 3D à plusieurs objets: <b>Build3D</b> et <b>Display3D</b> suivant la technique des BSP-trees.</li>
+   <li>Nouvel attribut: <b>StrokeOpacity</b> qui gère la transparence des traits [la transparence n'est pas visible dans TeXgraph, par contre la transparence apparaît dans les exports (sauf LaTeX)].</li>
+  <li>Un nouvel attribut: <b>Eofill</b> qui permet le remplissage suivant la règle pair-impair.</li>
+  <li>Quelques 140 couleurs prédéfinies.</li>
+  <li>Des fichiers de macros supplémentaires dont PolyedresII.mac d'Alphonse Capriani permettant de dessiner un très grand nombre de polyèdres convexes ou non.</li>
+   <li>Des fichiers de modèles supplémentaires: marker.mod (ajouter des marques au bout des segments), scene3d.mod, Cristallo.mod,...</li>
+  <li>Adaptations aux nouvelles versions de pgf et pstricks.</li>
+  <li>Correction de bogues.</li>
+   </ul> 
+</li>
+<li> Version 1.92
+    <ul>
+    <li>Nouvel élément graphique: <b>Path</b> (ou chemin), il y a un bouton sur la barre d'outils (Ctrl+H),</li>
+   <li>Un nouvel attribut: <b>FillOpacity</b> qui gère la transparence des remplissages de type full [la transparence n'est pas visible dans TeXgraph, elle est simulée dans la version linux, mais pas dans la version windows car Delphi est moins riche en styles de remplissage par défaut, par contre la transparence apparaît dans les exports (sauf LaTeX)].</li>
+  <li>Un nouvel attribut: <b>visible</b> qui permet de cacher ou montrer un élément graphique existant. Deux nouvelles commandes liées à cet attributs:
+                   <b>Show(élément graphique)</b> et <b>Hide(élément graphique)</b>. </li>
+    <li>Nouvelles commandes: SetAttr(), DefaultAttr(), NewText(), SetMatrix(), ComposeMatrix()...</li>  
+
+    <li>Adaptations aux nouvelles versions de pgf et pstricks.</li>
+    <li>A chaque élément graphique est associée une matrice de transformation.</li> 
+    <li>Ajout d'un export Svg.</li>
+    <li>Correction de bogues.</li>
+   </ul> 
+</li>
+<li> Version 1.9
+   <ul>
+    <li>La barre d'outils s'est enrichie.</li>
+    <li>Gestion des polyèdres convexes élémentaires.</li>
+    <li>Nouvelles commandes: GetAttr(), SaveAttr(), RestoreAttr(), une nouvelle macro: MouseWheel()</li>    
+    <li>Apparition d'un Timer permettant des animations.</li>
+    <li> Sélection multiple dans les listes d'éléments graphiques, variables et macros.</li>    
+    <li>Les labels dont le style est "framed" ont un fond (ils deviennent sensibles à LineStyle, FillStyle et FillColor).</li>
+    <li>Correction de bogues.</li>
+   </ul> 
+</li>
+<li> Version 1.83
+    <ul> 
+    <li>Correction d'un bogue dans le placement de l'image de fond.</li>
+    <li>Correction d'un bogue dans la gestion des courbes paramétrées.</li>
+    </ul> 
+</li>
+<li> Version 1.82
+   <ul>
+   <li>Correction d'un bogue dans la gestion des macros.</li>
+   </ul>
+</li>
+<li> Version 1.81
+   <ul>
+   <li>Correction d'un bogue sur la commande Sort.</li>
+   <li>Correction d'un bogue dans la gestion des macros.</li>
+   </ul>
+</li>
+<li> Version 1.8
+   <ul> 
+   <li>Possibilité d'inclure une image de fond (jpeg), celle-ci sera exportée dans les sorties tex, pgf et pst.</li>
+   <li>Possibilité de dessin à la souris avec le modèle Mouse1.mod.</li>
+   <li>Possibilité d'exécuter des scripts (ou des programmes) à partir de TeXgraph.</li>
+   <li>Possibilité d'exporter le graphique dans le presse-papier aux formats: teg, tex, pgf, pst et wmf.</li>
+   <li>Correction de bogues.</li>
+   </ul>
+</li>
+<li> Version 1.7
+   <ul>
+   <li>Exportation en Pgf adaptée à la version 1.0 du package Pgf (compilable avec PdfLaTeX).</li>
+   <li>Exportation au format Psf c'est à dire: format Eps + Psfrag (l'utilisation de Psfrag est automatisée) .</li>
+   <li>La taille et l'orientation des labels sont modifiables.</li>
+   <li>Structures de contrôles simplifiées: <b>if then else</b>; <b>while</b> et <b>for</b>.</li>
+   <li>Correction de bogues.</li>
+   </ul> 
+</li>
+<li> Version 1.6
+   <ul> 
+   <li>Exportation en Pgf (macros Pgf, compilables avec PdfLaTeX).</li>
+   <li>Exportation en Pdf (utilise la conversion eps -> pdf de la distribution TeX installée).</li>
+   <li>Épaisseur des lignes quelconque (nombre entiers de dixième de point).</li>
+   <li>Fonction zoom intégrée.</li>
+   <li>Amélioration de l'interface. Correction de bogues.</li>
+   </ul> 
+</li>
+<li> Version 1.5
+    <ul>
+   <li> Le style de ligne <b> noline</b> a été ajouté.</li> 
+   <li> Accés à toutes les couleurs. </li>
+   <li> Degradé de couleurs pour les surfaces. </li>
+   <li> Ajout de nouvelles commandes. </li>
+   <li> Aménagements de l'interface. Correction de bogues.</li>
+   </ul>
+</li>
+<li> Version 1.4</li>
+</ul>     
+
+</div>
+</div>
+
+<div class="bas">
+<p class="center"><a href="Telecharger.html#gotop">Haut</a></p>
+</div>
+</div>
+
+</body>
+</html>

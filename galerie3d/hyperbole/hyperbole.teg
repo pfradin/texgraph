@@ -1,0 +1,41 @@
+TeXgraph#
+{version 1.974}
+Cmd
+	Fenetre(-7+7*i, 7-7.5*i, 0.689655172413793+0.689655172413793*i); 
+	Marges(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.7854, phi:=0.96, IdMatrix3D(), ModelView(central), DistCam(15)];
+	[GrayScale(0), ComptGraph:=2];
+
+Mac
+    xlegend = "$x$";
+    ylegend = "$y$";
+    zlegend = "$z$";
+
+Cmd	[tMin:=-6,tMax:=6,DotScale:=1+i];
+Graph objet2 = [
+	H:=5, R:=4, a:=2, Plan:=[M(a,0,0),vecI],
+	//définition cônes
+	C1:=Cone(Origin, H*vecK,R,50), C2:=Cone(Origin,-H*vecK,R,50),
+	// interection plan -cônes (liste d'arêtes)
+	L1:=Intersection(Plan,C1), L2:=Intersection(Plan,C2),
+	//asymptotes
+	Asymp1:=getdroite([M(a,0,0),M(0,R,H)]),
+	Asymp2:=getdroite([M(a,0,0),M(0,-R,H)]),
+	//construction et affichage de la scène
+	coul:=Rgb(0.73,0.74,1),
+	Build3D(
+	    bdPlan(Plan,[border:=1,color:=Rgb(0.74,1,0.73),opacity:=0.9]),
+	    bdCone(Origin,H*vecK,R,[nbfacet:=50,color:=coul,contrast:=0.5]),
+	    bdCone(Origin,-H*vecK,R,[nbfacet:=50,color:=coul,contrast:=0.5]),
+	    bdDroite([M(a,0,0),M(0,R,H)] ,[color:=darkgreen,width:=12]),
+	    bdDroite([M(a,0,0),M(0,-R,H)] ,[color:=darkgreen,width:=12]),
+	    bdAxes(Origin, [labels:=0, arrows:=1])
+	   ),
+	Display3D(),
+	//dessin de l'hyperbole
+	Color:=red, Width:=8, DrawAretes([L1,L2],0),
+	//axes en pointillés
+	Color:=black, LineStyle:=dotted, Axes3D(0,0,0)
+	];

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>TeXgraph - Exemples</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="Logiciel de dessin pour LaTeX, création de courbes, graphiques, tableaux de variations,... au format tikz, Pstricks, Svg ..." 
+        name="description">
+    <meta content="TeXgraph, graphiques, Tex, LaTeX, PsTricks, dessin, courbes, figures" name="keywords">
+    <meta name="author" content="Patrick Fradin">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/lightbox.js"></script>
+    <link href="css/lightbox.css" rel="stylesheet" >
+</head>
+<body>
+<a id="gotop"></a>
+
+<div class="contenu">
+<div class="haut">
+<div id="titre">
+<h1>TeXgraph - Exemples</h1>
+<p class="center"> <a href="index.html">Accueil</a></p>
+</div>
+<div id="logo">
+<p><img src="images/logoTeXgraph.png" alt=""></p>
+</div>
+</div>
+
+<div class="tegpresentation">
+<p align="justify">
+Cette page présente des exemples simples de quelques lignes, ceux-ci peuvent être reproduits de deux façons. La première, en copiant collant le code source à gauche du graphique, dans un document LaTeX, le contenu de ce document doit être au minimum:
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;\documentclass{article}<br>  
+&nbsp;&nbsp;&nbsp;&nbsp;\usepackage{pstricks}  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;\usepackage{texgraph} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;\begin{document}      <br>  
+&nbsp;&nbsp;&nbsp;&nbsp;...                   <br>
+&nbsp;&nbsp;&nbsp;&nbsp;\end{document}        <br>
+</p>
+<p align="justify">Il faudra éventuellement remplacer <i>pstricks</i> par <i>tikz</i> en fonction de votre export. La deuxième façon est dans l'interface graphique du logiciel, vous créez un élément graphique Utilisateur (<i>Ctrl+U</i>), dans la zone de <i>Commande</i> vous ouvrez un crochet : [, vous copiez-collez le code qui est dans l'environnement <b>sans la ligne du begin ni celle du end</b>, puis vous fermez le crochet : ], et vous cliquez le bouton <i>Ok</i>.
+</p>
+</div>
+
+<h2>Axes, courbes cartésiennes et intersection</h2>
+<div class="tegpresentation">
+<table width="100%">
+<tr valign="middle">
+<td >
+<ol class="code">
+<li><span class="TegSymbol">\</span><i><span class="TegIdentifier">begin</span></i><span class="TegComment">{texgraph}</span><span 
+class="TegSymbol">[</span><i><span class="TegIdentifier">name</span></i><span class="TegSymbol">=</span><i><span 
+class="TegIdentifier">courbes</span></i><span class="TegSymbol">]</span></li>
+<li><b><span class="TegMacPredef">view</span></b><span class="TegSymbol">(</span><span class="TegSymbol">-</span><span 
+class="TegNumeric">3</span><span class="TegSymbol">*</span><b><span class="TegConstant">pi</span></b><span 
+class="TegSymbol">,</span><span class="TegNumeric">3</span><span class="TegSymbol">*</span><b><span class="TegConstant">pi</span></b><span 
+class="TegSymbol">,</span><span class="TegSymbol">-</span><span class="TegNumeric">3.5</span><span class="TegSymbol">,
+</span><span class="TegNumeric">3.5</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span 
+class="TegKeyWord">Marges</span></b><span class="TegSymbol">(</span><span class="TegNumeric">0</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">,</span><span class="TegNumeric">0</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span>&nbsp;&nbsp;<b><span class="TegMacPredef">size</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">10</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">tMin</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">Xmin</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">tMax</span></b><span class="TegSymbol">:=</span><b><span 
+class="TegConstant">Xmax</span></b><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Arrows</span></b><span class="TegSymbol">:=</span><span class="TegNumeric">1</span><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Axes</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">0</span><span class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">+</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span 
+class="TegKeyWord">Arrows</span></b><span class="TegSymbol">:=</span><span class="TegNumeric">0</span><span 
+class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Width</span></b><span class="TegSymbol">:=</span><span class="TegNumeric">8</span><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span 
+class="TegConstant">red</span></b><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Cartesienne</span></b><span 
+class="TegSymbol">(</span><span class="TegNumeric">3</span><span class="TegSymbol">*</span><b><span class="TegKeyWord">sin</span></b><span 
+class="TegSymbol">(</span><i><span class="TegIdentifier">x</span></i><span class="TegSymbol">)</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">blue</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegMacPredef">periodic</span></b><span class="TegSymbol">(</span><i><span 
+class="TegIdentifier">x</span></i><span class="TegSymbol">,</span><span class="TegSymbol">-</span><b><span 
+class="TegConstant">pi</span></b><span class="TegSymbol">,</span><b><span class="TegConstant">pi</span></b><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><i><span class="TegIdentifier">C1</span></i><span class="TegSymbol">:=</span><b><span class="TegKeyWord">Get</span></b><span 
+class="TegSymbol">(</span><b><span class="TegKeyWord">Cartesienne</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">3</span><span class="TegSymbol">*</span><b><span class="TegKeyWord">sin</span></b><span 
+class="TegSymbol">(</span><i><span class="TegIdentifier">x</span></i><span class="TegSymbol">)</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><i><span class="TegIdentifier">C2</span></i><span class="TegSymbol">:=</span><b><span class="TegKeyWord">Get</span></b><span 
+class="TegSymbol">(</span><b><span class="TegMacPredef">periodic</span></b><span class="TegSymbol">(</span><i><span 
+class="TegIdentifier">x</span></i><span class="TegSymbol">,</span><span class="TegSymbol">-</span><b><span 
+class="TegConstant">pi</span></b><span class="TegSymbol">,</span><b><span class="TegConstant">pi</span></b><span 
+class="TegSymbol">)</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">DotStyle</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">dotcircle</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Point</span></b><span class="TegSymbol">(</span><i><span 
+class="TegIdentifier">C1</span></i>&nbsp;<b><span class="TegKeyWord">InterL</span></b>&nbsp;<i><span 
+class="TegIdentifier">C2</span></i><span class="TegSymbol">)</span></li>
+<li><span class="TegSymbol">\</span><i><span class="TegIdentifier">end</span></i><span class="TegComment">{texgraph}</span></li>
+</ol>
+</td>
+<td align="center">
+<a href="images/courbes.png" rel="lightbox" title="Axes, courbes cartésiennes et intersection."><img src="images/courbesbis.png" alt="" /></a>
+</td>
+</tr>
+</table>
+<div class="tegcomment">
+<ul>
+<li><i>Ligne 2</i> : on fixe la fenêtre graphique à [-3pi;3pi]x[-3.5;3.5], les marges (gauche, droite, haut et bas) sont mises à 0 cm et la taille est fixée à 10 cm sur 10 cm en conservant le ratio courant entre les deux échelles, c'est à dire que les échelles sur les deux axes vont être calculées pour que la figure remplisse au mieux un carré de 10 cm sur 10 cm.</li>
+<li><i>Ligne 3</i> : on définit l'intervalle pour le paramètre servant au tracé des courbes, on prend l'intervalle des abscisses, celui-ci est défini par les deux constantes <b>Xmin</b> et <b>Xmax</b>.</li>
+<li><i>Ligne 4</i> : on trace des axes se coupant au point d'affixe 0 (premier argument), et avec un pas de 1 sur les deux axes (deuxième argument 1+i), les axes seront fléchés car l'attribut <b>Arrows</b> a la valeur 1 au moment du tracé. Celui-ci est remis à 0 ensuite.</li>
+<li><i>Ligne 5</i> : on fixe l'épaisseur des lignes à 8, l'unité étant le dixième de point, la nouvelle épaisseur sera de 0.8 pt, on sélectionne la couleur rouge, puis on trace la courbe cartésienne d'équation y=3sin(x).</li>
+<li><i>Ligne 6</i> : on sélectionne le bleu et on trace la courbe représentative de la fonction périodique  définie par f(x)=x sur l'intervalle [-pi;pi].</li>
+<li><i>Ligne 7 et 8</i> : on récupère la liste des points des deux courbes avec la fonction <b>Get</b>, et on les mémorise dans deux variables locales.</li>
+<li><i>Ligne 9</i> : on sélectionne un style de point et on dessine avec la fonction <b>Point</b> la liste des points d'intersection entre les deux courbes.</li>
+</ul>
+</div><!--tegcomment-->
+</div><!--tegpresentation-->
+
+<h2>Système différentiel, changement de repère</h2>
+<div class="tegpresentation">
+<table width="100%">
+<tr valign="middle">
+<td >
+<ol class="code">
+<li><span class="TegSymbol">\</span><i><span class="TegIdentifier">begin</span></i><span class="TegComment">{texgraph}</span><span 
+class="TegSymbol">[</span><i><span class="TegIdentifier">name</span></i><span class="TegSymbol">=</span><i><span 
+class="TegIdentifier">volterra</span></i><span class="TegSymbol">]</span></li>
+<li><b><span class="TegMacPredef">view</span></b><span class="TegSymbol">(</span><span class="TegSymbol">-</span><span 
+class="TegNumeric">5</span><span class="TegSymbol">,</span><span class="TegNumeric">100</span><span class="TegSymbol">,
+</span><span class="TegSymbol">-</span><span class="TegNumeric">0.5</span><span class="TegSymbol">,</span><span 
+class="TegNumeric">5</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span 
+class="TegKeyWord">Marges</span></b><span class="TegSymbol">(</span><span class="TegNumeric">0.5</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0.5</span><span class="TegSymbol">,</span><span class="TegNumeric">0.25</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span>&nbsp;<b><span class="TegMacPredef">size</span></b><span class="TegSymbol">(</span><span class="TegNumeric">10</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span></li>
+<li><b><span class="TegMacPredef">axes</span></b><span class="TegSymbol">(</span><span class="TegSymbol">[</span><span 
+class="TegNumeric">0</span><span class="TegSymbol">,</span><span class="TegNumeric">100</span><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">,</span><span class="TegNumeric">4</span><span 
+class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">]</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">20</span><span class="TegSymbol">+</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">,</span><span class="TegNumeric">4</span><span 
+class="TegSymbol">+</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">,</span><span 
+class="TegNumeric">1</span><span class="TegSymbol">+</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Width</span></b><span class="TegSymbol">:=</span><span class="TegNumeric">8</span><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">NbPoints</span></b><span class="TegSymbol">:=</span><span 
+class="TegNumeric">400</span><span class="TegSymbol">,</span>&nbsp;<i><span class="TegIdentifier">z0</span></i><span 
+class="TegSymbol">:=</span><span class="TegNumeric">2</span><span class="TegSymbol">+</span><span class="TegNumeric">2</span><span 
+class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">blue</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">tMin</span></b><span class="TegSymbol">:=</span><span 
+class="TegNumeric">0</span><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">tMax</span></b><span 
+class="TegSymbol">:=</span><span class="TegNumeric">100</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegMacPredef">Seg</span></b><span class="TegSymbol">(</span><span class="TegNumeric">5</span><span 
+class="TegSymbol">+</span><span class="TegNumeric">3.5</span><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">,</span><span class="TegNumeric">10</span><span 
+class="TegSymbol">+</span><span class="TegNumeric">3.5</span><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span 
+class="TegKeyWord">Label</span></b><span class="TegSymbol">(</span><span class="TegNumeric">12</span><span 
+class="TegSymbol">+</span><span class="TegNumeric">3.5</span><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">,</span>&quot;<span class="TegString">$x$&quot;</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">EquaDif</span></b><span class="TegSymbol">(</span><i><span class="TegIdentifier">x</span></i><span 
+class="TegSymbol">-</span><i><span class="TegIdentifier">y</span></i><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">+</span><i><span class="TegIdentifier">x</span></i><span 
+class="TegSymbol">*</span><i><span class="TegIdentifier">y</span></i><span class="TegSymbol">*</span><span 
+class="TegSymbol">(</span><span class="TegSymbol">-</span><span class="TegNumeric">1</span><span class="TegSymbol">+</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">)</span><span class="TegSymbol">,</span><span 
+class="TegNumeric">0</span><span class="TegSymbol">,</span><i><span class="TegIdentifier">z0</span></i><span 
+class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span><span class="TegComment">{(t,x(t))}</span></li>
+<li><b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">red</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegMacPredef">Seg</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">5</span><span class="TegSymbol">+</span><span class="TegNumeric">3</span><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">,</span><span class="TegNumeric">10</span><span 
+class="TegSymbol">+</span><span class="TegNumeric">3</span><span class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Label</span></b><span 
+class="TegSymbol">(</span><span class="TegNumeric">12</span><span class="TegSymbol">+</span><span class="TegNumeric">3</span><span 
+class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">$y$&quot;</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">EquaDif</span></b><span class="TegSymbol">(</span><i><span class="TegIdentifier">x</span></i><span 
+class="TegSymbol">-</span><i><span class="TegIdentifier">y</span></i><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">+</span><i><span class="TegIdentifier">x</span></i><span 
+class="TegSymbol">*</span><i><span class="TegIdentifier">y</span></i><span class="TegSymbol">*</span><span 
+class="TegSymbol">(</span><span class="TegSymbol">-</span><span class="TegNumeric">1</span><span class="TegSymbol">+</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">)</span><span class="TegSymbol">,</span><span 
+class="TegNumeric">0</span><span class="TegSymbol">,</span><i><span class="TegIdentifier">z0</span></i><span 
+class="TegSymbol">,</span><span class="TegNumeric">2</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span>&nbsp;<span class="TegComment">{(t,y(t))}</span></li>
+<li><b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">black</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Label</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">97.5</span><span class="TegSymbol">+</span><span class="TegNumeric">0.125</span><span 
+class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">t&quot;</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegMacPredef">SaveWin</span></b><span class="TegSymbol">(</span><span class="TegSymbol">)
+</span><span class="TegSymbol">,</span>&nbsp;<b><span class="TegMacPredef">view</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">40</span><span class="TegSymbol">,</span><span class="TegNumeric">100</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">3</span><span class="TegSymbol">,</span><span class="TegNumeric">5</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<b><span class="TegMacPredef">ChangeWinTo</span></b><span class="TegSymbol">(</span><span 
+class="TegSymbol">[</span><span class="TegSymbol">-</span><span class="TegNumeric">0.25</span><span class="TegSymbol">*</span><span 
+class="TegSymbol">(</span><span class="TegNumeric">1</span><span class="TegSymbol">+</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span><span class="TegNumeric">3.25</span><span class="TegSymbol">*</span><span 
+class="TegSymbol">(</span><span class="TegNumeric">1</span><span class="TegSymbol">+</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">)</span><span class="TegSymbol">]</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<b><span class="TegKeyWord">Width</span></b><span class="TegSymbol">:=</span><span 
+class="TegNumeric">4</span><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Arrows</span></b><span 
+class="TegSymbol">:=</span><span class="TegNumeric">1</span><span class="TegSymbol">,</span>&nbsp;<b><span 
+class="TegMacPredef">axes</span></b><span class="TegSymbol">(</span><span class="TegNumeric">0</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">+</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Arrows</span></b><span 
+class="TegSymbol">:=</span><span class="TegNumeric">0</span><span class="TegSymbol">,</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<b><span class="TegKeyWord">Label</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">3</span><span class="TegSymbol">+</span><span class="TegNumeric">0.25</span><span 
+class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">$x$&quot;</span><span class="TegSymbol">,</span><span class="TegNumeric">0.25</span><span 
+class="TegSymbol">+</span><span class="TegNumeric">3</span><span class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">,</span>&quot;<span class="TegString">$y$&quot;</span><span class="TegSymbol">)</span><span 
+class="TegSymbol">,</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span 
+class="TegConstant">forestgreen</span></b><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Width</span></b><span 
+class="TegSymbol">:=</span><span class="TegNumeric">8</span><span class="TegSymbol">,</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<b><span class="TegKeyWord">EquaDif</span></b><span class="TegSymbol">(</span><i><span 
+class="TegIdentifier">x</span></i><span class="TegSymbol">-</span><i><span class="TegIdentifier">y</span></i><span 
+class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">+</span><i><span 
+class="TegIdentifier">x</span></i><span class="TegSymbol">*</span><i><span class="TegIdentifier">y</span></i><span 
+class="TegSymbol">*</span><span class="TegSymbol">(</span><span class="TegSymbol">-</span><span class="TegNumeric">1</span><span 
+class="TegSymbol">+</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">)</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">,</span><i><span class="TegIdentifier">z0</span></i><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span><span class="TegComment">{(x(t),y(t))}</span></li>
+<li><b><span class="TegMacPredef">RestoreWin</span></b><span class="TegSymbol">(</span><span class="TegSymbol">)
+</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">black</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">LabelStyle</span></b><span class="TegSymbol">:=</span><b><span 
+class="TegConstant">left</span></b><span class="TegSymbol">+</span><b><span class="TegConstant">top</span></b><span 
+class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Label</span></b><span class="TegSymbol">(</span><span class="TegNumeric">5</span><span 
+class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">$\begin{cases}x'=x-xy\\y'=-y+xy\end{cases}$&quot;</span><span class="TegSymbol">)</span></li>
+<li><span class="TegSymbol">\</span><i><span class="TegIdentifier">end</span></i><span class="TegComment">{texgraph}</span></li>
+</ol>
+</td>
+<td align="center">
+<a href="images/volterra.png" rel="lightbox" title="Système différentiel, changement de repère."><img src="images/volterrabis.png" alt="" /></a>
+</td>
+</tr>
+</table>
+<div class="tegcomment">
+<ul>
+<li><i>Ligne 2 et 3</i> : on fixe la fenêtre graphique à [-5;100]x[-0.5;5], puis les marges, puis la taille du graphique qui sera ici de 10 cm sur 10 cm, le deuxième paramètre 0 signifie que le ratio entre les échelles courantes ne sera pas conservé et donc le graphique aura exactement les dimensions demandées. On dessine les axes avec la macro <i>axes</i> (un peu plus sophistiquée que la commande de base <b>Axes</b>) les axes se coupent au point d'affixe 0, sur <i>Ox</i> l'intervalle sera [0;100], sur <i>Oy</i> il sera [0;4], le pas sera de 20 sur <i>Ox</i> et de 1 sur <i>Oy</i>, avec une subdivision en 4 morceaux sur <i>Ox</i> et un seul sur <i>Oy</i> et un placement normal du label de l'origine sur <i>Ox</i> et sur <i>Oy</i>.</li>
+
+<li><i>Ligne 4 et 5 </i> : on règle certains paramètres graphiques, <b>NbPoints</b> représente le nombre de points à calculer pour les courbes en général, et les variables <b>tMin</b> et <b>tMax</b> représentent l'intervalle pour le paramètre <i>t</i> (sauf pour les courbes implicites).</li>
+
+<li><i>Ligne 6 et 7</i> : on trace un trait bleu avec un label à droite, puis la solution approchée du système différentiel <i>x'=x-xy</i> et <i>y'=-y+xy</i>. Pour TeXgraph une équation différentielle se met sous la forme <i>x'(t)+iy'(t)=f(x,y,t)</i> et la syntaxe de la fonction qui résout numériquement est
+<b>EquaDif( f(x,y,t), t0, x0+i*y0, mode )</b> où t0 et x0+i*y0 représentent une condition initiale. Le dernier argument précise le type de résultat attendu:
+mode=0: on a en sortie la liste des complexes <i>x(t)+i*y(t)</i>.<br>
+mode=1: on a en sortie la liste des complexes <i>t+i*x(t)</i>.<br>
+mode=2: on a en sortie la liste des complexes <i>t+i*y(t)</i>.<br>
+On trace donc ici la courbe représentative de la fonction <i>x</i> (approchée par la méthode de Runge Kutta d'ordre 4).</li>
+
+<li><i>Ligne 8 et 9</i> : on fait la même chose que précédemment mais en rouge et pour représenter la courbe de la fonction <i>y</i>.</li>
+<li><i>Ligne 10</i> : on revient à la couleur noire, et on place un label.</li>
+<li><i>Ligne 11</i> : on sauvegarde la fenêtre et la matrice courante, et on se place dans la zone [40;100]x[3;5].</li>
+<li><i>Ligne 12</i> : on modifie la matrice courante de sorte que la fenêtre courante représente désormais la zone [-0.25;3.25]x[-0.25;3.25]. La macro <i>ChangeWinTo</i> prend en argument une liste de deux complexes qui représente une diagonale de la nouvelle zone, on peut imposer que cette nouvelle zone soit orthonormée en ajoutant la valeur 1 en deuxième argument.</li>
+<li><i>Ligne 13</i> : on trace des axes fléchés.</li>
+<li><i>Ligne 14</i> : on ajoute des labels aux axes.</li>
+<li><i>Ligne 15 et 16</i> : on représente la liste des complexes <i>x(t)+iy(t)</i>.</li>
+<li><i>Ligne 17 et 18</i> : on revient à la fenêtre et à la matrice initiales, <i>SaveWin()</i> et <i>RestoreWin()</i> vont par paires, la première instruction enregistre sur une pile la fenêtre et la matrice courantes, la deuxième instruction dépile.</li>
+<li><i>Ligne 19</i> : on écrit le système différentiel en haut à gauche.</li>
+</ul>
+</div><!--tegcomment-->
+</div><!--tegpresentation-->
+
+<h2>Enveloppe des droites de Simson dans un triangle</h2>
+<div class="tegpresentation">
+<table width="100%">
+<tr valign="middle">
+<td >
+<ol class="code">
+<li><span class="TegSymbol">\</span><i><span class="TegIdentifier">begin</span></i><span class="TegComment">{texgraph}</span><span 
+class="TegSymbol">[</span><i><span class="TegIdentifier">name</span></i><span class="TegSymbol">=</span><i><span 
+class="TegIdentifier">simson</span></i><span class="TegSymbol">]</span></li>
+<li><b><span class="TegMacPredef">view</span></b><span class="TegSymbol">(</span><span class="TegSymbol">-</span><span 
+class="TegNumeric">1.5</span><span class="TegSymbol">,</span><span class="TegNumeric">1.5</span><span 
+class="TegSymbol">,</span><span class="TegSymbol">-</span><span class="TegNumeric">1.5</span><span class="TegSymbol">,
+</span><span class="TegNumeric">1.5</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span 
+class="TegKeyWord">Marges</span></b><span class="TegSymbol">(</span><span class="TegNumeric">0</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">,</span><span class="TegNumeric">0</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span>&nbsp;<b><span class="TegMacPredef">size</span></b><span class="TegSymbol">(</span><span class="TegNumeric">10</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><i><span class="TegIdentifier">A</span></i><span class="TegSymbol">:=</span><b><span class="TegKeyWord">exp</span></b><span 
+class="TegSymbol">(</span><b><span class="TegConstant">i</span></b><span class="TegSymbol">*</span><span 
+class="TegNumeric">6</span><span class="TegSymbol">*</span><b><span class="TegConstant">pi</span></b><span 
+class="TegSymbol">/</span><span class="TegNumeric">7</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span>&nbsp;<i><span class="TegIdentifier">B</span></i><span class="TegSymbol">:=</span><b><span class="TegKeyWord">exp</span></b><span 
+class="TegSymbol">(</span><span class="TegNumeric">2</span><span class="TegSymbol">*</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">*</span><b><span class="TegConstant">pi</span></b><span class="TegSymbol">/</span><span 
+class="TegNumeric">7</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<i><span 
+class="TegIdentifier">C</span></i><span class="TegSymbol">:=</span><b><span class="TegKeyWord">exp</span></b><span 
+class="TegSymbol">(</span><span class="TegSymbol">-</span><span class="TegNumeric">2</span><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">*</span><b><span class="TegConstant">pi</span></b><span 
+class="TegSymbol">/</span><span class="TegNumeric">7</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span></li>
+<li><b><span class="TegKeyWord">Width</span></b><span class="TegSymbol">:=</span><span class="TegNumeric">12</span><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegMacPredef">Cercle</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">0</span><span class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">)
+</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">red</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Ligne</span></b><span class="TegSymbol">(</span><span 
+class="TegSymbol">[</span><i><span class="TegIdentifier">A</span></i><span class="TegSymbol">,</span><i><span 
+class="TegIdentifier">B</span></i><span class="TegSymbol">,</span><i><span class="TegIdentifier">C</span></i><span 
+class="TegSymbol">]</span><span class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">)
+</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">DotStyle</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">dotcircle</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">DotScale</span></b><span class="TegSymbol">:=</span><span 
+class="TegNumeric">1.15</span><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Color</span></b><span 
+class="TegSymbol">:=</span><b><span class="TegConstant">blue</span></b><span class="TegSymbol">,</span></li>
+<li><b><span class="TegMacPredef">LabelDot</span></b><span class="TegSymbol">(</span><i><span class="TegIdentifier">A</span></i><span 
+class="TegSymbol">,</span>&quot;<span class="TegString">$A$&quot;</span><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">NO&quot;</span><span class="TegSymbol">,</span><span class="TegNumeric">1</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span class="TegMacPredef">LabelDot</span></b><span 
+class="TegSymbol">(</span><i><span class="TegIdentifier">B</span></i><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">$B$&quot;</span><span class="TegSymbol">,</span>&quot;<span class="TegString">NE&quot;</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span></li>
+<li><b><span class="TegMacPredef">LabelDot</span></b><span class="TegSymbol">(</span><i><span class="TegIdentifier">C</span></i><span 
+class="TegSymbol">,</span>&quot;<span class="TegString">$C$&quot;</span><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">SE&quot;</span><span class="TegSymbol">,</span><span class="TegNumeric">1</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Color</span></b><span 
+class="TegSymbol">:=</span><b><span class="TegConstant">black</span></b><span class="TegSymbol">,</span>&nbsp;<b><span 
+class="TegKeyWord">Width</span></b><span class="TegSymbol">:=</span><span class="TegNumeric">2</span><span 
+class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">for</span></b>&nbsp;<i><span class="TegIdentifier">x</span></i>&nbsp;<b><span 
+class="TegKeyWord">from</span></b>&nbsp;<span class="TegNumeric">0</span>&nbsp;<b><span class="TegKeyWord">to</span></b>&nbsp;<span 
+class="TegNumeric">2</span><span class="TegSymbol">*</span><b><span class="TegConstant">pi</span></b>&nbsp;<b><span 
+class="TegKeyWord">step</span></b>&nbsp;<b><span class="TegConstant">pi</span></b><span class="TegSymbol">/</span><span 
+class="TegNumeric">20</span>&nbsp;<b><span class="TegKeyWord">do</span></b></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<i><span class="TegIdentifier">D</span></i><span class="TegSymbol">:=</span><b><span 
+class="TegKeyWord">exp</span></b><span class="TegSymbol">(</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">*</span><i><span class="TegIdentifier">x</span></i><span class="TegSymbol">)</span><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Droite</span></b><span class="TegSymbol">(</span><b><span 
+class="TegMacPredef">proj</span></b><span class="TegSymbol">(</span><i><span class="TegIdentifier">D</span></i><span 
+class="TegSymbol">,</span><span class="TegSymbol">[</span><i><span class="TegIdentifier">A</span></i><span 
+class="TegSymbol">,</span><i><span class="TegIdentifier">B</span></i><span class="TegSymbol">]</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span><b><span class="TegMacPredef">proj</span></b><span 
+class="TegSymbol">(</span><i><span class="TegIdentifier">D</span></i><span class="TegSymbol">,</span><span 
+class="TegSymbol">[</span><i><span class="TegIdentifier">A</span></i><span class="TegSymbol">,</span><i><span 
+class="TegIdentifier">C</span></i><span class="TegSymbol">]</span><span class="TegSymbol">)</span><span 
+class="TegSymbol">)</span></li>
+<li><b><span class="TegKeyWord">od</span></b></li>
+<li><span class="TegSymbol">\</span><i><span class="TegIdentifier">end</span></i><span class="TegComment">{texgraph}</span></li>
+</ol>
+</td>
+<td align="center">
+<a href="images/simson.png" rel="lightbox" title="Enveloppe des droites de Simson dans un triangle."><img src="images/simsonbis.png" alt="" /></a>
+</td>
+</tr>
+</table>
+<div class="tegcomment">
+<ul>
+<li><i> Ligne 2</i> : on fixe la fenêtre graphique à [-1.5;1.5]x[-1.5;1.5], on fixe les marges à 0 et la taille du graphique à 10 cm.</li>
+<li><i> Ligne 3</i> : on définit trois points sur le cercle unité.</li>
+<li><i> Ligne 4</i> : on dessine le cercle de centre le point d'affixe 0 et de rayon 1, avec une épaisseur de ligne de 12 (l'unité est le dixième de point de TeX, cela fait une épaisseur de 1.2 pt).</li>
+<li><i> Ligne 5</i> : on trace en rouge la ligne polygonale [A,B,C], le deuxième argument égal à 1 signifie que la ligne doit être refermée (polygone).</li>
+<li><i> Ligne 6</i> : on modifie le style de point, l'échelle pour les points et la couleur.</li>
+<li><i> Ligne 7 et 8</i> : la macro <b>LabelDot</b> place un texte (deuxième argument) à l'affixe indiqué (premier argument) la position du texte par rapport au point d'ancrage est donné par le troisième argument ("NE" pour nord-est par exemple), le quatrième argument égal à 1 signifie que le point d'ancrage doit être dessiné. On dessine ainsi les trois sommets du triangle avec leur label, puis on sélectionne la couleur noire et une épaisseur de ligne égale à 2 (dixième de point).</li>
+<li><i> Ligne 9, 10 et 11</i> : la variable (locale) x parcourt l'intervalle [0;2pi] de pi/20 en pi/20, pour chaque valeur on définit le point D sur le cercle trigonométrique d'affixe exp(i*x), et on trace la droite définie par le projeté orthogonal de D sur la droite (AB) et son projeté orthogonal sur la droite (AC). Cette droite passe aussi par le projeté de D sur le troisième côté, c'est la droite de Simson associée à D.</li>
+</ul>
+</div>
+</div>
+
+<h2>Dessins d'ensembles</h2>
+<div class="tegpresentation">
+<table width="100%">
+<tr valign="middle">
+<td >
+<ol class="code">
+<li><span class="TegSymbol">\</span><i><span class="TegIdentifier">begin</span></i><span class="TegComment">{texgraph}</span><span 
+class="TegSymbol">[</span><i><span class="TegIdentifier">name</span></i><span class="TegSymbol">=</span><i><span 
+class="TegIdentifier">ensembles</span></i><span class="TegSymbol">]</span></li>
+<li><b><span class="TegMacPredef">view</span></b><span class="TegSymbol">(</span><span class="TegSymbol">-</span><span 
+class="TegNumeric">8</span><span class="TegSymbol">,</span><span class="TegNumeric">8</span><span class="TegSymbol">,
+</span><span class="TegSymbol">-</span><span class="TegNumeric">8.5</span><span class="TegSymbol">,</span><span 
+class="TegNumeric">8</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&nbsp;<b><span 
+class="TegKeyWord">Marges</span></b><span class="TegSymbol">(</span><span class="TegNumeric">0</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">,</span><span class="TegNumeric">0</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">0</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span>&nbsp;<b><span class="TegMacPredef">size</span></b><span class="TegSymbol">(</span><span class="TegNumeric">10</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegMacPredef">background</span></b><span class="TegSymbol">(</span><b><span class="TegConstant">full</span></b><span 
+class="TegSymbol">,</span><b><span class="TegConstant">beige</span></b><span class="TegSymbol">)</span><span 
+class="TegSymbol">,</span><b><span class="TegKeyWord">Width</span></b><span class="TegSymbol">:=</span><span 
+class="TegNumeric">8</span><span class="TegSymbol">,</span></li>
+<li><i><span class="TegIdentifier">A</span></i><span class="TegSymbol">:=</span><b><span class="TegMacPredef">setB</span></b><span 
+class="TegSymbol">(</span>&quot;<span class="TegString">A&quot;</span><span class="TegSymbol">,</span><span 
+class="TegSymbol">-</span><span class="TegNumeric">0.5</span><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><i><span class="TegIdentifier">B</span></i><span class="TegSymbol">:=</span><b><span class="TegMacPredef">setB</span></b><span 
+class="TegSymbol">(</span>&quot;<span class="TegString">B&quot;</span><span class="TegSymbol">,</span><span 
+class="TegNumeric">1.5</span><span class="TegSymbol">-</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">,</span>&nbsp;<span class="TegSymbol">[</span><span class="TegVarPredef">rotation</span><span 
+class="TegSymbol">:=</span><span class="TegSymbol">-</span><span class="TegNumeric">30</span><span class="TegSymbol">]
+</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><i><span class="TegIdentifier">C</span></i><span class="TegSymbol">:=</span><b><span class="TegMacPredef">setB</span></b><span 
+class="TegSymbol">(</span>&quot;<span class="TegString">C&quot;</span><span class="TegSymbol">,</span><span 
+class="TegSymbol">-</span><span class="TegNumeric">1</span><span class="TegSymbol">-</span><b><span class="TegConstant">i</span></b><span 
+class="TegSymbol">*</span><span class="TegNumeric">1.5</span><span class="TegSymbol">,</span>&nbsp;<span 
+class="TegSymbol">[</span><span class="TegVarPredef">rotation</span><span class="TegSymbol">:=</span><span 
+class="TegNumeric">40</span><span class="TegSymbol">]</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span></li>
+<li><i><span class="TegIdentifier">D</span></i><span class="TegSymbol">:=</span><b><span class="TegMacPredef">setB</span></b><span 
+class="TegSymbol">(</span>&quot;<span class="TegString">D&quot;</span><span class="TegSymbol">,</span><span 
+class="TegNumeric">2</span><span class="TegSymbol">-</span><span class="TegNumeric">3</span><span class="TegSymbol">*</span><b><span 
+class="TegConstant">i</span></b><span class="TegSymbol">,</span><span class="TegSymbol">[</span><span 
+class="TegVarPredef">rotation</span><span class="TegSymbol">:=</span><span class="TegSymbol">-</span><span 
+class="TegNumeric">135</span><span class="TegSymbol">]</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span></li>
+<li><b><span class="TegKeyWord">FillOpacity</span></b><span class="TegSymbol">:=</span><span class="TegNumeric">0.6</span><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span 
+class="TegConstant">red</span></b><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">FillColor</span></b><span 
+class="TegSymbol">:=</span><b><span class="TegKeyWord">Rgb</span></b><span class="TegSymbol">(</span><span 
+class="TegNumeric">0.74</span><span class="TegSymbol">,</span><span class="TegNumeric">0.71</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span></li>
+<li><b><span class="TegKeyWord">FillStyle</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">full</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">Width</span></b><span class="TegSymbol">:=</span><span 
+class="TegNumeric">16</span><span class="TegSymbol">,</span></li>
+<li><i><span class="TegIdentifier">L</span></i><span class="TegSymbol">:=</span><b><span class="TegMacPredef">cupB</span></b><span 
+class="TegSymbol">(</span><i><span class="TegIdentifier">D</span></i><span class="TegSymbol">,</span><b><span 
+class="TegMacPredef">cupB</span></b><span class="TegSymbol">(</span><i><span class="TegIdentifier">A</span></i><span 
+class="TegSymbol">,</span><b><span class="TegMacPredef">cupB</span></b><span class="TegSymbol">(</span><i><span 
+class="TegIdentifier">C</span></i><span class="TegSymbol">,</span><i><span class="TegIdentifier">B</span></i><span 
+class="TegSymbol">)</span><span class="TegSymbol">)</span><span class="TegSymbol">)</span><span class="TegSymbol">,
+</span>&nbsp;<b><span class="TegMacPredef">drawSet</span></b><span class="TegSymbol">(</span><i><span 
+class="TegIdentifier">L</span></i><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegMacPredef">Dcarre</span></b><span class="TegSymbol">(</span><b><span class="TegKeyWord">M</span></b><span 
+class="TegSymbol">(</span><span class="TegSymbol">-</span><span class="TegNumeric">7</span><span class="TegSymbol">,
+</span><span class="TegNumeric">6</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span><b><span 
+class="TegKeyWord">M</span></b><span class="TegSymbol">(</span><span class="TegSymbol">-</span><span 
+class="TegNumeric">6</span><span class="TegSymbol">,</span><span class="TegNumeric">6</span><span class="TegSymbol">)
+</span><span class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">)</span><span 
+class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">blue</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">FillColor</span></b><span class="TegSymbol">:=</span><b><span 
+class="TegKeyWord">Rgb</span></b><span class="TegSymbol">(</span><span class="TegNumeric">0.74</span><span 
+class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">,</span><span class="TegNumeric">0.71</span><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><i><span class="TegIdentifier">L</span></i><span class="TegSymbol">:=</span><b><span class="TegMacPredef">cupB</span></b><span 
+class="TegSymbol">(</span><b><span class="TegMacPredef">capB</span></b><span class="TegSymbol">(</span><i><span 
+class="TegIdentifier">C</span></i><span class="TegSymbol">,</span><i><span class="TegIdentifier">D</span></i><span 
+class="TegSymbol">)</span><span class="TegSymbol">,</span><b><span class="TegMacPredef">capB</span></b><span 
+class="TegSymbol">(</span><i><span class="TegIdentifier">A</span></i><span class="TegSymbol">,</span><i><span 
+class="TegIdentifier">B</span></i><span class="TegSymbol">)</span><span class="TegSymbol">)</span><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegMacPredef">drawSet</span></b><span class="TegSymbol">(</span><i><span 
+class="TegIdentifier">L</span></i><span class="TegSymbol">)</span><span class="TegSymbol">,</span></li>
+<li><b><span class="TegMacPredef">Dcarre</span></b><span class="TegSymbol">(</span><b><span class="TegKeyWord">M</span></b><span 
+class="TegSymbol">(</span><span class="TegSymbol">-</span><span class="TegNumeric">7</span><span class="TegSymbol">,
+</span><span class="TegNumeric">4</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span><b><span 
+class="TegKeyWord">M</span></b><span class="TegSymbol">(</span><span class="TegSymbol">-</span><span 
+class="TegNumeric">6</span><span class="TegSymbol">,</span><span class="TegNumeric">4</span><span class="TegSymbol">)
+</span><span class="TegSymbol">,</span><span class="TegNumeric">1</span><span class="TegSymbol">)</span><span 
+class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Color</span></b><span class="TegSymbol">:=</span><b><span class="TegConstant">black</span></b><span 
+class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">LabelStyle</span></b><span class="TegSymbol">:=</span><b><span 
+class="TegConstant">left</span></b><span class="TegSymbol">,</span>&nbsp;<b><span class="TegKeyWord">LabelSize</span></b><span 
+class="TegSymbol">:=</span><b><span class="TegConstant">footnotesize</span></b><span class="TegSymbol">,
+</span></li>
+<li><b><span class="TegKeyWord">Label</span></b><span class="TegSymbol">(</span><b><span class="TegKeyWord">M</span></b><span 
+class="TegSymbol">(</span><span class="TegSymbol">-</span><span class="TegNumeric">5.75</span><span class="TegSymbol">,
+</span><span class="TegNumeric">6.5</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">$A\cup&nbsp;B&nbsp;\cup&nbsp;C\cup&nbsp;D$&quot;</span><span class="TegSymbol">)</span><span 
+class="TegSymbol">,</span></li>
+<li><b><span class="TegKeyWord">Label</span></b><span class="TegSymbol">(</span><b><span class="TegKeyWord">M</span></b><span 
+class="TegSymbol">(</span><span class="TegSymbol">-</span><span class="TegNumeric">5.75</span><span class="TegSymbol">,
+</span><span class="TegNumeric">4.5</span><span class="TegSymbol">)</span><span class="TegSymbol">,</span>&quot;<span 
+class="TegString">$(A\cap&nbsp;B)&nbsp;\cup&nbsp;(C\cap&nbsp;D)$&quot;</span><span class="TegSymbol">)
+</span></li>
+<li><span class="TegSymbol">\</span><i><span class="TegIdentifier">end</span></i><span class="TegComment">{texgraph}</span></li>
+</ol>
+</td>
+<td align="center">
+<a href="images/set.png" rel="lightbox" title="Dessins d'ensembles."><img src="images/setbis.png" alt="" /></a>
+</td>
+</tr>
+</table>
+<div class="tegcomment">
+<ul>
+<li><i> Ligne 2</i> : on fixe la fenêtre graphique à [-8;8]x[-8.5;8], on fixe les marges à 0 et la taille du graphique à 10 cm.</li>
+<li><i> Ligne 3</i> : on peint le fond avec la couleur beige et on sélectionne une épaisseur de ligne égale à 8 (soit 0.8 pt).</li>
+<li><i> Lignes 4 à 7</i> : on définit et dessine en même temps quatre ensembles (A, B, C et D). La macro <b>setB</b> dessine un ensemble (en affichant son nom) avec des courbes de Bézier, en fonction du point d'ancrage (qui est au centre) et des options, cette macro renvoie en même temps la liste des points de contrôle correspondant au contour dessiné.</li>
+<li><i> Lignes 8 et 9</i> : on modifie des attributs graphiques.</li>
+<li><i> Ligne 10</i> : la macro <b>cupB</b> renvoie l'ensemble (liste de points de contrôle) correspondant à la réunion des deux ensembles spécifiés, la variable <i>L</i> contient donc la réunion des quatre ensembles A, B, C et D, puis on dessine cet ensemble.</li>
+<li><i> Ligne 11</i> : on dessine le carré au bord rouge en haut à gauche. La commande <b>M(x,y)</b> est une autre façon de représenter le complexe x+i*y.</li>
+<li><i> Lignes 12, 13 et 14</i> : on modifie des attributs graphiques, puis on calcule dans la variable <i>L</i> la réunion entre l'intersection de C avec D et l'intersection entre A avec B, puis on dessine L.</li>
+<li><i> Lignes 15, 16 et 17</i> : on affiche les deux légendes en haut à gauche.</li>
+</ul>
+</div>
+</div>
+
+<!-- modèle  Imagebis est une réduction à 75%
+<h2>Ici le titre</h2>
+<div class="tegpresentation">
+<table width="100%">
+<tr valign="middle">
+<td >
+Ici le code html
+</td>
+<td align="center">
+    <a href=""images/Image.png"><img src="images/Imagebis.png" alt=""></a>
+</td>
+</tr>
+</table>
+<div class="tegcomment">
+Ici le commentaire
+</div>
+</div>
+-->
+
+<div class="bas">
+<p class="center"><a href="Exemples.html#gotop">Haut</a></p>
+</div>
+</div>
+
+</body>
+</html>

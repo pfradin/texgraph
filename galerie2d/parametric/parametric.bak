@@ -1,0 +1,75 @@
+TeXgraph#
+{version 2.0}
+Cmd
+	Window(-5+5*i, 5-5*i, 1+i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=0];
+
+Var
+    Last = Nil;
+    Laps = 100;
+    TimerOn = 0;
+    ThePen = [$l:=0.1, $L:=0.5, 0, l*i, l*i+L*exp(3*i*pi/4), -l+L*exp(3*i*pi/4), -l];
+    StrFonc = "t+i*(t^2-3)";
+
+Mac
+    f = %1+i*(%1^2-3);
+
+    Init = [
+	Last:=Nil, stock:=Nil, TimerOn:=0,
+	Bouton(RefPoint, "&Parametrage","ChangeFonc()","Changer le paramétrage et/ou les attributs"),
+	Bouton(RefPoint+DeltaB, "&Tracer/Arrêter","Lancer()","Lancer/Arrêter l'animation"),
+	Bouton(RefPoint+2*DeltaB, "&Réinitialiser", "Reinitialiser()", "Tout effacer"),
+	
+	TimerMac("[Insert(stock,Last[1]), Del(Last,1,1), if Last=Nil then timer(0) fi, ReCalc(courbe)]"),
+	
+	ReCalc(courbe)
+	];
+
+    timer = [TimerOn:=%1>0, Timer(%1)];
+
+    Lancer = if TimerOn then timer(0)
+	elif Last=Nil
+	  then
+	      stock:=Nil, ReCalc(courbe),
+	      Last:=Get(Courbe(f(t),2)),
+	      timer(Laps)
+	  else timer(Laps)
+	fi;
+
+    ChangeFonc = if TimerOn=0 then
+	   GetAttr(courbe),
+	   if Input(["Entrez le paramétrage de la courbe sous forme complexe (et ses attributs)",LF,
+	             "Exemple f(t)= t+i*t^2"],
+	  "Changer le paramètrage de la courbe et/ou ses attributs", StrFonc) then
+	 StrFonc:=chaine(),
+	 DefMac("f", chaine(),t),
+	 Last:=1/0, stock:=1/0,
+	 ReCalc(courbe)
+	fi
+	fi;
+
+    Reinitialiser = if TimerOn=0 then
+	   Timer(0), Last:=Nil, stock:=Nil,
+	   ReCalc(courbe)
+	fi;
+
+Cmd	[DotScale:=1+i];
+Graph fond = [
+	background(full,aliceblue),
+	Color:= Rgb(0.75,0.75,0.75), Width:=2,
+	LineStyle:=solid,
+	Grille(0,0.25*(1+i)),
+	Width:=6, Arrows:=1, Color:=black,
+	Axes(0,1+i)
+	];
+Cmd	[Width:=8,Color:=255,DotStyle:=2];
+Graph courbe = [Ligne(stock,0),
+	if Last<>Nil then
+	   FillStyle:=full, FillColor:=gray, Color:=black,
+	   $u:=stock[-1], Ligne(shift(ThePen,u),1)
+	fi
+	];

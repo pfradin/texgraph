@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>TeXgraph - Accueil</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="Logiciel de dessin pour LaTeX, création de courbes, graphiques, tableaux de variations,... au format tikz, Pstricks, Svg ..." 
+        name="description">
+    <meta content="TeXgraph, graphiques, Tex, LaTeX, PsTricks, dessin, courbes, figures" name="keywords">
+    <meta name="author" content="Patrick Fradin">
+        <script type="text/x-mathjax-config">
+                MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script 
+                src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/lightbox.js"></script>
+    <link href="css/lightbox.css" rel="stylesheet" >
+</head>
+<body>
+<A id="gotop"></A>
+
+<div class="contenu">
+<div class="haut">
+<div id="titre">
+<h1>TeXgraph,<br>Logiciel de dessin pour LaTeX</h1>
+</div>
+<div id="logo">
+<p><img src="images/logoTeXgraph.png" alt=""></p>
+</div>
+</div>
+
+<div class="corps">
+<div class="gauche">
+<h3>Menu</h3>
+<ul>
+<li> <a href="index.html">Accueil</a> </li>
+<li> <a href="documentation/TeXgraph-fr.pdf">Documentation</a> </li>
+<li> <a href="Telecharger.html">Téléchargement</a> </li>
+<li> <a href="Exemples.html">Exemples</a> </li>
+<li> <a href="Galerie2d.html">Galerie 2D</a> </li>
+<li> <a href="Galerie3d.html">Galerie 3D</a> </li>
+</ul>
+<p>Archives sur l'ancien site :</p>
+<ul>
+<li> <a href="https://download.tuxfamily.org/texgraph/animations/GalerieAnim.html">Galerie d'animations</a> </li>
+<li> <a href="https://download.tuxfamily.org/texgraph/jvx/GalerieJvx.html">Galerie Povray/WebGL</a> </li>
+<li> <a href="https://download.tuxfamily.org/texgraph/polyedres/polyedres.html">Galerie de polyèdres</a> </li>
+<li> <a href="pavages/pavages.html" >Pavages du plan</a> </li>
+<li> <a href="https://download.tuxfamily.org/texgraph/quadriques/quadriques.html">Galerie de quadriques</a> </li>
+<li> <a href="https://download.tuxfamily.org/texgraph/pavagesSphere/pavagesSphere.html">Pavages de la sphère</a> </li>
+<li> <a href="forum">Le forum</a> (toujours actif) </li>
+</ul>
+</div><!--menu-->
+
+<div class="droit">
+<ul>
+<li> TeXgraph est un logiciel aidant à la création de graphiques mathématiques <b>sous forme de commandes</b>, et permettant leur exportation sous forme de fichiers textes dans différents formats: LaTeX (macros eepic), ou PsTricks, ou Pgf/Tikz (macros pgf), ou Eps, ou Psf (eps+Psfrag), ou pdf (conversion eps -> pdf) ou svg ... Il
+existe également des exports spécifiques à la 3D. </li>
+
+<li> L'intérêt de ce logiciel réside dans son langage qui permet une programmation classique, plus naturelle que ce que propose le langage TeX, il permet en plus le calcul en flottants, en complexes ...</li>
+
+<li> Le programme se décline en deux versions, 
+    <ul> <li> une version avec une interface graphique qui permet de voir un brouillon du dessin au fur et à mesure de sa conception. Bien qu'il existe le modèle <i>Mouse.mod</i> permettant l'utilisation de la souris, l'interface graphique de TeXgraph n'est pas un programme de dessin à la souris !</li>
+    </ul>
+
+<div class="center">
+<a href="images/versionGUI.png" rel="lightbox" title="Interface graphique de TeXgraph."><img src="images/versionGUIbis.png" alt="" ></a>
+</div>
+
+    <ul>
+<li> Une version en ligne de commande qui permet l'utilisation du logiciel directement dans un document LaTeX par le biais du paquet <i>texgraph.sty</i> contenu dans l'archive. Ce paquet définit l'environnement <i>texgraph</i>.</li>
+    </ul>
+</ul>
+</div> <!--accueil-->
+</div>
+
+<div class="bas">
+<p class="center">&mdash; <b>Patrick Fradin</b> &mdash; Créé le 30/10/2024.</p>
+</div>
+
+</div>
+
+</body>
+</html>

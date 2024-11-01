@@ -1,0 +1,28 @@
+TeXgraph#
+Cmd [view(-3,3,-0.5,4.5), Marges(0,0,0,0), size(10)];
+Var
+    anglea = 30*deg;
+    angleb = 40*deg;
+Mac
+    arbre = [ {arbre(niveau)}
+	$n:=%1,
+	FillColor:=MixColor(darkgreen,1,brown,n),
+	Drectangle(0,0.125,i*1.05),
+	if n>0 then
+	   SaveAttr(),
+	     ComposeMatrix(matrix(z*0.75*exp(i*anglea)+i) ),
+	     arbre(n-1),
+	   RestoreAttr(),
+	   SaveAttr(),
+	     ComposeMatrix(matrix((z-0.125)*0.75*exp(-i*angleb)+i+0.125)),
+	     arbre(n-1),
+	   RestoreAttr()
+	fi
+	];
+Graph image = [
+	background(full,skyblue),
+	FillStyle:=full, FillColor:=darkseagreen, LineStyle:=noline,
+	Path([ Xmin+i/2, -1+i, 1, Xmax+i/2, curve,
+	       Xmax+i*Ymin,Xmin+i*Ymin, line],1),
+	arbre(12)
+	];

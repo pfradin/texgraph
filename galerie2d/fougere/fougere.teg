@@ -1,0 +1,51 @@
+TeXgraph#
+Cmd [view(-2,3,0,6), Marges(0,0,0,0), size(10)];
+Var
+    anglea = 70*deg;
+    angleb = 80*deg;
+    anglec = 5*deg;
+Mac
+    branche = [{fougere(niveau) }
+	$n:=%1, $h:=i*0.45,
+	Color:=MixColor(green,1,brown,n),
+	Ligne([0,h],0),
+	if n>0 then
+	   SaveAttr(),
+	   ComposeMatrix( matrix(z*0.35*exp(i*anglea)+h) ),
+	   branche(n-1), {branche gauche}
+	   RestoreAttr(),
+	   SaveAttr(),
+	   ComposeMatrix( matrix(z*0.35*exp(-i*angleb)+h)),
+	   branche(n-1), {branche droite}
+	   RestoreAttr(),
+	   SaveAttr(),
+	   ComposeMatrix( matrix(z*0.85*exp(-i*anglec)+h)),
+	   branche(n-1), {branche centrale}
+	   RestoreAttr()
+	fi
+	];
+    fougere = [{fougere( niveau )}
+	SaveAttr(), $h:=i, Color:=brown, Width:=4,
+	for $k from 1 to %1 do
+	   Ligne([0,h*1.001],0),
+	   if k<%1 then
+	      SaveAttr(),
+	       Width:=1,
+	       ComposeMatrix( matrix(z*0.75*exp(-i*angleb)+h)),
+	       branche(6), {branche droite}
+	       RestoreAttr(),
+	       SaveAttr(),
+	       Width:=1,
+	       ComposeMatrix( matrix(z*0.75*exp(i*anglea)+h) ),
+	       branche(6), {branche gauche}
+	       RestoreAttr(),
+	       ComposeMatrix( matrix(z*0.85*exp(-i*anglec)+h*0.99))
+	   fi
+	od,
+	RestoreAttr()
+	];
+Cmd	[Width:=8, AutoReCalc:=0];
+Graph objet1 = [
+	background(full,beige),
+	fougere(20)
+	];

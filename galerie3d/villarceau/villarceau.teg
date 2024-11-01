@@ -1,0 +1,30 @@
+TeXgraph#
+{version 1.974}
+Cmd
+	Fenetre(-6+6*i, 6-6*i, 0.833333333333334+0.833333333333334*i); 
+	Marges(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.0872, phi:=1.1345, IdMatrix3D(), ModelView(central), DistCam(15)];
+	[GrayScale(0), ComptGraph:=1];
+
+Cmd	[tMin:=-5,tMax:=5,DotScale:=1+i];
+Graph objet1 = [
+	R:=3, r:=1,
+	N:=rot3d(vecK,[Origin,vecI],arcsin(r/R)),
+	view3D(-5,5,-5,5,-5,5),
+	{surface T}
+	T:=GetSurface([(R+cos(v))*exp(i*u),sin(v)],2*i*pi,2*i*pi,60+i*45),
+	{plan P}
+	P:=[Origin, -N],
+	{section de T par P}
+	S:=ClipFacet(T,P),
+	{dessin de S}
+	Width:=1, Color:=gray,
+	DrawFacet(S,[color:=Rgb(0.74,0.73,1)]),
+	{Dessin du plan P}
+	FillColor:=Rgb(0.74,1,0.73), FillOpacity:=0.3, FillStyle:=full,
+	Ligne3D(getplan(P,0.85),1),
+	{Dessin de l'intersection}
+	Color:=red, Width:=8, Cercle3D(M(r,0,0),R,N), Cercle3D(M(-r,0,0),R,N)
+	];

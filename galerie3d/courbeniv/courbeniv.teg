@@ -1,0 +1,73 @@
+TeXgraph#
+{version 1.974}
+Cmd
+	Fenetre(-11+9*i, 11-13*i, 0.454545454545455+0.454545454545455*i); 
+	Marges(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=3.6903, phi:=1.0558, IdMatrix3D(), ModelView(central), DistCam(15)];
+	[GrayScale(0), ComptGraph:=0];
+
+Var
+    CourbesNivVer = 0.6;
+    voirboite = 0;
+    voiraxes = 1;
+    voirlegendeNiv = 1;
+    voirtraces = 0;
+    lissage = 0;
+    styleNiv = 0;
+    win3d = [0,5,0,10,0,11,0];
+    Xpas = 1;
+    Ypas = 2;
+    Zpas = 1;
+    posLegende = [5-5*i,-5];
+    listeNiv = [1,2,3,4,5,6,7,8,9,10,11];
+    domUV = [0,5,0,10,30,30];
+    orthon = 0;
+    Vue = 0;
+    changecolor = 1;
+    xinf = -5;
+    xsup = 5;
+    yinf = -5;
+    ysup = 5;
+    zinf = -5;
+    zsup = 5;
+    oldtheta = 0.42647258771281;
+    oldphi = 1.14588775800061;
+    nivcolor = [12910650,15210240,6136320,65326,65465,59135,46591,27135,4095,1772015,3937500];
+    palette = [purple, blue,  green,  yellow, orange,  red, crimson];
+    Matrix3d = [-5-5*i,-5,2,0,i,0,0,0.909090909090909];
+    inversematrix = [2.5+5*i,5.5,0.5,0,i,0,0,1.1];
+    posLegende' = [5,0];
+    oldmodel = ortho;
+    autoZ = 0;
+    sectionplane = Nil;
+    traitscaches = dotted;
+
+Include
+	"CourbesNiv.mac";
+
+Mac
+    Init = [	
+	Xinf:=win3d[1], Xsup:=win3d[2],
+	Yinf:=win3d[3], Ysup:=win3d[4],
+	Zinf:=win3d[5], Zsup:=win3d[6],
+	refresh:=1, ReCalc()
+	];
+    StrFonc = "(x+y)/(2+cos(x)*sin(y))";
+    StrParam = "[u+i*v, f(u,v)]";
+    Param = [%1+i*%2,f(%1,%2)];
+    xlegend = "x";
+    ylegend = "y";
+    zlegend = "z";
+    f = (%1+%2)/(2+cos(%1)*sin(%2));
+    legend = "$z=\frac{x+y}{2+\cos(x)\sin(y)}$";
+
+Cmd	[tMin:=-12.5,tMax:=12.5,DotScale:=1+i];
+Graph dessin = [
+	afficher(
+	[], {options axes}
+	[], {actions après axes et avant surface}
+	[] {options surface}
+	)
+	];

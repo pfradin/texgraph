@@ -1,0 +1,104 @@
+TeXgraph#
+{version 1.974}
+Cmd
+	Fenetre(-3.5+3.5*i, 3.5-3.5*i, 1.42857142857143+1.42857142857143*i); 
+	Marges(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.9599, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=0];
+
+Mac
+    triangleS = [
+	{triangleS(centre,rayon sphère, point1, point2, point3)}
+	$O:=%1, $R:=%2, $A:=%3, $B:=%4,$C:=%5,
+	SaveAttr(), $fillstyle:=FillStyle,
+	$dev:=ClipFacet([A,B,C], [O,\n], $der),
+	if der<>Nil then
+	   $b:=der[1,2],
+	   Ligne( for Z in [der[3,0],b] By 2 do $a:=b, $b:=Z,
+	              FillStyle:=none, Get(Arc3D(a,O,b,R,1))
+	          od,0)
+	fi, FillStyle:=fillstyle,
+	if dev<>Nil then
+	   $b:=dev[1,2],
+	   Ligne( for Z in [dev[3,0],b] By 2 do $a:=b, $b:=Z,
+	              FillStyle:=none, Get(Arc3D(a,O,b,R,1))
+	          od,0)
+	fi,
+	RestoreAttr()
+	];
+    grandCercle = [
+	{grandCercle( centre, rayon sphère, point1, point2, texte, position)}
+	SaveAttr(), $O:=%1, $R:=%2, $A:=%3, $B:=%4, $U:=Prodvec(A-O,B-O),
+	$N:=normalize(Prodvec(\n,U)),
+	$A':=O+R*N, $B':=O-R*N, $V:=Prodvec(A'-O,\n),
+	LineStyle:=solid, Arc3D(A',O,B',R,1,U),
+	LineStyle:=dotted, Arc3D(A',O,B',R,-1,U),
+	if StrComp(%5,"")=0 then
+	   $v:=R*normalize((A+B)/2),
+	   LabelDot3D(O+v,%5,%6,0)
+	fi,
+	RestoreAttr()
+	];
+    angleS = [
+	{angleS(centre, rayon sphère, point1, point2, point3, rayon, arc, sens, texte) }
+	$O:=%1, $R:=%2, $B:=%3, $A:=%4, $C:=%5, $r:=%6,
+	$alpha:=arctan(r/(2*R)),
+	$C':=rot3d(A,[O,Prodvec(A-O,C-O)],alpha),
+	$B':=rot3d(A,[O,Prodvec(A-O,B-O)],alpha),
+	Arc3D(B',A,C',r,%7),
+	if StrComp(%8,"")=0 then
+	    $v:=(r+if %9=Nil then 0.25 else %9 fi)*normalize((C'-A)/Norm(C'-A)+(B'-A)/Norm(B'-A) ),
+	    Label(Proj3D(v+A),%8)
+	fi
+	];
+    dsphere = [
+	{dsphere(centre, rayon ,nb parallèles, nb méridiens)}
+	SaveAttr(), FillStyle:=none, LineStyle:=solid,
+	$np:=%3, $R:=%2, $O:=%1, $nm:=%4,
+	$C:=O+R*vecK, $h:=2*R/(1+np), $H:=R, $R2:=R^2,
+	for $k from 1 to np do
+	    Inc(C,-h*vecK), Inc(H,-h), $r:=sqrt(R2-H^2),
+	    Cercle3D(C,r,vecK),
+	od,
+	$alpha:=0, $dalpha:=2*pi/(nm-1),
+	for k from 1 to nm do
+	    Inc(alpha,dalpha),
+	    Cercle3D(O, R, Prodvec([R*exp(i*alpha),0],vecK))
+	od,
+	RestoreAttr()
+	];
+    cercleS = [
+	{cercleS(centre, rayon sphère, point1 ,point2, point3)}
+	SaveAttr(), $O:=%1, $R:=%2, $A:=%3, $B:=%4, $C:=%5, $U:=Prodvec(B-A,C-A),
+	$O':=proj3d(O,[A,U]), //centre du cercle
+	$r:=Norm(A-O'),        //rayon du cercle,
+	$N:=normalize(Prodvec(\n,U)),
+	$D:=interPP([O,\n],[O',U]), $H:=dproj3d(O,D), $h:=Norm(O-H), $s:=sqrt(R^2-h^2),
+	$A':=H+s*N, $B':=H-s*N,
+	LineStyle:=solid, Arc3D(A',O',B',r,1,U),
+	LineStyle:=dotted, Arc3D(A',O',B',r,-1,U),
+	RestoreAttr()
+	];
+
+Cmd	[tMin:=-5,tMax:=5,DotScale:=1+i];
+Graph objet1 = [
+	O:=Origin, A:=3*normalize(M(1,1,5)),
+	B:=3*normalize(M(1,1,0.25)), C:=3*normalize(M(0,1,0.5)),
+	Color:=lightgray, Width:=2,
+	dsphere([0,0],3,20,20),
+	Color:=black, Width:=8,
+	FillStyle:=full, FillColor:=lightblue,
+	triangleS(O,3,A,B,C),
+	FillStyle:=none,
+	grandCercle(O,3,A,B,"c","O"),
+	grandCercle(O,3,A,C,"b","E"),
+	grandCercle(O,3,C,B,"a","S"),
+	angleS(O,3,B,A,C,0.5,1,"$\alpha$"),
+	angleS(O,3,C,B,A,0.5,1,"$\beta$"),
+	angleS(O,3,A,C,B,0.5,1,"$\gamma$"),
+	LabelDot3D(A,"$A$","O",1),
+	LabelDot3D(B,"$B$","SO",1),
+	LabelDot3D(C,"$C$","E",1)
+	];
