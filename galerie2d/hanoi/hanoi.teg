@@ -1,5 +1,13 @@
 TeXgraph#
-Cmd [view(-5.2,5.2,-2,3), Marges(0,0,0,0), size(10)];
+{version 2.0}
+Cmd
+	Window(-5.2+3*i, 5.2-2*i, 0.961538461538461+0.961538461538461*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=0];
+
 Var
     A = 0;
     d = 3 {distance entre 2 tours};
@@ -10,37 +18,31 @@ Var
     T2 = rectangl(A,l,h);
     T3 = rectangl(A+d+l,l,h);
     n = 4;
-    Tour1 = [3,4];
-    Tour2 = 1;
-    Tour3 = 2;
-    compteur = 6;
-    source = -3.5+0.875*i;
+    Tour1 = [1,2,3,4];
+    Tour2 = Nil;
+    Tour3 = Nil;
+    compteur = 0;
+    source = Nil;
     but = 3.5+0.875*i;
-    L = 1/0;
-    draw2dVer = 0.7;
-Include
-	"markers.mac";
-	"gradients.mac";
-	"draw2d.mac";
+    L = Nil;
+
 Mac
-    rectangl = [
-	$centre:=%1, $z:= (%2+i*%3)/2,
-	centre+z, centre-bar(z), centre-z,centre+bar(z), jump
+    get = [
+	$num:=0,
+	for $z in %1 By 1 do Inc(num,1), if num=%2 then z fi od
 	];
-    Draw = draw("line", %1,
-	     [close:=1, radius:=0.125, FillStyle:=gradient, GradStyle:=radial,
-	      FillColorA:=white, FillColorB:=FillColor]);
+
     join = [
 	if %5=Nil then $long:=abs(%2-%1)
 	else long:=abs(%2-%1)/%5
 	fi,
 	Bezier(%1,%1+long*exp(i*%3*pi/180),%2+long*exp(i*%4*pi/180),%2)
 	];
-    get = [
-	$num:=0,
-	for $z in %1 By 1 do Inc(num,1), if num=%2 then z fi od
-	];
-    diametre = if %1=1 then 2*l else (-2*l+d+l/2)/(n-1)*(%1-1)+2*l fi;
+
+    Draw = draw("line", %1,
+	     [close:=1, radius:=0.125, FillStyle:=gradient, GradStyle:=radial,
+	      FillColorA:=white, FillColorB:=FillColor]);
+
     Init = [
 	Initialiser(),
 	Bouton( RefPoint, "Tour1->Tour2", "deplacer(1,2)"),
@@ -54,6 +56,30 @@ Mac
 	Bouton( RefPoint+8*DeltaB, "Solution", "[Initialiser(), Hanoi(n,1,2), Timer(800)]"),
 	TimerMac("[z:=L[1], Del(L,1,1), deplacer(Re(z),Im(z)), if L=Nil then Timer(0) fi]")
 	];
+
+    Hanoi = if %1=1 then
+	 Insert(L,%2+i*%3)
+	 else
+	       Hanoi(%1-1,%2,6-%2-%3),
+	       Insert(L,%2+i*%3),
+	       Hanoi(%1-1,6-%2-%3,%3)
+	fi;
+
+    ChangerN = if Input("Nombre de disques= (entre 1 et 5)", ["Le nombre actuel est de ",n],n)
+	then $new:=Eval(chaine()),
+	     if (new>0) And (new<6)
+	     then n:=new, h:=(n+2)*ep, Initialiser()
+	     else Message("Cette valeur n'est pas valable")
+	     fi
+	fi;
+
+    diametre = if %1=1 then 2*l else (-2*l+d+l/2)/(n-1)*(%1-1)+2*l fi;
+
+    rectangl = [
+	$centre:=%1, $z:= (%2+i*%3)/2,
+	centre+z, centre-bar(z), centre-z,centre+bar(z), jump
+	];
+
     deplacer = [
 	if %1=1 then source:=get(T1,1)-l/2+ep*i/2, Tourdep:=Tour1
 	elif %1=2 then source:=get(T2,1)-l/2+ep*i/2, Tourdep:=Tour2
@@ -76,40 +102,15 @@ Mac
 	      fi
 	fi
 	];
+
     Initialiser = [
 	Tour1:=for k from 1 to n do k od,
 	Tour2:=Nil, Tour3:=Nil, source:=Nil,
 	compteur:=0, L:=1/0,
 	ReCalc()
 	];
-    ChangerN = if Input("Nombre de disques= (entre 1 et 5)", ["Le nombre actuel est de ",n],n)
-	then $new:=Eval(chaine()),
-	     if (new>0) And (new<6)
-	     then n:=new, h:=(n+2)*ep, Initialiser()
-	     else Message("Cette valeur n'est pas valable")
-	     fi
-	fi;
-    Hanoi = if %1=1 then
-	 Insert(L,%2+i*%3)
-	 else
-	       Hanoi(%1-1,%2,6-%2-%3),
-	       Insert(L,%2+i*%3),
-	       Hanoi(%1-1,6-%2-%3,%3)
-	fi;
-    defaultGradLineOptions = [
-	LineColorA:=white {début}, 
-	LineColorB:=red {fin}, 
-	close:=0 {fermée ou non},
-	GradLineStep:=0.35 {pas}
-	];
-    defaultShadePathOptions = [
-	FillColorA:=white {début},
-	FillColorB:=red {fin}, 
-	GradStyle:=linear {ou radial},
-	GradAngle:=0 {degrés},
-	RadialCenter:=0.25+0.75*i {dans [0;1]x[0;1]},
-	];
 
+Cmd	[DotScale:=1+i];
 Graph Compteur = [
 	background(full,beige), FrenchBabel:=1,
 	Label(A-(h/2+1/Yscale)*i,["Nombre de déplacement(s): ",compteur])

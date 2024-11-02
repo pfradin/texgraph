@@ -1,11 +1,11 @@
 TeXgraph#
-{version 1.974}
+{version 2.0}
 Cmd
-	Fenetre(-6+6*i, 6-6*i, 0.833333333333334+0.833333333333334*i); 
-	Marges(0, 0, 0, 0);
+	Window(-6+6*i, 6-6*i, 0.833333333333334+0.833333333333334*i); 
+	Margin(0, 0, 0, 0);
 	Border(0);
 	[OriginalCoord(1), IdMatrix()];
-	[theta:=0.0872, phi:=1.1345, IdMatrix3D(), ModelView(central), DistCam(15)];
+	[theta:=0.0872, phi:=1.1345, IdMatrix3D(), ModelView(ortho)];
 	[GrayScale(0), ComptGraph:=1];
 
 Cmd	[tMin:=-5,tMax:=5,DotScale:=1+i];

@@ -1,76 +1,86 @@
 TeXgraph#
-Cmd [view(-4.5,4.5,-4.5,4.5), Marges(0,0,0,0), size(10)];
+{version 2.0}
+Cmd
+	Window(-4.5+4.5*i, 4.5-4.5*i, 1.11111111111111+1.11111111111111*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=0];
+
 Var
-    Last = 1/0;
-    Unit = 1/0;
-    L = 1/0;
-    Laps = 150;
-    angles = 1/0;
+    Last = Nil;
+    Unit = Nil;
+    L = Nil;
+    Laps = 100;
+    angles = Nil;
     TimerOn = 0;
     StrFonc = "4*cos(2*t)";
+
 Mac
-    Init = [
-    Last:=Nil, stock:=Nil, TimerOn:=0,
-    Bouton(RefPoint, "&Parametrage","ChangeFonc()","Changer le paramètrage et/ou les attributs"),
-    Bouton(RefPoint+DeltaB, "&Tracer/Arrêter","Lancer()","Lancer/Arrêter l'animation"),
-    Bouton(RefPoint+2*DeltaB, "&Réinitialiser", "Reinitialiser()", "Tout effacer"),
-    TimerMac(
-    "[Last:=L[1], Insert(stock, Last),  Unit:=angles[1], Del(angles,1,1),
-    Del(L,1,1),  Stroke(courbe), Move(point,axe,vecteur,Darc),
-    if nil(Last) then timer(0) , Stroke(point,axe,vecteur,Darc) fi]"),
-    ReCalc()
-    ];
-    Lancer = if TimerOn then timer(0)
-    elif L=Nil then
-         NbPoints:=50, dessiner(),
-         stock:=Nil, ReCalc(courbe), L:=Nil, angles:=Nil,
-         $x:=tMin, $pas:=(tMax-tMin)/(NbPoints-1),
-         for $k from 1 to NbPoints do
-             $z:=f(x),
-             if z=Nil Or out(z) then Insert(L,jump)
-             else Insert(L,z) fi,
-             Insert(angles, exp(i*x)),
-             Inc(x,pas)
-         od,
-         timer(Laps)
-     else timer(Laps)
-    fi;
-    dessiner = NotXor(point,axe,vecteur,Darc);
-    ChangeFonc = if TimerOn=0 then
-       GetAttr(courbe),
-       if Input([" Courbe polaire r(t)*exp(i*t) paramétrée  par: r(t)="],
-              "Changer le paramétrage de la courbe et/ou ses attributs",StrFonc)
-       then
-           StrFonc:=chaine(),
-           DefMac("f",["(",chaine(),")*exp(i*t)"],t),
-           Last:=Nil, stock:=Nil, Unit:=Nil, L:=Nil, angles:=Nil,
-           NewGraph("courbe","Ligne(stock,0)"),
-           ReCalc()
-       fi
-    fi;
     f = 4*cos(2*%1)*exp(i*%1);
+
     out = Re(%1)>1.5*Xmax Or Re(%1)<1.5*Xmin Or Im(%1)>1.5*Ymax Or Im(%1)<1.5*Ymin;
-    Reinitialiser = if  TimerOn=0 then
-       Timer(0), L:=Nil, stock:=Nil, angles:=Nil,
-       Last:=Nil, Unit:=Nil, ReCalc()
-    fi;
+
+    Init = [
+	    Last:=Nil, stock:=Nil, TimerOn:=0,
+	    Bouton(RefPoint, "&Parametrage","ChangeFonc()","Changer le paramètrage et/ou les attributs"),
+	    Bouton(RefPoint+DeltaB, "&Tracer/Arrêter","Lancer()","Lancer/Arrêter l'animation"),
+	    Bouton(RefPoint+2*DeltaB, "&Réinitialiser", "Reinitialiser()", "Tout effacer"),
+	    TimerMac(
+	    "[Last:=L[1], Insert(stock, Last), Unit:=angles[1], Del(angles,1,1),
+	    Del(L,1,1), if Last=Nil then timer(0) fi, ReCalc(courbe)]"),
+	    ];
+
     timer = [TimerOn:=%1>0,  Timer(%1) ];
 
+    Lancer = if TimerOn then timer(0)
+	    elif L=Nil then
+	         NbPoints:=50,
+	         stock:=Nil, ReCalc(courbe), L:=Nil, angles:=Nil,
+	         $x:=tMin, $pas:=(tMax-tMin)/(NbPoints-1),
+	         for $k from 1 to NbPoints do
+	             $z:=f(x),
+	             if z=Nil Or out(z) then Insert(L,jump)
+	             else Insert(L,z) fi,
+	             Insert(angles, exp(i*x)),
+	             Inc(x,pas)
+	         od,
+	         timer(Laps)
+	     else timer(Laps)
+	    fi;
+
+    ChangeFonc = if TimerOn=0 then
+	       GetAttr(courbe),
+	       if Input([" Courbe polaire r(t)*exp(i*t) paramétrée  par: r(t)="],
+	              "Changer le paramétrage de la courbe et/ou ses attributs",StrFonc)
+	       then
+	           StrFonc:=chaine(),
+	           DefMac("f",["(",chaine(),")*exp(i*t)"],t),
+	           Last:=Nil, stock:=Nil, Unit:=Nil, L:=Nil, angles:=Nil,
+	           ReCalc(courbe)
+	       fi
+	    fi;
+
+    Reinitialiser = if  TimerOn=0 then
+	       Timer(0), L:=Nil, stock:=Nil, angles:=Nil,
+	       Last:=Nil, Unit:=Nil, ReCalc(courbe)
+	    fi;
+
+Cmd	[tMin:=-5,tMax:=5,DotScale:=1+i];
 Graph fond = [
-    background(full,aliceblue),
-    Color:= Rgb(0.75,0.75,0.75), Width:=2,
-    LineStyle:=solid,
-    Grille(0,0.25*(1+i)),
-    Width:=6, Arrows:=1, Color:=black,
-    Axes(0,1+i)
-    ];
-Cmd [Width:=8,Color:=255,LineStyle:=0,NbPoints:=150, tMin:=0, tMax:=2*pi+0.000001];
-Graph courbe = Ligne(stock,0);
-Cmd [Color:=8366677];
-Graph axe = if Unit<>jump then Droite(0,Unit) fi;
-Cmd [Width:=12,Color:=16733525,Arrows:=1];
-Graph vecteur = Ligne([0,Unit],0);
-Cmd [Width:=8];
-Graph Darc = Arc(1,0,Unit,2,if Im(Unit)>0 then 1 else -1 fi);
-Cmd [Width:=12,Color:=255,Arrows:=0,DotStyle:=0];
-Graph point = Point(Last);
+	    background(full,aliceblue),
+	    Color:= Rgb(0.75,0.75,0.75), Width:=2,
+	    LineStyle:=solid,
+	    Grille(0,0.25*(1+i)),
+	    Width:=6, Arrows:=1, Color:=black,
+	    Axes(0,1+i)
+	    ];
+Cmd	[Width:=8,Color:=255,NbPoints:=150,tMin:=0,tMax:=6.2832];
+Graph courbe = [
+	Width:=12, Color:=red, Ligne(stock,0),
+	Width:=8, Color:=blue, Droite([0,Unit]),
+	Arrows:=1, if Unit<>Nil then Arc(1,0,Unit,1.5,1) fi,
+	Width:=12, Color:=peru, Line([0,Unit]),
+	Color:=red, Dot(Last)
+	];

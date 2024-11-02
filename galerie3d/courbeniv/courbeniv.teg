@@ -1,15 +1,15 @@
 TeXgraph#
-{version 1.974}
+{version 2.0}
 Cmd
-	Fenetre(-11+9*i, 11-13*i, 0.454545454545455+0.454545454545455*i); 
-	Marges(0, 0, 0, 0);
+	Window(-11+9*i, 11-13*i, 0.454545454545455+0.454545454545455*i); 
+	Margin(0, 0, 0, 0);
 	Border(0);
 	[OriginalCoord(1), IdMatrix()];
 	[theta:=3.6903, phi:=1.0558, IdMatrix3D(), ModelView(central), DistCam(15)];
 	[GrayScale(0), ComptGraph:=0];
 
 Var
-    CourbesNivVer = 0.6;
+    CourbesNivVer = 0.7;
     voirboite = 0;
     voiraxes = 1;
     voirlegendeNiv = 1;
@@ -32,36 +32,45 @@ Var
     ysup = 5;
     zinf = -5;
     zsup = 5;
-    oldtheta = 0.42647258771281;
-    oldphi = 1.14588775800061;
-    nivcolor = [12910650,15210240,6136320,65326,65465,59135,46591,27135,4095,1772015,3937500];
+    oldtheta = 3.6903;
+    oldphi = 1.0558;
+    nivcolor = [12910650,15210240,6136320,65326,65465,59135,46591,27135,4095,1772015,
+	3937500];
     palette = [purple, blue,  green,  yellow, orange,  red, crimson];
     Matrix3d = [-5-5*i,-5,2,0,i,0,0,0.909090909090909];
     inversematrix = [2.5+5*i,5.5,0.5,0,i,0,0,1.1];
     posLegende' = [5,0];
-    oldmodel = ortho;
+    oldmodel = 1;
     autoZ = 0;
     sectionplane = Nil;
-    traitscaches = dotted;
+    traitscaches = 0;
 
 Include
 	"CourbesNiv.mac";
 
 Mac
+    f = (%1+%2)/(2+cos(%1)*sin(%2));
+
     Init = [	
 	Xinf:=win3d[1], Xsup:=win3d[2],
 	Yinf:=win3d[3], Ysup:=win3d[4],
 	Zinf:=win3d[5], Zsup:=win3d[6],
 	refresh:=1, ReCalc()
 	];
-    StrFonc = "(x+y)/(2+cos(x)*sin(y))";
-    StrParam = "[u+i*v, f(u,v)]";
+
     Param = [%1+i*%2,f(%1,%2)];
-    xlegend = "x";
-    ylegend = "y";
-    zlegend = "z";
-    f = (%1+%2)/(2+cos(%1)*sin(%2));
+
     legend = "$z=\frac{x+y}{2+\cos(x)\sin(y)}$";
+
+    StrFonc = "(x+y)/(2+cos(x)*sin(y))";
+
+    xlegend = "$x$";
+
+    ylegend = "$y$";
+
+    zlegend = "$z$";
+
+    StrParam = "[u+i*v, f(u,v)]";
 
 Cmd	[tMin:=-12.5,tMax:=12.5,DotScale:=1+i];
 Graph dessin = [

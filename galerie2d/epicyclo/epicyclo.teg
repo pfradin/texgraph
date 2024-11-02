@@ -1,5 +1,13 @@
 TeXgraph#
-Cmd [view(-5,5,-5,5), Marges(0,0,0,0), size(10)];
+{version 2.0}
+Cmd
+	Window(-5+5*i, 5-5*i, 1+i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=0];
+
 Var
     t0 = pi/2;
     R = 2.5;
@@ -10,13 +18,15 @@ Var
     M1 = -0.000249402446887703+2.50494003618822*i;
     pas = 0.05;
     pause = 25;
-    L1 = 1/0;
-    L2 = 1/0;
+    L1 = Nil;
+    L2 = Nil;
     TimerOn = 0;
+
 Mac
     f = R*exp(i*%1);
-    Centre = (R+r)*exp(i*%1);
+
     M' = Centre(%1)+r*exp(i*((1+R/r)*%1+pi-R/r*pi/2));
+
     Init = [
 	stock:=Nil,
 	Bouton(RefPoint, "Modifier &r",
@@ -40,22 +50,28 @@ Mac
 	
 	Bouton(RefPoint+5*DeltaB,"&Lancer","Lancer()", "Faire tourner ou arrêter"),
 	
-	TimerMac("[if L1=Nil then Stroke(roue, mobile), timer(0) else
+	TimerMac("[if L1=Nil then timer(0) else
 	  I1:=L1[1], M1:=L2[1], Insert(stock, M1), Del(L1,1,1), Del(L2,1,1),
-	  Move(roue, mobile), Stroke(trajectoire) fi]")
+	  ReCalc() fi]")
 	];
-    Lancer = if TimerOn then timer(0), Stroke(roue,mobile)
+
+    timer = [TimerOn:=%1>0, Timer(%1)];
+
+    Centre = (R+r)*exp(i*%1);
+
+    Lancer = if TimerOn then timer(0)
 	else
 	   if L1=Nil then
 	    $t:=t0, stock:=Nil,
-	    NotXor(roue,mobile), ReCalc(trajectoire),
+	    ReCalc(),
 	    while t<t1 do
 	          Inc(t,pas), Insert(L1,Centre(t)), Insert(L2, M'(t))
 	    od
 	 fi,
 	 timer(pause)
 	fi;
-    timer = [TimerOn:=%1>0, Timer(%1)];
+
+Cmd	[DotScale:=1+i];
 Graph fond = [
 	background(full,beige)
 	];
