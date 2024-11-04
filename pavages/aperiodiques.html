@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>TeXgraph - Pavages apériodiques du plan</title>
+    <link rel="stylesheet" type="text/css" href="galerie.css"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="Logiciel de dessin pour LaTeX, création de courbes, graphiques, tableaux de variations,... au format eepic ou Pstricks" 
+        name="description"/>
+    <meta content="TeXgraph,graphiques,Tex,Latex,PsTricks,dessin,courbes,figures,frises,pavages" name="keywords"/>
+    <meta http-equiv="Content-Language" content="fr"/>
+    <meta content="Patrick FRADIN" name="author"/>
+        <script type="text/x-mathjax-config">
+                MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript"
+                src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+</head>
+
+
+<body>
+<a name="gotop"></a>
+
+<img src="../space.gif"  height="10" alt=""/>
+
+<div id="haut">
+<div class="titre">Pavages apériodiques du plan</div>
+<div class="navigation">
+   <span class="nav"><a href="pavages.html#aperiodiques">Retour</a> / <a href="aperiodiques.html#bottom">Bas</a></span>
+</div>
+</div>
+
+<div class="tegcomment" align="justify">
+<p>Le fichier Cristallo.mac contient un grand nombre de macros permettant de dessiner de nombreux pavages apériodiques. Dans cette page, nous appellerons pavage apériodique un pavage du plan qui n’est pas périodique. Néanmoins, la signification du terme « apériodique » peut varier d’un ouvrage à l’autre. Les pavages réalisés sont ici tous des pavages dits « par substitution » (ou « substitution tiling » en anglais). Cette terminologie désigne la manière dont sont construits ces pavages. Chacun d’entre eux est composé de un ou plusieurs types de tuiles. Pour chacun de ces types de tuiles, on définit une règle de substitution. Celle-ci permet de décomposer un type de tuiles en un ensemble de plusieurs tuiles de base du pavage.
+</p>
+<p>Les noms attribués aux pavages sont pour la plupart ceux définis sur le site d’Edmund Harriss et D. Frettlöh, <span class="navigation"><a href="https://tilings.math.uni-bielefeld.de/">The Tiling Encyclopedia</a></span>, qui a servi de base pour l’élaboration de toutes les macros du fichier.
+</p>
+</div>
+
+
+<div id="contenu">
+
+<!--ligne 1--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique1.pdf"><img src="images/aperiodique1.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Ammann A3</i> </p>
+</div>
+
+<!--ligne 2--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique2.pdf"><img src="images/aperiodique2.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Ammann A4</i> </p>
+</div>
+
+<!--ligne 3--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique3.pdf"><img src="images/aperiodique3.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Ammann-Beenker</i> </p>
+</div>
+
+<!--ligne 4--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique4.pdf"><img src="images/aperiodique4.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Ammann-Beenker rhomb triangle</i> </p>
+</div>
+
+<!--ligne 5--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique5.pdf"><img src="images/aperiodique5.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Ammann chair</i> </p>
+</div>
+
+<!--ligne 6--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique6.pdf"><img src="images/aperiodique6.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Armchair</i> </p>
+</div>
+
+<!--ligne 7--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique7.pdf"><img src="images/aperiodique7.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Binary</i> </p>
+</div>
+
+<!--ligne 8--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique8.pdf"><img src="images/aperiodique8.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Example of canonical 1</i> </p>
+</div>
+
+<!--ligne 9--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique9.pdf"><img src="images/aperiodique9.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Example of canonical 2</i> </p>
+</div>
+
+<!--ligne 10--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique10.pdf"><img src="images/aperiodique10.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Chaim's cubic PV</i> </p>
+</div>
+
+<!--ligne 11--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique11.pdf"><img src="images/aperiodique11.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Chair</i> </p>
+</div>
+
+<!--ligne 12--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique12.pdf"><img src="images/aperiodique12.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Chair variant</i> </p>
+</div>
+
+<!--ligne 13--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique13.pdf"><img src="images/aperiodique13.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Coloured golden triangle</i> </p>
+</div>
+
+<!--ligne 14--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique14.pdf"><img src="images/aperiodique14.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Cubic pinwheel</i> </p>
+</div>
+
+<!--ligne 15--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique15.pdf"><img src="images/aperiodique15.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Cyclotomic rhombs 7-fold</i> </p>
+</div>
+
+<!--ligne 16--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique16.pdf"><img src="images/aperiodique16.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Danzer's non-FLC 5</i> </p>
+</div>
+
+<!--ligne 17--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique17.pdf"><img src="images/aperiodique17.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Danzer's 7-fold</i> </p>
+</div>
+
+<!--ligne 18--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique18.pdf"><img src="images/aperiodique18.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Danzer's 7-fold variant</i> </p>
+</div>
+
+<!--ligne 19--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique19.pdf"><img src="images/aperiodique19.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Domino variant 1</i> </p>
+</div>
+
+<!--ligne 20--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique20.pdf"><img src="images/aperiodique20.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Domino variant 2</i> </p>
+</div>
+
+<!--ligne 21--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique21.pdf"><img src="images/aperiodique21.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Domino variant 3</i> </p>
+</div>
+
+<!--ligne 22--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique22.pdf"><img src="images/aperiodique22.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Equithirds</i> </p>
+</div>
+
+<!--ligne 23--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique23.pdf"><img src="images/aperiodique23.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Fibonacci times Fibonacci</i> </p>
+</div>
+
+<!--ligne 24--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique24.pdf"><img src="images/aperiodique24.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Golden pinwheel</i> </p>
+</div>
+
+<!--ligne 25--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique25.pdf"><img src="images/aperiodique25.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Golden triangle</i> </p>
+</div>
+
+<!--ligne 26--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique26.pdf"><img src="images/aperiodique26.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Goodman-Strauss 7-fold rhomb</i> </p>
+</div>
+
+<!--ligne 27--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique27.pdf"><img src="images/aperiodique27.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Half-hex</i> </p>
+</div>
+
+<!--ligne 28--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique28.pdf"><img src="images/aperiodique28.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Harriss's 4-fold rhomb</i> </p>
+</div>
+
+<!--ligne 29--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique29.pdf"><img src="images/aperiodique29.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Harriss's 9-fold rhomb</i> </p>
+</div>
+
+<!--ligne 30--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique30.pdf"><img src="images/aperiodique30.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Imbalanced orientations</i> </p>
+</div>
+
+<!--ligne 31--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique31.pdf"><img src="images/aperiodique31.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Kenyon's non-FLC</i> </p>
+</div>
+
+<!--ligne 32--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique32.pdf"><img src="images/aperiodique32.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Kenyon (1, 2, 1) polygon</i> </p>
+</div>
+
+<!--ligne 33--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique33.pdf"><img src="images/aperiodique33.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Kite-domino</i> </p>
+</div>
+
+<!--ligne 34--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique34.pdf"><img src="images/aperiodique34.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Limhex</i> </p>
+</div>
+
+<!--ligne 35--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique35.pdf"><img src="images/aperiodique35.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Lord</i> </p>
+</div>
+
+<!--ligne 36--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique36.pdf"><img src="images/aperiodique36.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Maloney's 7-fold</i> </p>
+</div>
+
+<!--ligne 37--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique37.pdf"><img src="images/aperiodique37.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Octagonal 1225</i> </p>
+</div>
+
+<!--ligne 38--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique38.pdf"><img src="images/aperiodique38.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Penrose kite-dart</i> </p>
+</div>
+
+<!--ligne 39--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique39.pdf"><img src="images/aperiodique39.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Penrose pentagon boat star</i> </p>
+</div>
+
+<!--ligne 40--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique40.pdf"><img src="images/aperiodique40.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Penrose rhomb</i> </p>
+</div>
+
+<!--ligne 41--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique41.pdf"><img src="images/aperiodique41.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Penrose triangle</i> </p>
+</div>
+
+<!--ligne 42--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique42.pdf"><img src="images/aperiodique42.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pentomino</i> </p>
+</div>
+
+<!--ligne 43--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique43.pdf"><img src="images/aperiodique43.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pinwheel variant 1</i> </p>
+</div>
+
+<!--ligne 44--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique44.pdf"><img src="images/aperiodique44.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pinwheel variant 2</i> </p>
+</div>
+
+<!--ligne 45--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique45.pdf"><img src="images/aperiodique45.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pinwheel variant 3</i> </p>
+</div>
+
+<!--ligne 46--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique46.pdf"><img src="images/aperiodique46.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pinwheel variant 4</i> </p>
+</div>
+
+<!--ligne 47--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique47.pdf"><img src="images/aperiodique47.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pinwheel variant 5</i> </p>
+</div>
+
+<!--ligne 48--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique48.pdf"><img src="images/aperiodique48.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pinwheel 1-2</i> </p>
+</div>
+
+<!--ligne 49--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique49.pdf"><img src="images/aperiodique49.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pinwheel 2-1</i> </p>
+</div>
+
+<!--ligne 50--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique50.pdf"><img src="images/aperiodique50.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pinwheel 3-1</i> </p>
+</div>
+
+<!--ligne 51--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique51.pdf"><img src="images/aperiodique51.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Priebe Frank non-PV</i> </p>
+</div>
+
+<!--ligne 52--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique52.pdf"><img src="images/aperiodique52.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Psychedelic Penrose variant 1</i> </p>
+</div>
+
+<!--ligne 53--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique53.pdf"><img src="images/aperiodique53.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pythagoras 3-1</i> </p>
+</div>
+
+<!--ligne 54--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique54.pdf"><img src="images/aperiodique54.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pythagoras 3-2</i> </p>
+</div>
+
+<!--ligne 55--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique55.pdf"><img src="images/aperiodique55.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pythagoras 5-2</i> </p>
+</div>
+
+<!--ligne 56--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique56.pdf"><img src="images/aperiodique56.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Pythia 3-1</i> </p>
+</div>
+
+<!--ligne 57--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique57.pdf"><img src="images/aperiodique57.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Quartic pinwheel</i> </p>
+</div>
+
+<!--ligne 58--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique58.pdf"><img src="images/aperiodique58.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Rhomb square oktagon</i> </p>
+</div>
+
+<!--ligne 59--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique59.pdf"><img src="images/aperiodique59.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Robinson triangle</i> </p>
+</div>
+
+<!--ligne 60--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique60.pdf"><img src="images/aperiodique60.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Rorschach</i> </p>
+</div>
+
+<!--ligne 61--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique61.pdf"><img src="images/aperiodique61.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Semi-detached house</i> </p>
+</div>
+
+<!--ligne 62--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique62.pdf"><img src="images/aperiodique62.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Semi-detached house squared</i> </p>
+</div>
+
+<!--ligne 63--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique63.pdf"><img src="images/aperiodique63.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Sierpinski's square</i> </p>
+</div>
+
+<!--ligne 64--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique64.pdf"><img src="images/aperiodique64.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Sierpinski's triangle</i> </p>
+</div>
+
+<!--ligne 65--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique65.pdf"><img src="images/aperiodique65.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Shield</i> </p>
+</div>
+
+<!--ligne 66--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique66.pdf"><img src="images/aperiodique66.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Socolar</i> </p>
+</div>
+
+<!--ligne 67--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique67.pdf"><img src="images/aperiodique67.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Sphinx</i> </p>
+</div>
+
+<!--ligne 68--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique68.pdf"><img src="images/aperiodique68.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Sphinx 9</i> </p>
+</div>
+
+<!--ligne 69--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique69.pdf"><img src="images/aperiodique69.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Sqrt6 triangles</i> </p>
+</div>
+
+<!--ligne 70--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique70.pdf"><img src="images/aperiodique70.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Square chair</i> </p>
+</div>
+
+<!--ligne 71--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique71.pdf"><img src="images/aperiodique71.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Square triangle</i> </p>
+</div>
+
+<!--ligne 72--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique72.pdf"><img src="images/aperiodique72.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Squeeze</i> </p>
+</div>
+
+<!--ligne 73--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique73.pdf"><img src="images/aperiodique73.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Squiral</i> </p>
+</div>
+
+<!--ligne 74--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique74.pdf"><img src="images/aperiodique74.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Tangram</i> </p>
+</div>
+
+<!--ligne 75--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique75.pdf"><img src="images/aperiodique75.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Tetris</i> </p>
+</div>
+
+<!--ligne 76--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique76.pdf"><img src="images/aperiodique76.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Tipi 3-1</i> </p>
+</div>
+
+<!--ligne 77--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique77.pdf"><img src="images/aperiodique77.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Triangle duo variant 1</i> </p>
+</div>
+
+<!--ligne 78--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique78.pdf"><img src="images/aperiodique78.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Triangle duo variant 2</i> </p>
+</div>
+
+<!--ligne 79--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique79.pdf"><img src="images/aperiodique79.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Triangle duo variant 3</i> </p>
+</div>
+
+<!--ligne 80--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique80.pdf"><img src="images/aperiodique80.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Trihex</i> </p>
+</div>
+
+<!--ligne 81--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique81.pdf"><img src="images/aperiodique81.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Tritriangle</i> </p>
+</div>
+
+<!--ligne 82
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique82.pdf"><img src="images/aperiodique82.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Truchet</i> </p>
+</div>
+--> 
+
+<!--ligne 83--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique83.pdf"><img src="images/aperiodique83.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Tuebingen triangle</i> </p>
+</div>
+
+<!--ligne 84--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique84.pdf"><img src="images/aperiodique84.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Uberpinwheel</i> </p>
+</div>
+
+<!--ligne 85--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique85.pdf"><img src="images/aperiodique85.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Viper</i> </p>
+</div>
+
+<!--ligne 86--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique86.pdf"><img src="images/aperiodique86.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Waltonchair</i> </p>
+</div>
+
+<!--ligne 87--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique87.pdf"><img src="images/aperiodique87.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Watanabe Ito Soma 8-fold</i> </p>
+</div>
+
+<!--ligne 88--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique88.pdf"><img src="images/aperiodique88.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Watanabe Ito Soma 12-fold variant 1</i> </p>
+</div>
+
+<!--ligne 89--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique89.pdf"><img src="images/aperiodique89.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Watanabe Ito Soma 12-fold variant 2</i> </p>
+</div>
+
+<!--ligne 90--> 
+<div class="tegpresentation" align="center">
+<p class="center"><a href="images/aperiodique90.pdf"><img src="images/aperiodique90.png"  alt=""/></a></p>
+<p class="center">Pavage <i>Wheel tiling</i> </p>
+</div>
+
+</div>
+
+<div id="pied">
+<div class="navigation">
+<span class="nav"><a href="aperiodiques.html#gotop">Haut</a></span>
+</div>
+</div>
+<a name="bottom"></a>
+</body>
+</html>

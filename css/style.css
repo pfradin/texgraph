@@ -141,6 +141,8 @@ h2 {
     font-size:1.4em;
 }
 
+.haut img { border: 1px solid #006633; }
+
 img { border: 1px solid transparent; }
 
 .tegpresentation {

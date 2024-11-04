@@ -1,0 +1,263 @@
+TeXgraph#
+{version 2.0}
+Cmd
+	Window(-5+5*i, 5-5*i, 0.6+0.6*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=12];
+
+Var
+    CristalloVer = 10.2;
+
+Include
+	"Cristallo.mac";
+
+Mac
+    Init = ReCalc();
+
+Cmd	[tMin:=0,tMax:=1,DotScale:=1+i];
+Graph DefaultOptions = [
+	 {motif}
+	Motif:=[],
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=darkred, MotifStrokeOpacity:=1,
+	MotifFillStyle:=full, MotifFillColor:=lightgray, MotifFillOpacity:=1,
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=lightpink, BackgroundFillOpacity:=1,
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=gray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=none, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1, Vecteur2:=1+i, AfficherPtRef:=0,
+	PtRefDotStyle:=dot, PtRefDotSize:=2+2*i, PtRefDotScale:=1+i, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=0, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= dimgray, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=0, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=dimgray, VecteurStrokeOpacity2:=1,
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=solid, ReseauWidth:=thinlines, ReseauColor:=gold,
+	ReseauStrokeOpacity:=1,
+	 {rotations}
+	AfficherCentres1:=0, CtrDotStyle1:=diamond, CtrDotSize1:=2+2*i, CtrDotScale1:=1+i,
+	CtrDotAngle1:=0, CtrColor1:=black, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	 {réflexions glissements}
+	AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thinlines, AxesSymColor:=crimson,
+	AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=0, AxesGlissLineStyle:=solid, AxesGlissWidth:=thinlines,
+	AxesGlissColor:=dimgray, AxesGlissStrokeOpacity:=1,
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref]
+	
+	];
+Cmd	[IsVisible:=0,tMin:=-5,tMax:=5];
+Graph PavPolygone_666 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+		
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=white,
+			PolyFillColor1:=HexaColor("2F4F4F"),
+			PolyFillColor2:=HexaColor("FFD700"),
+			PolyFillColor3:=HexaColor("D3D3D3"),
+			PolyFillColor4:=darkred,
+		
+		DrawPavPolygone(1)
+		];
+Graph PavPolygone_884 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=white,
+			PolyFillColor1:=HexaColor("ADFF2F"),
+			PolyFillColor2:=HexaColor("6495ED"),
+			PolyFillColor3:=HexaColor("000000"),
+			PolyFillColor4:=darkred,
+	
+		DrawPavPolygone(2)
+		];
+Graph pavPolygone_12_64 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=white,
+			PolyFillColor1:=HexaColor("8B0000"),
+			PolyFillColor2:=HexaColor("FFDAB9"),
+			PolyFillColor3:=HexaColor("4B0082"),
+			PolyFillColor4:=darkred,
+	
+		DrawPavPolygone(3)
+		];
+Graph pavPolygone_12_12_3 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=white,
+			PolyFillColor1:=HexaColor("978CDC"),
+			PolyFillColor2:=HexaColor("4B0082"),
+			PolyFillColor3:=HexaColor("FF69B4"),
+			PolyFillColor4:=HexaColor("008B8B"),
+	
+		DrawPavPolygone(4)
+		];
+Graph pavPolygone_4444 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=HexaColor("823FB1"),
+			PolyFillColor1:=HexaColor("006400"),
+			PolyFillColor2:=HexaColor("FFFFE0"),
+			PolyFillColor3:=HexaColor("D3D3D3"),
+			PolyFillColor4:=HexaColor("006400"),
+	
+		DrawPavPolygone(5)
+		];
+Graph pavPolygone_6363 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=white,
+			PolyFillColor1:=HexaColor("FFD700"),
+			PolyFillColor2:=HexaColor("000000"),
+			PolyFillColor3:=HexaColor("FFD700"),
+			PolyFillColor4:=HexaColor("000000"),
+	
+		DrawPavPolygone(6)
+		];
+Graph pavPolygone_6434 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=HexaColor("2F165D"),
+			PolyFillColor1:=HexaColor("778899"),
+			PolyFillColor2:=HexaColor("FFDAB9"),
+			PolyFillColor3:=HexaColor("8B0000"),
+			PolyFillColor4:=HexaColor("FFDAB9"),
+	
+		DrawPavPolygone(7)
+		];
+Graph pavPolygone_43433 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=black,
+			PolyFillColor1:=HexaColor("8B4513"),
+			PolyFillColor2:=HexaColor("CD853F"),
+			PolyFillColor3:=HexaColor("FFDEAD"),
+			PolyFillColor4:=HexaColor("CD853F"),
+	
+		DrawPavPolygone(8)
+		];
+Graph pavPolygone_44333 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=HexaColor("800180"),
+			PolyFillColor1:=HexaColor("FFB6C1"),
+			PolyFillColor2:=HexaColor("DC143C"),
+			PolyFillColor3:=HexaColor("F8F8FF"),
+			PolyFillColor4:=HexaColor("CD853F"),
+	
+		DrawPavPolygone(9)
+		];
+Graph pavPolygone_63333 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=white,
+			PolyFillColor1:=HexaColor("9ACD32"),
+			PolyFillColor2:=HexaColor("F0E68C"),
+			PolyFillColor3:=HexaColor("800080"),
+			PolyFillColor4:=HexaColor("CD853F"),
+	
+		DrawPavPolygone(10)
+		];
+Cmd	[IsVisible:=1];
+Graph pavPolygone_333333 = [
+		view(-5,5,-5,5), Marges(0,0,0,0), size(6),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75+i/4,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=white,
+			PolyFillColor1:=HexaColor("191970"),
+			PolyFillColor2:=HexaColor("FFB6C1"),
+			PolyFillColor3:=HexaColor("800080"),
+			PolyFillColor4:=HexaColor("CD853F"),
+	
+		DrawPavPolygone(11)
+		];
+Cmd	[IsVisible:=0];
+Graph pavPolygone_6434_demo = [
+		view(-10,10,-5,5), Marges(0,0,0,0), size(12),
+	
+		{Chiralité}
+			Chiral:=1,
+		{Pt de référence et vecteur de base}
+			PtRef:=0, Vecteur1:=0.75,
+		{Attributs des polygones}
+			PolyLineStyle:=solid, PolyWidth:=0.5*mm, PolyColor:=HexaColor("2F165D"),
+			PolyFillColor1:=HexaColor("778899"),
+			PolyFillColor2:=HexaColor("FFDAB9"),
+			PolyFillColor3:=HexaColor("8B0000"),
+			PolyFillColor4:=HexaColor("FFDAB9"),
+	
+		DrawPavPolygone(7)
+		];

@@ -1,0 +1,284 @@
+TeXgraph#
+{version 2.0}
+Cmd
+	Window(-16+2.56*i, 16-2.56*i, 0.5+0.5*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=7];
+
+Var
+    CristalloVer = 10.2;
+
+Include
+	"Cristallo.mac";
+
+Mac
+    FriseType = "f2";
+
+Cmd	[IsVisible:=0,tMin:=-5,tMax:=5,DotScale:=1+i];
+Graph frisef1 = [
+		Fenetre(-16+3*i, 16-2*i, 0.5*(1+i)), Marges(0,0,0,0),
+	        h:=1.7,
+	        Motif:= [Seq(h*exp(k*i*pi/48), k, 0, 95), jump,
+	                Seq(h*(0.3+0.25*i+0.5*exp(k*i*pi/48)), k, 0, 95), jump,
+	                Seq(h*(0.55+0.15*i+0.15*exp(k*i*pi/48)), k, 0, 95), jump],
+		MotifFerme:=1, AjusterFenetre:=1, FenetreEcart:=0.015,
+		DrawFrise("f1",
+			[
+			{Pt de référence et vecteur de base}
+				PtRef:=0, Vecteur1:=h*2.25,
+			{Bord et arrière-plan}
+				BordWidth:=Thicklines, BordColor:=black, 
+				BackgroundFillColor:=HexaColor("2C6A8F"),
+			{Motif de base}
+				MotifFillStyle:=none, MotifWidth:=Thicklines, MotifColor:=MotifColor:=HexaColor("F2D8A2"),
+			{Axes et centres}
+				AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=lightblue,
+				AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+				AfficherCentres1:=1, CtrDotAngle1:=180*Arg(Vecteur1)/pi+90,
+			{Autres éléments à afficher}
+				AfficherPtRef:=1, PtRefDotStyle:=dotcircle, PtRefDotSize:=2.5+2*i,
+				AfficherVecteur1:=1, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+				EncadrerMotif:=1, CadreColor:=lightyellow
+			]),  //size(9)
+		];
+Cmd	[IsVisible:=1,tMin:=-16,tMax:=16];
+Graph frisef2 = [
+		Fenetre(-16+3*i, 16-2*i, 0.5*(1+i)), Marges(0,0,0,0),
+	        tMin:=0, tMax:=pi, NbPoints:=50, T:=-0.4*i,
+	        poisson:=[Get(Bezier(i*0.5-2,i*2.75+0.25,-i*0.75+0.25,i*1.5-2,jump,i-1.8)),jump,
+	                  Get(Cercle(i*1.1-0.65,0.025)),jump],
+	        Motif:= [shift(hom(poisson,0,0.75),T),
+	                 shift([0.5*i,1+0.5*i,1+1.5*i,1.5+0.65*i,1+0.65*i,1+0.5*i,2+0.5*i,1.75,0.25],0.5*i)],
+		MotifFerme:=1, AjusterFenetre:=1, FenetreEcart:=0.015,
+		DrawFrise("f2",
+			[
+			{Pt de référence et vecteur de base}
+				PtRef:=0, Vecteur1:=4,
+			{Bord et arrière-plan}
+				BordWidth:=Thicklines, BordColor:=black,
+				BackgroundFillStyle:=full, BackgroundFillColor:=crimson,
+			{Motif de base}
+				MotifFillStyle:=none, MotifWidth:=thicklines, MotifColor:=gold,
+			{Axes et centres}
+				AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=lightblue,
+				AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+				AfficherCentres1:=1, CtrDotStyle1:=dotcircle, CtrDotScale1:=0.5, CtrDotAngle1:=180*Arg(Vecteur1)/pi+90,
+			{Autres éléments à afficher}
+				AfficherPtRef:=1, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+				AfficherVecteur1:=1, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+				EncadrerMotif:=1, CadreColor:=lightyellow
+			]),  //size(9)
+		];
+Cmd	[IsVisible:=0];
+Graph frisef1m = [
+		Fenetre(-16+3*i, 16-2*i, 0.5*(1+i)), Marges(0,0,0,0),
+	        tMin:=0, tMax:=pi, NbPoints:=50, T:=0.4*i,
+	        Motif:=Get(draw("line",[-2,2*i,2+2*i,0],
+	                  [LineStyle:=freehand, freehandscale:=4.5])),
+		MotifFerme:=1, AjusterFenetre:=1, FenetreEcart:=0.015,
+		DrawFrise("f1m",
+			[
+			{Pt de référence et vecteur de base}
+				PtRef:=0, Vecteur1:=4,
+			{Bord et arrière-plan}
+				BordWidth:=Thicklines, BackgroundFillColor:=lightgray,
+	                        BordLineStyle:=dotted, BordWidth:=mm,
+			{Motif de base}
+				MotifFillStyle:=full, MotifFillColor:=gold, MotifWidth:=thicklines, MotifColor:=crimson,
+			{Axes et centres}
+				AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=darkseagreen,
+				AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+				AfficherCentres1:=1, CtrDotStyle1:=dotcircle, CtrDotScale1:=0.5, CtrDotAngle1:=180*Arg(Vecteur1)/pi+90,
+			{Autres éléments à afficher}
+				AfficherPtRef:=1, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+				AfficherVecteur1:=1, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+				EncadrerMotif:=1, CadreColor:=lightyellow
+			]),  //size(9)
+		];
+Graph frisefm1 = [
+		Fenetre(-16+3*i, 16-2*i, 0.5*(1+i)), Marges(0,0,0,0),
+	        tMin:=0, tMax:=pi, NbPoints:=50,
+	
+	        Motif:=[Get(Bezier(2*i,0.25+2*i,0.25-2*i,-2*i)),jump,2.25*i],
+		MotifFerme:=1, AjusterFenetre:=1, FenetreEcart:=0.015,
+		DrawFrise("fm1",
+			[
+			{Pt de référence et vecteur de base}
+				PtRef:=0, Vecteur1:=4.5,
+			{Bord et arrière-plan}
+				BordWidth:=Thicklines, BackgroundFillStyle:=full, BackgroundFillColor:=darkseagreen,
+	                        BordLineStyle:=noline, BordWidth:=mm,
+			{Motif de base}
+				MotifFillStyle:=full, MotifFillColor:=brown, MotifWidth:=thicklines, MotifColor:=brown,
+			{Axes et centres}
+				AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=darkseagreen,
+				AfficherAxesGliss:=0, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+				AfficherCentres1:=0, CtrDotStyle1:=dotcircle, CtrDotScale1:=0.5, CtrDotAngle1:=180*Arg(Vecteur1)/pi+90,
+			{Autres éléments à afficher}
+				AfficherPtRef:=0, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+				AfficherVecteur1:=0, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+				EncadrerMotif:=0, CadreColor:=lightyellow
+			]),  //size(9)
+	
+	        AjusterFenetre:=0,
+		DrawFrise("fm1",
+			[Motif:=[Get(Bezier(i,1+3*i,4,0,3,1-3*i,0)),jump,2+2.25*i,jump,2-2*i],
+			{Pt de référence et vecteur de base}
+				PtRef:=0, Vecteur1:=4.5,
+			{Bord et arrière-plan}
+				BordWidth:=Thicklines, BackgroundFillStyle:=none, BackgroundFillColor:=lightgray,
+	                        BordLineStyle:=solid, BordWidth:=mm,
+			{Motif de base}
+				MotifFillStyle:=full, MotifFillColor:=gold, MotifWidth:=thicklines, MotifColor:=brown,
+			{Axes et centres}
+				AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=steelblue,
+				AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+				AfficherCentres1:=1, CtrDotStyle1:=dotcircle, CtrDotScale1:=0.5, CtrDotAngle1:=180*Arg(Vecteur1)/pi+90,
+			{Autres éléments à afficher}
+				AfficherPtRef:=1, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+				AfficherVecteur1:=1, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+				EncadrerMotif:=1, CadreColor:=lightyellow
+			]),  //size(9)
+		DrawFrise("fm1",
+			[ Motif:=[Get(Cercle(0.85*(1+i),0.25)), jump, Get(Cercle(1-0.7*i,0.125)),jump,
+	                          Get(Bezier(1.6*i+0.07,1+2.5*i,1.5+2*i)),jump,2+2*i,jump,2-2*i],  MotifFerme:=0,
+			{Pt de référence et vecteur de base}
+				PtRef:=0, Vecteur1:=4.5,
+			{Bord et arrière-plan}
+				BackgroundFillStyle:=none, BackgroundFillColor:=darkseagreen,
+	                        BordLineStyle:=solid, BordWidth:=mm,
+			{Motif de base}
+				MotifFillStyle:=none, MotifFillColor:=brown, MotifWidth:=Thicklines, MotifColor:=darkblue,
+			{Axes et centres}
+				AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=darkseagreen,
+				AfficherAxesGliss:=0, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+				AfficherCentres1:=0, CtrDotStyle1:=dotcircle, CtrDotScale1:=0.5, CtrDotAngle1:=180*Arg(Vecteur1)/pi+90,
+			{Autres éléments à afficher}
+				AfficherPtRef:=0, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+				AfficherVecteur1:=0, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+				EncadrerMotif:=0, CadreColor:=lightyellow
+			]),  //size(9)
+		];
+Graph frisef1g = [
+	Fenetre(-16+i, 16-i, 0.5*(1+i)),
+	Motif:=[Get(Bezier(1.5+2*i,1.75*i,-0.25+0.25*i,0,0.25-0.25*i,1.25-0.5*i,2+i,jump,
+	        1+0.75*i,jump,1.75+1.5*i,jump,0.75+i),0) ],
+	
+	{Seq(2+0.75*i+exp(k*i*pi/48), k, 0, 95), jump,
+	        Seq(2.3+i+0.5*exp(k*i*pi/48), k, 0, 95), jump,
+	        Seq(2.55+0.9*i+0.15*exp(k*i*pi/48), k, 0, 95), jump],}
+	MotifFerme:=1, AjusterFenetre:=1, FenetreEcart:=0.015,
+	DrawFrise("f1g",
+	[
+	{Pt de référence et vecteur de base}
+	    Vecteur1:=4, PtRef:=0,
+	{Bord et arrière-plan}
+	      BackgroundFillStyle:=full, BackgroundFillColor:=brown,
+	      BordLineStyle:=solid, BordWidth:=28, BordColor:=gold,
+	{Motif de base}
+	      MotifFillStyle:=full, MotifWidth:=Thicklines, MotifColor:=HexaColor("F2D8A2"),
+	      MotifFillColor:=seagreen,
+	{Axes et centres}
+	      AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=darkseagreen,
+	      AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+	      AfficherCentres1:=1, CtrDotStyle1:=dotcircle, CtrDotScale1:=0.5, CtrDotAngle1:=180*Arg(Vecteur1)/pi+90,
+	{Autres éléments à afficher}
+	      AfficherPtRef:=1, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+	      AfficherVecteur1:=1, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+	      EncadrerMotif:=1, CadreColor:=lightyellow
+	])
+	];
+Cmd	[tMin:=-4,tMax:=4];
+Graph frisef2m = [
+	Fenetre(-8+i, 8-i, 1+i),
+	Motif:=Seq(1.2+i+exp(i*$x)/2, x, 0, 2*pi, pi/48),
+	MotifFerme:=1, AjusterFenetre:=1, FenetreEcart:=0.015,
+	DrawFrise("f2m",
+	[
+	{Pt de référence et vecteur de base}
+	    Vecteur1:=3, PtRef:=-1.25+0.4*i,
+	{Bord et arrière-plan}
+	      BackgroundFillStyle:=full, BackgroundFillColor:=lightgray,
+	      BordLineStyle:=solid, BordWidth:=mm, BordColor:=red,
+	{Motif de base}
+	      MotifFillStyle:=full, MotifWidth:=Thicklines, MotifColor:=black,
+	      MotifFillColor:=gold,
+	{Axes et centres}
+	      AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=darkseagreen,
+	      AfficherAxesGliss:=0, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+	      AfficherCentres1:=0, CtrDotStyle1:=diamond, CtrDotScale1:=1, CtrColor1:= black, CtrDotAngle1:=90,
+	{Autres éléments à afficher}
+	      AfficherPtRef:=0, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+	      AfficherVecteur1:=0, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+	      EncadrerMotif:=1, CadreColor:=lightyellow]),
+	
+	AjusterFenetre:=0,
+	DrawFrise("f2m",
+	[
+	Motif:=[Seq(1+1.2*i+0.05*exp(i*x), x, 0, 2*pi, pi/24), jump,
+	Seq(1.4+1.2*i+0.05*exp(i*x), x, 0, 2*pi, pi/24), jump],
+	MotifFerme:=0,
+	{Bord et arrière-plan}
+	      BackgroundFillStyle:=none, BackgroundFillColor:=lightgray,
+	      BordLineStyle:=noline, BordWidth:=mm, BordColor:=red,
+	{Motif de base}
+	      MotifFillStyle:=none, MotifWidth:=Thicklines, MotifColor:=black,
+	      MotifFillColor:=gold,
+	{Axes et centres}
+	      AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=darkseagreen,
+	      AfficherAxesGliss:=0, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+	      AfficherCentres1:=0, CtrDotStyle1:=diamond, CtrDotScale1:=1, CtrColor1:= black, CtrDotAngle1:=90,
+	{Autres éléments à afficher}
+	      AfficherPtRef:=0, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+	      AfficherVecteur1:=0, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+	      EncadrerMotif:=0, CadreColor:=lightyellow]),
+	
+	DrawFrise("f2m",
+	[
+	Motif:=[1.2+1.1*i, 1.1+0.9*i, 1.2+0.9*i, jump,
+	1+1.35*i, 1.15+1.2*i, jump,
+	1.25+1.2*i, 1.4+1.35*i, jump,
+	1+0.7*i, 1.4+0.7*i, jump],
+	MotifFillStyle:=none,
+	{Axes et centres}
+	      AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=darkseagreen,
+	      AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+	      AfficherCentres1:=1, CtrDotStyle1:=diamond, CtrDotScale1:=1, CtrColor1:= black, CtrDotAngle1:=90,
+	{Autres éléments à afficher}
+	      AfficherPtRef:=1, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+	      AfficherVecteur1:=1, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+	      EncadrerMotif:=0, CadreColor:=lightyellow]),
+	
+	];
+Cmd	[tMin:=-16,tMax:=16];
+Graph frisefm2 = [
+	Fenetre(-4+i, 4-i, 2+2*i),
+	tMin:=0, tMax:=pi, NbPoints:=50,
+	c:=0.4+0.3*i,
+	Motif:=Get( draw("line",[0.6+0.5*i,0.3*i,0.5-0.12*i],
+	    [close:=1,LineStyle:=freehand, freehandscale:=4]),0),
+	
+	MotifFerme:=1, AjusterFenetre:=1, FenetreEcart:=0.015,
+	DrawFrise("fm2",
+	[
+	{Pt de référence et vecteur de base}
+	    Vecteur1:=2.5, PtRef:=-0.5,
+	{Bord et arrière-plan}
+	      BackgroundFillStyle:=full, BackgroundFillColor:=crimson,
+	      BordLineStyle:=solid, BordWidth:=28, BordColor:=black,
+	{Motif de base}
+	      MotifFillStyle:=full, MotifWidth:=Thicklines, MotifColor:=gold,
+	      MotifFillColor:=darkblue,
+	{Axes et centres}
+	      AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=darkseagreen,
+	      AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines, AxesGlissColor:=ghostwhite,
+	      AfficherCentres1:=1, CtrDotStyle1:=diamond, CtrDotScale1:=1, CrtColor:= black, CtrDotAngle1:=90,
+	{Autres éléments à afficher}
+	      AfficherPtRef:=1, PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=0.75,
+	      AfficherVecteur1:=1, VecteurWidth1:=Thicklines,VecteurColor1:=black,
+	      EncadrerMotif:=1, CadreColor:=lightyellow
+	])
+	];

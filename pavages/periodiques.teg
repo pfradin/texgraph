@@ -1,0 +1,1149 @@
+TeXgraph#
+{version 2.0}
+Cmd
+	Window(-5+5*i, 5-5*i, 0.6+0.6*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=20];
+
+Var
+    CristalloVer = 10.10;
+
+Include
+	"Cristallo.mac";
+
+Mac
+    Init = ReCalc();
+
+    PavPeriodiqueType = "p6m";
+
+Cmd	[DotScale:=1+i];
+Graph DefaultOptions = [
+	view(-5,5,-5,5),
+	 {motif}
+	Motif:=[],
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=darkred, MotifStrokeOpacity:=1,
+	MotifFillStyle:=full, MotifFillColor:=lightgray, MotifFillOpacity:=1,
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=lightpink, BackgroundFillOpacity:=1,
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=gray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=none, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1, Vecteur2:=1+i, AfficherPtRef:=0,
+	PtRefDotStyle:=dot, PtRefDotSize:=2+2*i, PtRefDotScale:=1+i, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=0, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= dimgray, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=0, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=dimgray, VecteurStrokeOpacity2:=1,
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=solid, ReseauWidth:=thinlines, ReseauColor:=gold,
+	ReseauStrokeOpacity:=1,
+	 {rotations}
+	AfficherCentres1:=0, CtrDotStyle1:=diamond, CtrDotSize1:=2+2*i, CtrDotScale1:=1+i,
+	CtrDotAngle1:=0, CtrColor1:=black, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	 {réflexions glissements}
+	AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thinlines, AxesSymColor:=crimson,
+	AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=0, AxesGlissLineStyle:=solid, AxesGlissWidth:=thinlines,
+	AxesGlissColor:=dimgray, AxesGlissStrokeOpacity:=1,
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref]
+	
+	];
+Cmd	[IsVisible:=0];
+Graph pavage_p1 = [
+	 size(6),  LineJoin:=miter,
+	 {motif}
+	Motif:=shift([1,1.75,1.5+i*0.35,1.5],0.25*i-0.5),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=mm/2, MotifColor:=gold, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=lightgray, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=crimson, BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1.75, Vecteur2:=1/2+i, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=Thicklines,
+	VecteurColor1:= black, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=Thicklines,
+	VecteurColor2:=black, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=0, CtrDotStyle1:=diamond, CtrDotSize1:=2+2*i, CtrDotScale1:=1+i,
+	CtrDotAngle1:=0, CtrColor1:=black, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thinlines, AxesSymColor:=crimson,
+	AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=0, AxesGlissLineStyle:=solid, AxesGlissWidth:=thinlines,
+	AxesGlissColor:=dimgray, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p1")
+	];
+Graph pavage_p2 = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.0,0.55,0.55+i*0.25],0.25*i+0.25),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=slateblue, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("C0C0C0"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1.75, Vecteur2:=1/2+i, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=Thicklines,
+	VecteurColor1:= black, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=Thicklines,
+	VecteurColor2:=black, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond, CtrDotSize1:=2+2*i, CtrDotScale1:=1,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thinlines, AxesSymColor:=crimson,
+	AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=0, AxesGlissLineStyle:=solid, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=dimgray, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p2")
+	];
+Graph pavage_pm = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.0,0.55,0.55+i*0.25],0.25*i+0.15),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=green, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("1E90FF"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1.75, Vecteur2:=i, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=Thicklines,
+	VecteurColor1:= black, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=Thicklines,
+	VecteurColor2:=black, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond, CtrDotSize1:=2+2*i, CtrDotScale1:=0.5,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=lightgray,
+	AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=0, AxesGlissLineStyle:=solid, AxesGlissWidth:=thinlines,
+	AxesGlissColor:=dimgray, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("pm")
+	];
+Graph pavage_pg = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.0,0.55,0.55+i*0.25],0.25*i+0.15),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=white, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("4B0082"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1.75, Vecteur2:=i, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=Thicklines,
+	VecteurColor1:= orange, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=Thicklines,
+	VecteurColor2:=orange, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=0, CtrDotStyle1:=diamond, CtrDotSize1:=2+2*i, CtrDotScale1:=0.5,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=0, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines, AxesSymColor:=lightgray,
+	AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thinlines,
+	AxesGlissColor:=pink, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("pg")
+	];
+Graph pavage_pmm = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55+i*0.2],0.2*i+0.15),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=lightgray, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("F8F8FF"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1.75, Vecteur2:=i*1.15, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= crimson, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=crimson, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=0.75,
+	CtrDotAngle1:=0, CtrColor1:=seagreen, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=pink, AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thinlines,
+	AxesGlissColor:=salmon, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("pmm")
+	];
+Graph pavage_pmg = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55+i*0.2],0.2*i+0.15),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=whitesmoke, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("FFA500"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1.75, Vecteur2:=i*1.15, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= black, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=black, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=0.75,
+	CtrDotAngle1:=0, CtrColor1:=seagreen, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=brown, AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thinlines,
+	AxesGlissColor:=white, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("pmg")
+	];
+Graph pavage_pgg = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.5,0.5+i*0.2],0.425*i+0.65),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=gold, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("20B2AA"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1.75, Vecteur2:=i*1.25, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= darkblue, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=darkblue, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=0.75,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=brown, AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=crimson, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("pgg")
+	];
+Graph pavage_cm = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55+i*0.2],0.25*i+0.65),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=gold, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=black, BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=sqrt(5)/1.5, Vecteur2:=(2*i+1)/1.5, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= red, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=red, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=0.75,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=gray, AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=crimson, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, motif, axessym, axesgliss,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("cm")
+	];
+Graph pavage_cmm = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.2,0.55,0.55+i*0.2],0.2*i+0.35),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=whitesmoke, MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("A0522D"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=sqrt(5)/1.5, Vecteur2:=(2*i+1)/1.5, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= violet, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=violet, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=0.75,
+	CtrDotAngle1:=0, CtrColor1:=gold, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=0, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=sienna, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=HexaColor("A7988D"), AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=black, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("cmm")
+	];
+Graph pavage_p4 = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.2,0.55,0.55+i*0.2],0.25*i+0.45),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("570785"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("FF69B4"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=1.5, Vecteur2:=1.5, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= crimson, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=crimson, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=0.75,
+	CtrDotAngle1:=0, CtrColor1:=gold, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=white, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=HexaColor("A7988D"), AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=black, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p4")
+	];
+Graph pavage_p4m = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.0,0.55,0.55+i*0.2],0.3*i+0.2),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("228B22"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("90E72C"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=2, Vecteur2:=2, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= crimson, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=crimson, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=0.75,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=orange, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=HexaColor("A7988D"), AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=darkgreen, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p4m")
+	];
+Graph pavage_p4g = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55-i*0.2],0.75*i+0.55),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("959595"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("696969"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=2, Vecteur2:=2, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= crimson, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=crimson, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=1,
+	CtrDotAngle1:=0, CtrColor1:=gold, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=orange, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=HexaColor("A7988D"), AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=black, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p4g")
+	];
+Graph pavage_p3 = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55+i*0.2],0.25*i+0.25),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("CD853F"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("191970"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=2, Vecteur2:=2, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:=gold, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=gold, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=1,
+	CtrDotAngle1:=0, CtrColor1:=gold, CtrFillColor1:=white,
+	
+	AfficherCentres2:=1, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1,
+	CtrDotAngle2:=0, CtrColor2:=skyblue, CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1,
+	CtrDotAngle3:=0, CtrColor3:=orange, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=HexaColor("A7988D"), AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=black, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p3")
+	];
+Graph pavage_p3m1 = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55+i*0.2],0.125*i+0.3),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("61320F"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("F4A460"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=2, Vecteur2:=2, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:=darkblue, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=darkblue, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=1,
+	CtrDotAngle1:=0, CtrColor1:=gold, CtrFillColor1:=white,
+	
+	AfficherCentres2:=1, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1.5,
+	CtrDotAngle2:=0, CtrColor2:=HexaColor("8B0000"), CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1,
+	CtrDotAngle3:=0, CtrColor3:=orange, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=whitesmoke, AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=black, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p3m1")
+	];
+Graph pavage_p31m = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55+i*0.2],0.125*i+0.3),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("050400"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("FFD700"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=2, Vecteur2:=2, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:=HexaColor("570F7E"), VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=HexaColor("570F7E"), VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=1,
+	CtrDotAngle1:=0, CtrColor1:=gold, CtrFillColor1:=white,
+	
+	AfficherCentres2:=1, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1.5,
+	CtrDotAngle2:=0, CtrColor2:=HexaColor("8B0000"), CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1,
+	CtrDotAngle3:=0, CtrColor3:=orange, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=whitesmoke, AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=gray, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p31m")
+	];
+Graph pavage_p6 = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55+i*0.2],0.125*i+0.3),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("B5860B"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("006400"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=2, Vecteur2:=2, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:=HexaColor("000000"), VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=HexaColor("000000"), VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=1,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=1, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1.5,
+	CtrDotAngle2:=0, CtrColor2:=HexaColor("000000"), CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1,
+	CtrDotAngle3:=0, CtrColor3:=orange, CtrFillColor3:=white,
+	
+	AfficherCentres4:=1, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=whitesmoke, AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=gray, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p6")
+	];
+Cmd	[IsVisible:=1];
+Graph pavage_p6m = [
+	 size(6),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.1,0.55,0.55+i*0.2],0.125*i+0.3),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("FFD600"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("8B0000"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=2, Vecteur2:=2, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:=HexaColor("000000"), VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=HexaColor("000000"), VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=1,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=1, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1.5,
+	CtrDotAngle2:=0, CtrColor2:=HexaColor("000000"), CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1,
+	CtrDotAngle3:=0, CtrColor3:=orange, CtrFillColor3:=white,
+	
+	AfficherCentres4:=1, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=HexaColor("4B0082"), CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=gray, AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=white, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p6m")
+	];
+Cmd	[IsVisible:=0];
+Graph legende = [
+	view(-4.5,7.5,-4,4.5), Marges(0,0,0,0), size(10),LabelSize:=Large,
+	background(full,HexaColor("9D9D82")),
+	LabelStyle:=left, LabelSize:=large,
+	lig:=3.5*i, col1:=-4, col2:=-2, col3:=-1.5, haut:=-i,
+	
+	Width:=8, Arrows:=1, Ligne([col1+lig, lig+col2],0), Arrows:=0,
+	Label(lig+col3, "Vecteur d'une translation"), Inc(lig,haut),
+	
+	Ligne([lig+col1, lig+col2],0),
+	Label(lig+col3, "Axe d'une réflexion (trait plein)"), Inc(lig,haut),
+	
+	LineStyle:=dashed, Ligne([lig+col1, lig+col2],0), LineStyle:=solid,
+	Label(lig+col3, "Axe d'une symétrie glissée (tirets)"), Inc(lig,haut),
+	
+	DotStyle:=dotcircle, DotScale:=2, Point(lig+(col1+col2)/2),
+	Label(lig+col3, "Point de référence du pavage"), Inc(lig,haut),
+	
+	DotStyle:=diamond', DotScale:=2, Point(lig+(col1+col2)/2),
+	Label(lig+col3, "Centre d'une symétrie centrale"), Inc(lig,haut),
+	
+	DotStyle:=square',  Point(lig+(col1+col2)/2),
+	Label(lig+col3, "Centre d'une rotation d'angle $\frac{\pi}2$"), Inc(lig,haut),
+	
+	DotStyle:=triangle',  Point(lig+(col1+col2)/2),
+	Label(lig+col3, "Centre d'une rotation d'angle $\frac{2\pi}3$"), Inc(lig,haut),
+	
+	DotStyle:=dot,  Point(lig+(col1+col2)/2),
+	Label(lig+col3, "Centre d'une rotation d'angle $\frac{\pi}3$")
+	];
+Cmd	[tMin:=-4.5,tMax:=7.5];
+Graph pavage_p4m_demo = [
+	view(-10,10,-5,5), size(12),  LineJoin:=round, LineCap:=round,
+	 {motif}
+	Motif:=shift([0.0,0.55,0.55+i*0.2],0.3*i+0.2),
+	MotifFerme:=0, MotifArrondi:=0,
+	MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=HexaColor("228B22"), MotifStrokeOpacity:=1,
+	MotifFillStyle:=none, MotifFillColor:=blue, MotifFillOpacity:=1,
+	
+	 {background}
+	BackgroundFillStyle:=full, BackgroundFillColor:=HexaColor("90E72C"), BackgroundFillOpacity:=1,
+	
+	 {cadre}
+	EncadrerMotif:=0, CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=darkgray,
+	CadreStrokeOpacity:=0.75, CadreFillStyle:=full, CadreFillColor:=lightgray,
+	CadreFillOpacity:=0.5,
+	
+	 {point de référence et vecteurs}
+	PtRef:=0, Vecteur1:=2, Vecteur2:=2, AfficherPtRef:=1,
+	PtRefDotStyle:=dotcircle, PtRefDotSize:=2+2*i, PtRefDotScale:=1.15, PtRefDotAngle:=0,
+	PtRefColor:=black, PtRefFillColor:=white,
+	
+	AfficherVecteur1:=1, VecteurLineStyle1:=solid, VecteurWidth1:=thicklines,
+	VecteurColor1:= crimson, VecteurStrokeOpacity1:=1,
+	
+	AfficherVecteur2:=1, VecteurLineStyle2:=solid, VecteurWidth2:=thicklines,
+	VecteurColor2:=crimson, VecteurStrokeOpacity2:=1,
+	
+	 {réseau}
+	AfficherReseau:=0, ReseauLineStyle:=dashed, ReseauWidth:=thinlines, ReseauColor:=lightgray,
+	ReseauStrokeOpacity:=1,
+	
+	 {rotations}
+	AfficherCentres1:=1, CtrDotStyle1:=diamond', CtrDotSize1:=2+2*i, CtrDotScale1:=0.75,
+	CtrDotAngle1:=0, CtrColor1:=white, CtrFillColor1:=white,
+	
+	AfficherCentres2:=0, CtrDotStyle2:=triangle', CtrDotSize2:=2+2*i, CtrDotScale2:=1+i,
+	CtrDotAngle2:=0, CtrColor2:=lime, CtrFillColor2:=white,
+	
+	AfficherCentres3:=1, CtrDotStyle3:=square', CtrDotSize3:=2+2*i, CtrDotScale3:=1+i,
+	CtrDotAngle3:=0, CtrColor3:=orange, CtrFillColor3:=white,
+	
+	AfficherCentres4:=0, CtrDotStyle4:=dot, CtrDotSize4:=2+2*i, CtrDotScale4:=1+i,
+	CtrDotAngle4=0, CtrColor4:=purple, CtrFillColor4:=white,
+	
+	 {réflexions glissements}
+	AfficherAxesSym:=1, AxesSymLineStyle:=solid, AxesSymWidth:=thicklines,
+	AxesSymColor:=HexaColor("A7988D"), AxesSymStrokeOpacity:=1,
+	
+	AfficherAxesGliss:=1, AxesGlissLineStyle:=dashed, AxesGlissWidth:=thicklines,
+	AxesGlissColor:=darkgreen, AxesGlissStrokeOpacity:=1,
+	
+	 {ordre affichage}
+	PavPeriodiqueOrdreAffichage:=[background, reseau, cadre, axessym, axesgliss,motif,
+	centres1, centres2, centres3, centres4, vecteur1, vecteur2, ptref],
+	
+	 {le tracé}
+	DrawPavPeriodique("p4m")
+	];

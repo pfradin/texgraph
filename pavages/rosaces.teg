@@ -1,0 +1,80 @@
+TeXgraph#
+{version 2.0}
+Cmd
+	Window(-1.30116312891558+1.30116312891558*i, 1.30116312891558-1.30116312891558*i, 3.24+3.25*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=1];
+
+Var
+    CristalloVer = 10.2;
+
+Include
+	"Cristallo.mac";
+
+Mac
+    RosaceType = "rnm";
+
+Cmd	[IsVisible:=0,tMin:=-1.1755,tMax:=1.1755,DotScale:=1+i];
+Graph RosaceRn = [
+		Fenetre(-1.5*(1+i), 1.5*(1+i), 3+3*i), Marges(0,0,0,0),
+		LineCap:=round, //NbPoints:=200,
+		AjusterFenetre:=1, FenetreEcart:=0.015,
+		{Pt de référence et direction de l'axe}
+			PtRef:=0, Vecteur1:=1,
+	
+		{Motif de base}
+			Motif:=[Get(Cercle(1.1-0.3*i, 0.1)), jump, Get(Cercle(1, 0.3)), jump,
+	Get(Cercle(0.65+0.15*i, 0.2)), jump, Get(Cercle(0.45, 0.1)), jump,
+	Get(Cercle(0.325+0.05*i, 0.075)), jump],
+	                //Get(Spline(L)),
+			MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=darkslateblue,
+	                MotifFillStyle:=full, MotifFillColor:=darkseagreen, MotifFillOpacity:=0.8,
+	                EncadrerMotif:=1,
+	                CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=dimgray,
+	                CadreFillStyle:=full, CadreFillColor:=silver,
+		{Bord et arrière-plan}
+			BordLineStyle:=solid, BordWidth:=mm, BordColor:=black,
+			BackgroundFillStyle:=full, BackgroundFillColor:=lavender,
+	
+		{Axes de symétrie}
+			AfficherAxesSym:=1, AxesSymEcart:=0.2,
+			AxesSymLineStyle:=solid, AxesSymWidth:=thinlines, AxesSymColor:=gray,
+		{Ordre d'affichage des éléments}
+			RosaceOrdreAffichage:=[background, axessym, bord, motif, cadre, ptref],
+	
+		DrawRosace("rn", 9)
+		];
+Cmd	[IsVisible:=1,tMin:=-5,tMax:=5];
+Graph RosaceRnm = [
+		Fenetre(-1.5*(1+i), 1.5*(1+i), 3.24+3.25*i), Marges(0,0,0,0),
+		LineCap:=round, NbPoints:=200,
+		AjusterFenetre:=1, FenetreEcart:=0,
+		$L:=[0.52521010418422+0.14113363274373*i,0.70133064896799+0.75031993491575*i,
+				0.13199483603239+0.06142165651544*i,0.43978655920364+0.60954159894026*i,
+				0.48058554017916+0.16553819854743*i],
+		L:=[0,0.65+0.65*i,0.88+0.6*i,0.46+0.6*i,0.54+0.7*i,0.36+0.25*i,0],
+		{Pt de référence et direction de l'axe}
+			PtRef:=0, Vecteur1:=1,
+		
+		{Motif de base}
+			Motif:=Get(Spline(L)),
+			MotifLineStyle:=solid, MotifWidth:=Thicklines, MotifColor:=gold,
+	                MotifFillStyle:=none,
+	                EncadrerMotif:=1,
+	                CadreLineStyle:=solid, CadreWidth:=thicklines, CadreColor:=dimgray,
+	                CadreFillStyle:=full, CadreFillColor:=silver,
+		{Bord et arrière-plan}
+			BordLineStyle:=solid, BordWidth:=mm, BordColor:=black,
+			BackgroundFillStyle:=full, BackgroundFillColor:=darkslategray,
+	
+		{Axes de symétrie}
+			AfficherAxesSym:=1, AxesSymEcart:=0.2,
+			AxesSymLineStyle:=solid, AxesSymWidth:=thinlines, AxesSymColor:=gray,
+		{Ordre d'affichage des éléments}
+			RosaceOrdreAffichage:=[background, axessym, bord, motif, cadre, ptref],
+		
+		DrawRosace("rnm", 9)
+		];

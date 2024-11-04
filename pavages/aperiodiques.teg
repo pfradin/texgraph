@@ -1,0 +1,596 @@
+TeXgraph#
+{version 2.0}
+Cmd
+	Window(-1+i, 1, 8+8*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=2];
+
+Var
+    CristalloVer = 10.2;
+    number = 44;
+    niv = 4;
+    xdeb = -2;
+    xfin = 2;
+    tuile = 1;
+
+Include
+	"Cristallo.mac";
+
+Mac
+    save = [
+	Export(pdfc, ["/home/pfradin/SiteTeXgraph/TeXgraph/pavages/images/aperiodique",number,".pdf"]),
+	Snapshot(pdfc,0,["/home/pfradin/SiteTeXgraph/TeXgraph/pavages/images/aperiodique",number,".png"],-1)
+	];
+
+    pfnpv = "Pinwheel variant 2";
+
+    makePavage = [
+	view(-1,1,0,1), size(16),
+	number:=%1, xdeb:=-2, xfin:=1, niv:=5, tuile:=1,
+	TilesLineStyle:=solid, TilesWidth:=4,
+	{Attributs des tuiles}
+	if number=1 then
+	        TilesColor:=gray,
+		TilesFillColor1:=HexaColor("FFFFE0"),
+		TilesFillColor2:=orange,
+		TilesFillColor3:=HexaColor("8B0000"),
+		TilesFillColor4:=gold,
+	        niv:=8
+	elif number=2 then
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor1:=HexaColor("FFD700"),
+		TilesFillColor2:=HexaColor("2E8B57"),
+	elif number=3 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("FFFFFF"),
+		TilesFillColor2:=HexaColor("6495ED"),
+	        xfin:=2,
+	elif number=4 then
+	        TilesColor:=HexaColor("F8F8FF"),
+		TilesFillColor1:=HexaColor("483D8B"),
+		TilesFillColor2:=HexaColor("483D8B"),
+		TilesFillColor3:=HexaColor("000000"),
+		TilesFillColor4:=gold,
+		xfin:=2, niv:=4
+	elif number=5 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FFD700"),
+		TilesFillColor2:=HexaColor("8B0000"),
+		niv:=16
+	elif number=6 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("4B0082"),
+		TilesFillColor2:=HexaColor("FFD3DA")
+	elif number=7 then
+	        TilesColor:=HexaColor("4B0082"),
+		TilesFillColor1:=HexaColor("5F9EA0"),
+		TilesFillColor2:=HexaColor("ADFF2F"),
+		xfin:=2, niv:=7
+	elif number=8 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("B0C4DE"),
+		TilesFillColor2:=HexaColor("000000"),
+		TilesFillColor3:=HexaColor("FFD700"),
+		xfin:=2, niv:=3
+	elif number=9 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("000000"),
+		TilesFillColor2:=HexaColor("808080"),
+		TilesFillColor3:=HexaColor("FFFFFF"),
+		niv:=3
+	elif number=10 then
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor1:=HexaColor("6495ED"),
+		TilesFillColor2:=HexaColor("DC143C"),
+		TilesFillColor3:=HexaColor("FFFFFF"),
+		xfin:=2, niv:=12
+	elif number=11 then
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor1:=HexaColor("8B0000"),
+		TilesFillColor2:=HexaColor("FFD700"),
+		TilesFillColor3:=HexaColor("FFFFFF"),
+		TilesFillColor4:=HexaColor("FF8C00")
+	elif number=12 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("00008B"),
+		TilesFillColor2:=HexaColor("ADD8E6"),
+		TilesFillColor3:=HexaColor("FFD700"),
+		TilesFillColor4:=HexaColor("000000"),
+		niv:=3
+	elif number=13 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("000080"),
+		TilesFillColor2:=HexaColor("5F9EA0"),
+		TilesFillColor3:=HexaColor("696969"),
+		TilesFillColor4:=HexaColor("32CD32"),
+	        TilesFillColor5:=HexaColor("FF7F50"),
+	      	TilesFillColor6:=HexaColor("FFA07A"),
+		TilesFillColor7:=HexaColor("006400"),
+	        TilesFillColor8:=HexaColor("D3D3D3"),
+		xfin:=2, niv:=16
+	elif number=14 then
+	       view(-0.5,0.5,0,0.5), size(16),
+	       TilesFillColor1:=HexaColor("8B0000"),
+	       TilesFillColor2:=HexaColor("FFB6C1"),
+	       TilesFillColor3:=HexaColor("FFFFFF"),
+	       TilesFillColor4:=HexaColor("483D8B"),
+	       TilesFillColor5:=HexaColor("DC143C"),
+	       TilesFillColor6:=HexaColor("FFA500"),
+	       xdeb:=-1,xfin:=1, niv:=18, tuile:=5,
+	elif number=15 then
+	        TilesLineStyle:=solid, TilesWidth:=2, TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("B0C4DE"),
+		TilesFillColor2:=HexaColor("FFFFFF"),
+		TilesFillColor3:=HexaColor("322B61"),
+		TilesFillColor4:=HexaColor("DAA520"),
+	        TilesFillColor5:=HexaColor("8B0000"),
+	      	TilesFillColor6:=HexaColor("696969"),
+		xfin:=2
+	elif number=16 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("000000"),
+		TilesFillColor2:=HexaColor("FFFFFF"),
+		TilesFillColor3:=HexaColor("FFD700"),
+		TilesFillColor4:=HexaColor("FF8C00"),
+	        TilesFillColor5:=HexaColor("2F4F4F"),
+		xfin:=2, niv:=25
+	elif number=17 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FF00FF"),
+		TilesFillColor2:=HexaColor("800080"),
+		TilesFillColor3:=HexaColor("F4A460"),
+		xfin:=2
+	elif number=18 then
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor1:=HexaColor("191970"),
+		TilesFillColor2:=HexaColor("F8CB66"),
+		TilesFillColor3:=HexaColor("F8F8FF"),
+		xfin:=2, niv:=6
+	elif number=19 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("DA70D6"),
+		TilesFillColor2:=HexaColor("800080")
+	elif number=20 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("3CB371"),
+		TilesFillColor2:=HexaColor("FFEFD5")
+	elif number=21 then
+	        TilesColor:=HexaColor("6A5ACD"),
+		TilesFillColor1:=HexaColor("FFA500"),
+		TilesFillColor2:=HexaColor("FFFFE0"),
+	        niv:=3
+	elif number=22 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FF4500"),
+		TilesFillColor2:=HexaColor("FFD700"),
+		xfin:=2, niv:=7
+	elif number=23 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("000000"),
+		TilesFillColor2:=HexaColor("D3D3D3"),
+		TilesFillColor3:=HexaColor("F9B70A"),
+		niv:=9
+	elif number=24 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FFB6C1"),
+		TilesFillColor2:=HexaColor("191970"),
+		xfin:=2, niv:=4
+	elif number=25 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("2F4F4F"),
+		TilesFillColor2:=HexaColor("FFA500"),
+		xfin:=2, niv:=16
+	elif number=26 then
+	       TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FF8C00"),
+		TilesFillColor2:=HexaColor("000080"),
+		TilesFillColor3:=HexaColor("FFDAB9"),
+		xfin:=2-i, niv:=3
+	elif number=27 then
+	        TilesColor:=HexaColor("6A5ACD"),
+		TilesFillColor1:=HexaColor("FFFFE0"),
+		TilesFillColor2:=HexaColor("FF8C00"),
+		TilesFillColor3:=HexaColor("FFD700"),
+		TilesFillColor4:=HexaColor("D3D3D3"),
+	        TilesFillColor5:=HexaColor("696969"),
+	      	TilesFillColor6:=HexaColor("000000"),
+		xfin:=2
+	elif number=28 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("2F4F4F"),
+		TilesFillColor2:=HexaColor("ADD8E6"),
+		TilesFillColor3:=HexaColor("FFD700"),
+		TilesFillColor4:=HexaColor("F8F8FF"),
+	        TilesFillColor5:=HexaColor("6495ED"),
+	      	TilesFillColor6:=HexaColor("000000"),
+		xfin:=2-2*i, niv:=3
+	elif number=29 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("8B0000"),
+		TilesFillColor2:=HexaColor("FF8C00"),
+		TilesFillColor3:=HexaColor("FFFF00"),
+		TilesFillColor4:=HexaColor("FFFFE0"),
+	        TilesFillColor5:=HexaColor("6495ED"),
+	      	TilesFillColor6:=HexaColor("000000"),
+		xdeb:=-3, xfin:=2-i, niv:=3
+	elif number=30 then
+	        TilesColor:=HexaColor("708090"),
+		TilesFillColor1:=HexaColor("FAFAD2"),
+		TilesFillColor2:=HexaColor("8B0000"),
+		niv:=3
+	elif number=31 then
+	        TilesColor:=HexaColor("4B0082"),
+		TilesFillColor1:=HexaColor("F8F8FF"),
+		TilesFillColor2:=HexaColor("808080"),
+		xdeb:=-2-2*i, xfin:=2-i, niv:=4
+	elif number=32 then
+	        TilesColor:=HexaColor("060000"),
+		TilesFillColor1:=HexaColor("191970"),
+		TilesFillColor2:=HexaColor("8B0000"),
+		TilesFillColor3:=HexaColor("D3D3D3"),
+		xdeb:=-8+i, xfin:=-2+i, niv:=10
+	elif number=33 then
+	        TilesColor:=HexaColor("F8F8FF"),
+		TilesFillColor1:=HexaColor("8B4513"),
+		TilesFillColor2:=HexaColor("F4A460"),
+		xfin:=1.5-i/2, niv:=2
+	elif number=34 then
+	        TilesColor:=HexaColor("8B0000"),
+		TilesFillColor1:=HexaColor("F0E68C"),
+		xdeb:=-3, xfin:=4+i, niv:=7
+	elif number=35 then
+	        TilesColor:=HexaColor("4D2B85"),
+		TilesFillColor1:=HexaColor("5F9EA0"),
+		TilesFillColor2:=HexaColor("ADFF2F"),
+		TilesFillColor3:=HexaColor("FFA07A"),
+	        TilesFillColor4:=HexaColor("5F9EA0"),
+		TilesFillColor5:=HexaColor("ADFF2F"),
+		TilesFillColor6:=HexaColor("FFA07A"),
+		xdeb:=-1, xfin:=1, niv:=5
+	elif number=36 then
+	        TilesColor:=HexaColor("483D8B"),
+		TilesFillColor1:=HexaColor("DC143C"),
+		TilesFillColor2:=HexaColor("000000"),
+		TilesFillColor3:=HexaColor("D0D0D0"),
+		niv:=3
+	elif number=37 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("8B0000"),
+		TilesFillColor2:=HexaColor("C0C0C0"),
+		xdeb:=-2-i/2, xfin:=1.5
+	elif number=38 then
+	        TilesColor:=HexaColor("F8F8FF"),
+		TilesFillColor1:=HexaColor("4B0082"),
+		TilesFillColor2:=HexaColor("B0C4DE"),
+		xdeb:=-2-i/2, xfin:=1.5, niv:=8
+	elif number=39 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("8B0000"),
+		TilesFillColor2:=HexaColor("C0C0C0"),
+		TilesFillColor3:=HexaColor("2F4F4F"),
+		TilesFillColor4:=HexaColor("8BAFF1"),
+	        TilesFillColor5:=HexaColor("000000"),
+	      	TilesFillColor6:=HexaColor("FFD700"),
+		xfin:=2+i, niv:=4
+	elif number=40 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("FFB6C1"),
+		TilesFillColor2:=HexaColor("DC143C"),
+		niv:=7
+	elif number=41 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("DAA520"),
+		TilesFillColor2:=HexaColor("8B0000"),
+		xfin:=2, niv:=9
+	elif number=42 then
+	       TilesColor:=HexaColor("000000"),
+	       TilesFillColor1:=HexaColor("D3D3D3"),
+	       TilesFillColor2:=HexaColor("800080"),
+	       xfin:=1-i
+	elif number=43 then
+	        TilesColor:=HexaColor("000000"), TilesLineStyle:=noline,
+		TilesFillColor1:=HexaColor("F0E68C"),
+		TilesFillColor2:=HexaColor("2E8B57"),
+		xdeb:=-3, niv:=4
+	elif number=44 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("D9D9D9"),
+		TilesFillColor2:=HexaColor("483D8B"),
+		xfin:=2, niv:=4
+	elif number=45 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FFD700"),
+		TilesFillColor2:=HexaColor("000000"),
+		xfin:=2, niv:=3
+	elif number=46 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("6A5ACD"),
+		TilesFillColor2:=HexaColor("9ACD32"),
+		xdeb:=-i, xfin:=2+i, niv:=2
+	elif number=47 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FF0000"),
+		TilesFillColor2:=HexaColor("FFFF00"),
+		xdeb:=-i, xfin:=2+i, niv:=2
+	elif number=48 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("8B008B"),
+		TilesFillColor2:=HexaColor("FF69B4"),
+		xdeb:=-i, xfin:=2+i, niv:=9
+	elif number=49 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("483D8B"),
+		TilesFillColor2:=HexaColor("ADD8E6"),
+		xdeb:=-i, xfin:=2+i, niv:=7
+	elif number=50 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("2F4F4F"),
+		TilesFillColor2:=HexaColor("E9967A"),
+		xdeb:=-i, xfin:=2+i, niv:=4
+	elif number=51 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("A85418"),
+		TilesFillColor2:=HexaColor("EEE8AA"),
+		TilesFillColor3:=HexaColor("6F0000"),
+		TilesFillColor4:=HexaColor("F4A460"),
+		niv:=6
+	elif number=52 then
+	        TilesColor:=HexaColor("000000"), TilesLineStyle:=noline,
+		TilesFillColor1:=HexaColor("000000"),
+		TilesFillColor2:=HexaColor("FFFFFF"),
+		xfin:=1-i, niv:=7
+	elif number=53 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("191970"),
+		TilesFillColor2:=HexaColor("4682B4"),
+		TilesFillColor3:=HexaColor("FFFFFF"),
+		xfin:=2, niv:=30
+	elif number=54 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("8B0000"),
+		TilesFillColor2:=HexaColor("FFA500"),
+		TilesFillColor3:=HexaColor("FFFFE0"),
+		xfin:=2, niv:=22
+	elif number=55 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("000000"),
+		TilesFillColor2:=HexaColor("FFD700"),
+		TilesFillColor3:=HexaColor("DC143C"),
+		TilesFillColor4:=HexaColor("696969"),
+	        TilesFillColor5:=HexaColor("F8F8FF"),
+		xfin:=2, niv:=45
+	elif number=56 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("F0E68C"),
+		TilesFillColor2:=HexaColor("800080"),
+		TilesFillColor3:=HexaColor("9ACD32"),
+		xfin:=2, niv:=5
+	elif number=57 then
+	        view(-0.5,0.5,0,0.5),size(16),
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor1:=HexaColor("800080"),
+		TilesFillColor2:=HexaColor("FFFFFF"),
+		TilesFillColor3:=HexaColor("ADD8E6"),
+		TilesFillColor4:=HexaColor("DC143C"),
+		xdeb:=-1, xfin:=0.5-i, niv:=12, tuile:=4
+	elif number=58 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("2F4F4F"),
+		TilesFillColor2:=HexaColor("FFFFFF"),
+		TilesFillColor3:=HexaColor("DC143C"),
+		xfin:=1-i, niv:=4
+	elif number=59 then
+	        view(-0.5,0.5,0,0.5),size(16),
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("DC143C"),
+		TilesFillColor2:=HexaColor("FFD700"),
+		TilesFillColor3:=HexaColor("6495ED"),
+		TilesFillColor4:=HexaColor("FFFFFF"),
+		niv:=9
+	elif number=60 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FF7F50"),
+		TilesFillColor2:=HexaColor("7FFF00"),
+		TilesFillColor3:=HexaColor("000000"),
+		TilesFillColor4:=HexaColor("6495ED"),
+		niv:=4
+	elif number=61 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("4B0082"),
+		TilesFillColor2:=HexaColor("FFD700"),
+		xdeb:=-2-i, xfin:=1.5, niv:=6
+	elif number=62 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("FFFFFF"),
+		TilesFillColor2:=HexaColor("000000"),
+		TilesFillColor3:=HexaColor("696969"),
+		TilesFillColor4:=HexaColor("FFA500"),
+		niv:=6
+	elif number=63 then
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor1:=HexaColor("114511"),
+		TilesFillColor2:=HexaColor("F0E68C"),
+		xdeb:=-1.5-i, xfin:=1.5, niv:=4, tuile:=2
+	elif number=64 then
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor1:=HexaColor("FFDAB9"),
+		TilesFillColor2:=HexaColor("483D8B"),
+		xdeb:=-1.75-i/3, xfin:=1.75, niv:=6, tuile:=2
+	elif number=65 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("191970"),
+		TilesFillColor2:=HexaColor("FFA500"),
+		TilesFillColor3:=HexaColor("FFFFFF"),
+		TilesFillColor4:=HexaColor("2E8B57"),
+		xdeb:=-1, xfin:=2+i
+	elif number=66 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("4682B4"),
+		TilesFillColor2:=HexaColor("FFFFFF"),
+		TilesFillColor3:=HexaColor("191970"),
+		xdeb:=-5.5, xfin:=1-i/4, niv:=4
+	elif number=67 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FFA500"),
+		TilesFillColor2:=HexaColor("CD5C5C"),
+		xfin:=2
+	elif number=68 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("A85418"),
+		TilesFillColor2:=HexaColor("EEE8AA"),
+		xfin:=2, niv:=3
+	elif number=69 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("000000"),
+		TilesFillColor2:=HexaColor("DDA0DD"),
+		TilesFillColor3:=HexaColor("FFFFFF"),
+		xdeb:=-1, xfin:=1.5, niv:=4
+	elif number=70 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("8B0000"),
+		TilesFillColor2:=HexaColor("FFD700"),
+		TilesFillColor3:=HexaColor("FF8C00"),
+		TilesFillColor4:=HexaColor("FFFFFF"),
+		xdeb:=-1-i, xfin:=1.5+i/4, niv:=6
+	elif number=71 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("8A2422"),
+		TilesFillColor2:=HexaColor("FFCD66"),
+		TilesFillColor3:=HexaColor("6B73A3"),
+		TilesFillColor4:=HexaColor("BDC9E4"),
+	        TilesFillColor5:=HexaColor("FFFFFF"),
+		xdeb:=-1.5, xfin:=1.5, niv:=3
+	elif number=72 then
+	        TilesColor:=HexaColor("800080"),
+		TilesFillColor1:=HexaColor("A52A2A"),
+		TilesFillColor2:=HexaColor("FFB6C1"),
+		TilesFillColor3:=HexaColor("F8F8FF"),
+		xdeb:=-1, xfin:=2.5, niv:=13
+	elif number=73 then
+	        TilesColor:=HexaColor("8B0000"),
+		TilesFillColor1:=HexaColor("FF8C00"),
+		TilesFillColor2:=HexaColor("FFE8BF"),
+		xdeb:=-1.5-i/3, xfin:=2+i/8, niv:=3, tuile:=2
+	elif number=74 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("6495ED"),
+		TilesFillColor2:=HexaColor("FFA07A"),
+		TilesFillColor3:=HexaColor("DC143C"),
+		TilesFillColor4:=HexaColor("191970"),
+	        TilesFillColor5:=HexaColor("FFFFFF"),
+		xdeb:=-1, xfin:=2, niv:=10, tuile:=2
+	elif number=75 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("DC143C"),
+		TilesFillColor2:=HexaColor("FFD700"),
+		TilesFillColor3:=HexaColor("00008B"),
+		TilesFillColor4:=HexaColor("2E8B57"),
+	        TilesFillColor5:=HexaColor("FFFFFF"),
+		xdeb:=-1, xfin:=1
+	elif number=76 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("FF8C00"),
+		TilesFillColor2:=HexaColor("8B4513"),
+		TilesFillColor3:=HexaColor("EEE8AA"),
+		xdeb:=-1.5, xfin:=1.5, niv:=11
+	elif number=77 then
+	        TilesColor:=HexaColor("000080"),
+		TilesFillColor1:=HexaColor("6A5ACD"),
+		TilesFillColor2:=HexaColor("B0E0E6"),
+		xdeb:=-1.5, xfin:=1.5, niv:=11
+	elif number=78 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("800080"),
+		TilesFillColor2:=HexaColor("FFD700"),
+		xdeb:=-1.5, xfin:=1.5, niv:=11
+	elif number=79 then
+	        TilesColor:=HexaColor("696969"),
+		TilesFillColor1:=HexaColor("000000"),
+		TilesFillColor2:=HexaColor("FFFFFF"),
+		xdeb:=-1.5, xfin:=1.5, niv:=11
+	elif number=80 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("D3D3D3"),
+		TilesFillColor2:=HexaColor("696969"),
+		xdeb:=-1, xfin:=3, niv:=5, tuile:=2
+	elif number=81 then
+	        TilesColor:=HexaColor("191970"),
+		TilesFillColor1:=HexaColor("FFD700"),
+		TilesFillColor2:=HexaColor("000000"),
+		TilesFillColor3:=HexaColor("696969"),
+		xdeb:=-1, xfin:=3, niv:=12, tuile:=2
+	elif number=82 then //Truchet
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("6495ED"),
+		TilesFillColor2:=HexaColor("7FFF00"),
+		xdeb:=-1, xfin:=1, niv:=18
+	elif number=83 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("FFB6C1"),
+		TilesFillColor2:=HexaColor("800080"),
+		TilesFillColor3:=HexaColor("191970"),
+		TilesFillColor4:=HexaColor("808080"),
+		xdeb:=-2.5, xfin:=2, niv:=7
+	elif number=84 then
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor3:=HexaColor("228B22"),
+		TilesFillColor4:=HexaColor("98FB98"),
+		TilesFillColor1:=HexaColor("8B4513"),
+		TilesFillColor2:=HexaColor("FFFFE0"),
+		xdeb:=-1, xfin:=1.75, niv:=2
+	elif number=85 then
+	       TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("228B22"),
+		TilesFillColor2:=HexaColor("C7F7C7"),
+		xdeb:=-3, xfin:=1.5, niv:=3
+	elif number=86 then
+	        TilesColor:=HexaColor("2F4F4F"),
+		TilesFillColor1:=HexaColor("191970"),
+		TilesFillColor2:=HexaColor("F8F8FF"),
+		xdeb:=-1-i, xfin:=2+i/8, niv:=10
+	elif number=87 then
+	        TilesColor:=HexaColor("D3D3D3"),
+		TilesFillColor1:=HexaColor("CD5C5C"),
+		TilesFillColor2:=HexaColor("000000"),
+		xdeb:=-1, xfin:=1, niv:=3
+	elif number=88 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("000000"),
+		TilesFillColor2:=HexaColor("FFFFFF"),
+		TilesFillColor3:=HexaColor("808080"),
+		xdeb:=-3-i/2, xfin:=2-i, niv:=4
+	elif number=89 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("191970"),
+		TilesFillColor2:=HexaColor("DC143C"),
+		TilesFillColor3:=HexaColor("FFD700"),
+		xdeb:=-2.5-i/2, xfin:=2.5-i, niv:=3
+	elif number=90 then
+	        TilesColor:=HexaColor("000000"),
+		TilesFillColor1:=HexaColor("A0522D"),
+		TilesFillColor2:=HexaColor("FFFFE0"),
+		xdeb:=-1.5-i/3, xfin:=1-i/2, niv:=3
+	fi,
+	ReCalc(Dessin_Pavage),
+	//save()
+	];
+
+Cmd	[tMin:=-5,tMax:=5,DotScale:=1+i];
+Graph Choix_Pavage = [
+	 	view(-1,1,0,1), Marges(0,0,0,0), size(16),
+	        makePavage(44) //entre 1 et 90
+	];
+Graph Dessin_Pavage = [       $P:=PavAperiodiqueTiles(number,xdeb,xfin, tuile),
+		{Génération du pavage}
+	        $Pav:=PavAperiodique(number, P, niv),
+		{Dessin du pavage}
+		DrawTiles(Pav),
+		{Affichage du nom du pavage}
+		PavAperiodiqueNames(number, "pfnpv", 0),
+		LineStyle:=noline, FillStyle:=full, FillOpacity:=0.7,
+		LabelStyle:=bottom+left+framed, LabelSize:=large,
+		LabelDot(Xmin+i*Ymin, ["\slshape ", @pfnpv], "NE", 0, 0.1)
+	];

@@ -1,0 +1,80 @@
+TeXgraph#
+{version 2.0}
+Cmd
+	Window(-1+i, 1, 8+8*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=2];
+
+Var
+    number = 82;
+    niv = 19;
+    xdeb = -1;
+    xfin = 1;
+    tuile = 2;
+    CristalloVer = 10.2;
+
+Include
+	"Cristallo.mac";
+
+Mac
+    save = [
+	Export(pdfc, ["/home/pfradin/SiteTeXgraph/TeXgraph/pavages/images/truchet",tuile,".pdf"]),
+	Snapshot(pdfc,0,["/home/pfradin/SiteTeXgraph/TeXgraph/pavages/images/truchet",tuile,".png"],-1)
+	];
+
+    pfnpv = "Truchet";
+
+    makePavage = [
+	view(-1,1,0,1), size(16),
+	tuile:=%1, xdeb:=-1, xfin:=1, niv:=19, number:=82,
+	TilesLineStyle:=solid, TilesWidth:=8,
+	{Attributs des tuiles}
+	if tuile=1 then
+	        TilesColor:=black,
+		TilesFillColor1:=HexaColor("DC143C"),
+		TilesFillColor2:=HexaColor("FFD700")
+	elif tuile=2 then
+	        TilesColor:=HexaColor("FFFFFF"),
+		TilesFillColor1:=HexaColor("6495ED"),
+		TilesFillColor2:=HexaColor("7FFF00")
+	elif tuile=3 then
+	        TilesColor:=black,
+		TilesFillColor1:=HexaColor("FF8C00"),
+		TilesFillColor2:=HexaColor("FFFF00")
+	elif tuile=4 then
+	        TilesColor:=black,
+		TilesFillColor1:=HexaColor("696969"),
+		TilesFillColor2:=HexaColor("D3D3D3")
+	elif tuile=5 then
+	        TilesColor:=white,
+		TilesFillColor1:=HexaColor("191970"),
+		TilesFillColor2:=HexaColor("FFB6C1")
+	elif tuile=6 then
+	        TilesColor:=black,
+		TilesFillColor1:=HexaColor("8B0000"),
+		TilesFillColor2:=HexaColor("DAA520")
+	fi,
+	ReCalc(Dessin_Pavage),
+	//save()
+	];
+
+Cmd	[tMin:=-5,tMax:=5,DotScale:=1+i];
+Graph Choix_Pavage = [
+	 	view(-1,1,0,1), Marges(0,0,0,0), size(16),
+	        makePavage(2) //entre 1 et 6
+	
+	];
+Graph Dessin_Pavage = [       $P:=PavAperiodiqueTiles(number,xdeb,xfin, 1),
+		{Génération du pavage}
+	        $Pav:=PavAperiodique(number, P, niv),
+		{Dessin du pavage}
+		DrawTruchetTiles(Pav,tuile),
+		{Affichage du nom du pavage}
+		PavAperiodiqueNames(number, "pfnpv", 0),
+		LineStyle:=noline, FillStyle:=full, FillOpacity:=0.7,
+		LabelStyle:=bottom+left+framed, LabelSize:=large,
+		LabelDot(Xmin+i*Ymin, ["\slshape ", @pfnpv], "NE", 0, 0.1)
+	];
