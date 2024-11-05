@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+    
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="text/css" rel="stylesheet" href="../SVGAnimation.css">
+    <title>Animation</title>
+  </head>
+
+  <body>
+    <div style="width:100%; text-align:center;"> <a href="../GalerieAnim.html#Newton">Retour</a> </div>
+    <div id="anim1" style="width:480px" class="SVGanimation" >
+      <div class="titre" id="anim1_titre">Le titre</div>
+      <img src="img/image001.svg" id="img" class="img_anim" alt="animation1">
+      <div class="message" id="anim1_message">Chargement en cours ...</div>
+      <div id="anim1_boutons" class="SVGbutton"></div> 
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!--<script src="../jquery.min.js"></script>-->
+    <script src="data.js"></script>
+    <script src="../SVGAnimation.js"></script>
+    <script src="../SVGPlayerButtons.js"></script>
+
+    <script>
+      $(window).load(function() {
+        a1 = new Animation('anim1','img/image');//id, prefixe
+        a1.loopOnload();
+        b1 = new SVGPlayerButtons(a1);
+        b1.connect();
+      });
+    </script>
+  </body>
+</html>

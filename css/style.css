@@ -129,8 +129,6 @@ a:hover{
     font-size:10pt;
     width : 920px;
     margin      : 0px auto;
-    -moz-box-shadow: #343434 10px 10px 10px ;
-    -webkit-box-shadow: #343434 10px 10px 10px ;
     box-shadow: #343434 10px 10px 10px ;
 }
 

@@ -1,0 +1,186 @@
+TeXgraph#
+{version 2.0}
+Cmd
+	Window(-4.75+5.75*i, 4.75-3.75*i, 1.05263157894737+1.05263157894737*i); 
+	Margin(0, 0, 0, 0);
+	Border(0);
+	[OriginalCoord(1), IdMatrix()];
+	[theta:=0.5236, phi:=1.0472, IdMatrix3D(), ModelView(ortho)];
+	[GrayScale(0), ComptGraph:=0];
+
+Var
+    R = 2;
+    Rs = R*(2-sqrt(2));
+    Rar = R*sqrt(2);
+    d = R*(sqrt(2)-1);
+    posOeuf = [i*R,45, i*R,90, i*R,-45, i*R,-135+i, 0,0, 0,90, -R,i, R,-180, 0,i ];
+    sect = 1;
+    arr = 2;
+    tr = 3;
+    rnd = 4;
+    pt = 5;
+    nbposes = 7;
+    AnimationVer = 1.3;
+
+Include
+	"MacrosAnim.mac";
+	"Animation.mac";
+
+Mac
+    Nom = "";
+
+    pos0 = [
+	{sect 1}        i*R,45,
+	{sect 2}        i*R,90,
+	{tr arrondi 1}  i*R,-45,
+	{tr arrondi 2}  i*R,-135+i,
+	{tri rect 1}    0,0,
+	{tri rect 2}    0,90,
+	{arrondi 1}     -R,i,
+	{arrondi 2}     R,-180,
+	{Pt}            0,i
+	];
+
+    pos1 = [
+	{sect 1}        Rs*exp(i*pi/4),0,
+	{sect 2}        2*Rs*exp(i*pi/4)+Rar*exp(i*3*pi/4)+Rs,180+i,
+	{tr arrondi 1}  2*Rs*exp(i*pi/4),135,
+	{tr arrondi 2}  0,180,
+	{tri rect 1}    2*Rs*exp(i*pi/4)+(Rar-R)*exp(3*i*pi/4),45,
+	{tri rect 2}    -i*Rs,-135,
+	{arrondi 1}     Rs*exp(i*pi/4)+Rs,180,
+	{arrondi 2}     -Rs+Rs*exp(i*3*pi/4), -45,
+	{Pt}            -(Rs+d), 0
+	];
+
+    pos2 = [
+	{sect 1}        0.5+(Rs+R)*exp(i*pi/4),180,
+	{sect 2}        0.5+Rs*exp(i*3*pi/4)+Rs*(-1+i),-135,
+	{tr arrondi 1}  0.5+Rs*exp(i*3*pi/4)-Rs,0,
+	{tr arrondi 2}  0.5+Rs*exp(i*3*pi/4)+Rs*(-1+i)-Rar*exp(i*pi/4),45,
+	{tri rect 1}    0.5+(Rs+R)*exp(i*pi/4),-135,
+	{tri rect 2}    0.5-i*Rs,-135,
+	{arrondi 1}     0.5-i*Rs,90,
+	{arrondi 2}     0.5+Rs*exp(i*pi/4)+Rs, 180,
+	{Pt}            0.5+i*d, i
+	];
+
+    pos3 = [
+	{sect 1}        Rs*exp(i*3*pi/4)+Rar*i,45,
+	{sect 2}        Rs*exp(i*3*pi/4)+Rar*i,0,
+	{tr arrondi 1}  0,45,
+	{tr arrondi 2}  Rs*exp(i*3*pi/4),90,
+	{tri rect 1}    Rs*exp(i*pi/4)+R,90,
+	{tri rect 2}    -i*Rs,-135,
+	{arrondi 1}     Rs*exp(i*3*pi/4)-Rs,i,
+	{arrondi 2}     Rs*exp(i*pi/4)+Rs,-180,
+	{Pt}            Rs*exp(i*3*pi/4)+Rar*i+d*exp(-i*pi/4),-45
+	];
+
+    pos4 = [
+	{sect 1}        i-Rs/2+Rs*exp(-3*i*pi/4)-R-i*Rs,90,
+	{sect 2}        i-Rs/2+2*Rs*exp(-3*i*pi/4),0,
+	
+	{tr arrondi 1}  i+Rs/2+Rs*exp(-i*pi/4)+Rs*exp(i*pi/4),-45+i,
+	{tr arrondi 2}  i+Rs/2+Rs*exp(-i*pi/4),135+i,
+	
+	{tri rect 1}    i-Rs/2+Rs*exp(-3*i*pi/4)-R,i,
+	{tri rect 2}    i-i*(R-Rs/2),-135,
+	
+	{arrondi 1}     i-3*Rs/2+Rs*exp(-i*3*pi/4),0,
+	{arrondi 2}     i+Rs/2+Rs*exp(-i*pi/4),135,
+	
+	{Pt}            i+Rs/2+d*exp(i*3*pi/4),135
+	];
+
+    pos5 = [
+	{sect 1}        1+Rs-R,135,
+	{sect 2}        1+Rs*exp(-3*i*pi/4),-135,
+	
+	{tr arrondi 1}  1+Rs-R,135+i,
+	{tr arrondi 2}  1-R,180,
+	
+	{tri rect 1}    1-R,i,
+	{tri rect 2}    1+Rs,90,
+	
+	{arrondi 1}     1+Rs-R+(Rar-Rs)*exp(i*pi/4),45,
+	{arrondi 2}     1+Rs,180,
+	
+	{Pt}            1+Rs+i*(R+Rs+d),i
+	];
+
+    pos6 = [
+	{sect 1}        -1+(-R+2*Rs)*exp(i*pi/4),45,
+	{sect 2}        -1+R*exp(i*pi/4),0,
+	
+	{tr arrondi 1}  -1+R*exp(i*pi/4),-90,
+	{tr arrondi 2}  -1+(R+Rs)*exp(i*pi/4),0,
+	
+	{tri rect 1}    -1+0,-45,
+	{tri rect 2}    -1+0,-135,
+	
+	{arrondi 1}     -1+R*exp(i*pi/4),45,
+	{arrondi 2}     -1+(-R+Rs)*exp(i*pi/4)-Rs,0,
+	
+	{Pt}            -1+(-R+Rs)*exp(i*pi/4)-d,i
+	];
+
+    piece = [
+	$num:=%1, $pos:=%2, $ang:=Re(%3)*deg, $sm:=Ent(Im(%3)),
+	SaveAttr(),
+	if sm=1 then ComposeMatrix( matrix( bar(z)*exp(i*ang)+pos) ),
+	else ComposeMatrix( matrix( z*exp(i*ang)+pos) )
+	fi,
+	if num<3 then Path( [0,Rs,line, 0, Rs*exp(i*pi/4), Rs, 1, arc, closepath])  {secteurs}
+	elif num<5 then Path( [0, Rar, line, -i*Rar, i*Rar, 2*R,1, arc, closepath]) {triangles arrondis}
+	elif num<7 then Path( [0, R, i*R, line, closepath])       {triangles rectangles}
+	elif num<9 then Path( [0, R-d, R+i*d, R+i*R, line, R, 0, R, 1, arc, closepath])  {arrondis}
+	elif num=9 then Path( [0, d, i*d,-d, line, closepath])                           {petit triangle}
+	fi,
+	RestoreAttr()
+	];
+
+    Tempo = 100;
+
+    drawPos = [$k:=0,
+	 for $Z in %1 by 2 do
+	     Inc(k,1),
+	     piece(k, Z[1], Z[2])
+	od
+	];
+
+    NbFrames = 30*nbposes;
+
+    MakeFrame = [{code pour dessiner la frame n° %1}
+	$num1:=div(%1-1,30), $frame:=mod(%1-1,30)+1,
+	$num2:=num1+1,
+	if num2=nbposes then num2:=0 fi,
+	if frame>11 And frame<31 then
+	    stock:=((30-frame)*Eval(["pos",num1,"()"])+(frame-10)*Eval(["pos",num2,"()"]))/20,
+	    ReCalc(tangram)
+	fi
+	];
+
+    OnEndAnim = [{exécutée à la fin de l'animation}
+	
+	];
+
+    OnBeginAnim = [{exécutée au lancement de l'animation}
+	
+	];
+
+    Initialiser = [{valeurs par défaut de vos paramètres}
+	 stock:=pos0(), ReCalc(tangram)
+	];
+
+Cmd	[tMin:=-5,tMax:=5,DotScale:=1+i];
+Graph fond = [
+	view(-4.75,4.75,-3.75,5.75), Marges(0,0,0,0), size(10,1),
+	background(full,darkblue)
+	];
+Cmd	[tMin:=-3.5,tMax:=3.5];
+Graph tangram = [
+	Width:=8, Color:=darkblue,
+	FillStyle:=full, FillColor:=gold,
+	drawPos(stock)
+	];

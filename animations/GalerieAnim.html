@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>TeXgraph - Animations</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="Logiciel de dessin pour LaTeX, création de courbes, graphiques, tableaux de variations,... au format eepic ou Pstricks" 
+        name="description">
+    <meta content="TeXgraph,graphiques,Tex,Latex,PsTricks,dessin,courbes,figures,pavages" name="keywords">
+    <meta http-equiv="Content-Language" content="fr">
+    <meta content="Patrick FRADIN" name="author">
+        <script type="text/x-mathjax-config">
+                MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript"
+                src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+</head>
+<body>
+<a name="gotop"></a>
+
+<div class="contenu">
+<div class="haut">
+<div id="titre">
+<h1>Galerie Animations</h1>
+<p class="center"> <a href="../index.html">Accueil</a></p>
+</div>
+<div id="logo">
+<p><img src="../images/logoTeXgraph.png"  alt=""></p>
+</div>
+</div>
+
+<div class="tegpresentation">
+<p align="justify">
+    Les exemples ci-dessous illustrent l'utilisation du modèle <i>Animations.mod</i>. TeXgraph peut enregistrer l'animation en javascript (une image svg par frame, celles-ci sont ensuite visionnées dans un cadre muni de boutons). L'animation peut également être enregistrée dans un fichier pdf avec une frame par page (chaque frame est export en tikz). Ce fichier pdf peut être transformé en gif animé, ou en flash (qui n'est plus conseillé) à condition d'avoir l'utilitaire l'utilitaire <i>pdf2swf</i> de la suite <a href="https://www.swftools.org/">swftools</a> qui est invoqué pour effectuer la conversion de pdf vers flash.</p>
+    
+<p align="center">Il suffit de cliquer sur l'image pour faire apparaître l'animation.</p>
+
+</div>
+
+<!-- Animation 1 -->
+<a id="Newton"></a>
+<h2>Équerre de Newton</h2>
+<div class="tegpresentation" style="text-align : center;">
+<a href="equerreNewton/index.html">
+    <img src="equerreNewton/equerreNewton.png" width="30%" alt="">
+</a>
+<div class="tegcomment">
+Illustration d'une propriété de la strophoïde droite permettant de tracer celle-ci avec une équerre. Le fichier utilise les macros du modèle <b>instrumentsDessin.mod</b> de <i>Joffrey Cottin</i>. (<a href="equerreNewton/equerreNewton.teg">fichier source</a>)
+</div>
+</div>
+
+<!-- Animation 2 -->
+<a id="tangram"></a>
+<h2>Tangram</h2>
+<div class="tegpresentation" style="text-align : center;">
+<a href="tangram/index.html">
+    <img src="tangram/tangram.png" alt="">
+</a>
+<div class="tegcomment">
+Différentes figures de tangram avec transitions. Lorsqu'une pièce donne l'impression de sauter, c'est parce qu'elle est retournée. (<a href="tangram/tangram.teg">fichier source</a>)
+</div>
+</div>
+
+<div class="bas">
+<p class="center"><a href="GalerieAnim.html#gotop">Haut</a></p>
+</div>
+
+</div>
+</body>
+</html>
