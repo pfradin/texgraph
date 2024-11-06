@@ -1,0 +1,115 @@
+"Animation" 
+"1.3"
+"1.96"
+"Le modèle Animation.mod permet de créer des animations dans l'interface graphique, et de les exporter pour le web (images svg animées avec du javascript), ou aux formats : pdf, flash ou gif animé. Ce paquet inclut également le modèle Capture.mod qui permet la capture d'images dans un graphique, puis d'en faire une animation."
+
+"Arbres" 
+"0.1"
+"1.94"
+"Le modèle Arbres.mod  permet de créer des arbres à la souris."
+
+"Calendrier" 
+"1.0"
+"1.94"
+"Le modèle Calendrier.mod permet la création d'un calendrier personnalisable avec un jeu d'options."
+
+"CourbesNiv" 
+"0.6"
+"1.97"
+"Le modèle du fichier CourbesNiv.mac permet le dessin d'une surface cartésienne avec des courbes de niveaux en z, soit à la souris dans l'interface graphique, ou bien sous forme de commandes."
+
+"Cristallo"  
+"10.20"
+"1.95"
+"Le modèle Cristallo.mod permet la création de multiples pavages du plan."
+
+"drawFunction"
+"0.1"
+"1.97"
+"Le modèle drawFunction.mod permet de représenter un diagramme sagittal entre deux ensembles finis."
+
+"exportpst"
+"0.2"
+"1.95"
+"Le modèle exportpst.mod propose un menu dans l'interface graphique qui permet la création de grilles, axes, courbes, points, domaines, ces macros permettent également l'export pstricks de ces éléments en utilisant les macros évoluées de pstricks comme psgrid, psaxes, psplot ..., contrairement à l'export par défaut."
+
+"Ghyperbolic"
+"0.1"
+"1.95"
+"Le modèle Ghyperbolic.mac permet le tracé de figures élémentaires (droites, polygones,...) en géométrie hyperbolique du demi-plan y>0, ou bien du disque unité."
+
+"gate"
+"0.2"
+"1.99"
+"Le modèle gate.mod permet la réalisation de circuits électroniques par des portes booléennes orientables."
+
+"graphes"
+"0.7"
+"1.99"
+"Le modèle graphes.mod permet la réalisation de graphes avec un jeu d'options, soit à la souris dans l'interface graphique, ou bien sous forme de commandes."
+
+"grid"
+"0.3"
+"1.97"
+"Le modèle grid.mod  permet le tracé de droites graduées, d'axes Ox ou Oy ou de grilles, avec un jeu d'options. Ce modèle est automatiquement chargé par TeXgraph depuis la version 1.99."
+
+"imitTableur"
+"0.3"
+"1.974"
+"Le modèle imitTableur.mod permet le dessin d'une feuille de calculs et non de faire des calculs."
+
+"instrumentsDessin"
+"0.2"
+"1.95"
+"Le modèle instrumentsDessin.mod permet de représenter des instruments de dessin (crayon, compas, règle, rapporteur, équerre) avec un jeu d'options."
+
+"moustache"
+"0.4"
+"1.95"
+"Le modèle moustache.mod permet la réalisation de boîtes à moustaches avec un jeu d'options."
+
+"ornaments"
+"0.2"
+"1.97"
+"Le modèle ornaments.mod permet le dessin de motifs d'ornement. Ceux-ci sont au nombre de 196 et sont décrits dans le fichier d'aide. Ils sont tirés du site: http://www.vectorian.net/index.html (version libre)."
+
+"papiers"
+"0.4"
+"1.94"
+"Le modèle papiers.mod propose essentiellement la macro papier( type, <, [options]> ) qui permet de dessiner différents types de papiers quadrillés."
+
+"patrons"
+"0.1"
+"1.94"
+"Le modèle patrons.mod  propose la macro patron( polyèdre convexe, [options] ) qui calcule et renvoie le patron d'un polyèdre convexe."
+
+"PolyedresII"
+"2.1"
+"1.95"
+"Le modèle PolyedresII.mod propose des macros permettant de créer un grand nombre de polyèdres. Ces solides peuvent aussi bien être convexes que non convexes."
+
+"povray"
+"0.96"
+"1.96"
+"Le modèle povray.mod propose un menu dans l'interface graphique qui permet un export vers povray. Les macros du fichiers draw3d.mac sont redéfinies avec le préfixe pov. La macro povScene remplace la commande Build3D."
+
+"resol_equation"
+"1.1"
+"1.96"
+"Le modèle resol_equation.mod permet la réalisation de graphes avec un jeu d'options, soit à la souris dans l'interface graphique, ou bien sous forme de commandes."
+
+"semiLog"
+"0.5"
+"1.962"
+"Le modèle semiLog.mod permet la création d'une grille avec l'un des axes (ou les deux) gradué logarithmiquement, ainsi que le dessin d'un nuage de points, d'une ligne polygonale ou d'une droite."
+
+"tableur"
+"0.4"
+"1.99"
+"Le modèle tableur.mod permet la création et la gestion de tableaux avec des calculs de type tableur (le modèle variations.mod est requis)."
+
+"variations"
+"0.9"
+"1.99"
+"Le modèle variations.mod permet de dimensionner un tableau, placer des labels dans les cases du tableau, dessiner des flèches, des barres, des doubles-barres, des cadres, modifier la taille d'une ou plusieurs lignes ou colonnes..."
+
