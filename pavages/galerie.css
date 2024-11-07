@@ -1,12 +1,10 @@
 body {
-/*background: #FDFDCB url(../backg2.png) repeat-x;*/
-background-image : url(../images/webFond.jpg) ;
-background-attachment:fixed;
 padding:0;
 margin:1% 8% 1% 8%;
 height:100%;
 font-family : Verdana, Arial, Helvetica, sans-serif;
 font-size : 10pt;
+background-image : url(../images/webFond.jpg) ;
 /*background-color :  #EBD9A7;*/
 }
 
@@ -15,14 +13,11 @@ font-size : 10pt;
     height: 60px;
     background: #1C4E63; /*#c3c1ff;*/
     background-repeat:no-repeat;
-        border: 1px solid black;
+    border: 1px solid black;
     text-align:center;
     color: white;
     font-family:Verdana, Arial, Helvetica, sans-serif;
-
--webkit-box-shadow: #343434 10px 10px 10px ;
--moz-box-shadow: #343434 10px 10px 10px ;
-box-shadow: #343434 10px 10px 10px ;
+    box-shadow: #343434 10px 10px 10px ;
 }
 
 /* Style du haut */
@@ -105,9 +100,7 @@ box-shadow: #343434 10px 10px 10px ;
     background:#EEEEEE;
     color:#006633;
     font-size:1.4em;
--webkit-box-shadow: #343434 10px 10px 10px ;
--moz-box-shadow: #343434 10px 10px 10px ;
-box-shadow: #343434 10px 10px 10px ;
+    box-shadow: #343434 10px 10px 10px ;
 }
 #contenu a {
     text-decoration: none;
@@ -128,9 +121,7 @@ pre {
     margin-bottom:20px;
     margin-top:10px;
     border:1px solid #AAA;
--webkit-box-shadow: #343434 10px 10px 10px ;
--moz-box-shadow: #343434 10px 10px 10px ;
-box-shadow: #343434 10px 10px 10px ;
+    box-shadow: #343434 10px 10px 10px ;
 }
 
 .tegcomment {
@@ -141,10 +132,7 @@ box-shadow: #343434 10px 10px 10px ;
     margin:5px 0px 0px 0px;
     font-size:1em;
     margin-top:10px;
-
--webkit-box-shadow: #343434 10px 10px 10px ;
--moz-box-shadow: #343434 10px 10px 10px ;
-box-shadow: #343434 10px 10px 10px ;
+    box-shadow: #343434 10px 10px 10px ;
 }
 
 .categories {
@@ -165,12 +153,9 @@ box-shadow: #343434 10px 10px 10px ;
     padding:10px;
     font-family:Verdana, Arial, Helvetica, sans-serif;
     text-align:center;
-        margin-bottom:20px;
-        margin-top:10px;
-
--webkit-box-shadow: #343434 10px 10px 10px ;
--moz-box-shadow: #343434 10px 10px 10px ;
-box-shadow: #343434 10px 10px 10px ;
+    margin-bottom:20px;
+    margin-top:10px;
+    box-shadow: #343434 10px 10px 10px ;
 }
 
 /*
