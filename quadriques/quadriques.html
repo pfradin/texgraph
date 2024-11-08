@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Les quadriques</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta content="povray,WebGL,quadriques,TeXgraph" name="keywords">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <style>
+	img { border: 1px solid blue; }
+	.tegpresentation {text-align : center;}
+	.tegcomment {text-align : justify;}
+	table {width:100%;}
+	table td {width:20%; text-align:center;}
+	table td {vertical-align:top;}
+    </style>
+</head>
+
+<body>
+<a id="gotop"></a>
+
+<div class="contenu">
+
+<div class="haut">
+<div id="titre">
+<h1>Les quadriques</h1>
+<p class="center"> <a href="../index.html">Accueil</a></p>
+</div>
+<div id="logo">
+<p><img src="../images/logoTeXgraph.png"  alt=""></p>
+</div>
+</div>
+
+<div class="tegcomment">
+<p>Cette page propose une visualisation des quadriques de l'espace sous forme de vignettes. Un clic sur une vignette permet de voir l'image en grand (export povray), et un clic sur le logo <img src="../images/logoWebGL.png"  width="24" alt="../images/logoWebGL.png"> de <i>WeBGL</i> sous la vignette, ouvrira une page contenant la figure au format WebGL permettant la manipulation à la souris de la figure. Votre navigateur doit pour cela autoriser javascript.</p>
+</div>
+
+<div class="tegpresentation">
+<table>
+<tr>
+<td>Ellipsoïde</td>
+<td>Hyperboloïde à une nappe</td>
+<td>Hyperboloïde à deux nappes</td>
+</tr>
+<tr>
+<td><a href="ellipsoide.png"><img src="ellipsoideBis.png"  alt="ellipsoideBis.png"></a> </td>
+<td><a href="hyperboloide1.png"><img src="hyperboloide1Bis.png"  alt="hyperboloide1Bis.png"></a> </td>
+<td><a href="hyperboloide2.png"><img src="hyperboloide2Bis.png"  alt="hyperboloide2Bis.png"></a> </td>
+</tr>
+<tr>
+<td>\[\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\]<a href="ellipsoide.html"><img src="../images/logoWebGL.png"  alt="../../images/logoWebGL.png"></a></td>
+<td>\[\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1\]<a href="hyperboloide1.html"><img src="../images/logoWebGL.png"  alt="../images/logoWebGL.png"></a></td>
+<td>\[\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=-1\]<a href="hyperboloide2.html"><img src="../images/logoWebGL.png"  alt="../images/logoWebGL.png"></a></td>
+</tr>
+</table>
+</div>
+
+
+<div class="tegpresentation">
+<table>
+<tr>
+<td>Cône</td>
+<td>Paraboloïde elliptique</td>
+<td>Paraboloïde hyperbolique</td>
+</tr>
+<tr>
+<td><a href="cone.png"><img src="coneBis.png"  alt="coneBis.png"></a> </td>
+<td><a href="paraboloideElliptique.png"><img src="paraboloideElliptiqueBis.png"  alt="paraboloideElliptiqueBis.png"></a> </td>
+<td><a href="paraboloideHyperbolique.png"><img src="paraboloideHyperboliqueBis.png"  alt="paraboloideHyperboliqueBis.png"></a> </td>
+</tr>
+<tr>
+<td>\[\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0\]<a href="cone.html"><img src="../images/logoWebGL.png"  alt="../../images/logoWebGL.png"></a></td>
+<td>\[\frac{x^2}{a^2}+\frac{y^2}{b^2}=z\]<a href="paraboloideElliptique.html"><img src="../images/logoWebGL.png"  alt="../images/logoWebGL.png"></a></td>
+<td>\[\frac{x^2}{a^2}-\frac{y^2}{b^2}=z\]<a href="paraboloideHyperbolique.html"><img src="../images/logoWebGL.png"  alt="../images/logoWebGL.png"></a></td>
+</tr>
+</table>
+</div>
+
+<div class="tegpresentation">
+<table>
+<tr>
+<td>Cylindre elliptique</td>
+<td>Cylindre hyperbolique</td>
+<td>Cylindre parabolique</td>
+</tr>
+<tr>
+<td><a href="cylindreElliptique.png"><img src="cylindreElliptiqueBis.png"  alt="cylindreElliptiqueBis.png"></a> </td>
+<td><a href="cylindreHyperbolique.png"><img src="cylindreHyperboliqueBis.png"  alt="cylindreHyperboliqueBis.png"></a> </td>
+<td><a href="cylindreParabolique.png"><img src="cylindreParaboliqueBis.png"  alt="cylindreParaboliqueBis.png"></a> </td>
+
+</tr>
+<tr>
+<td>\[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\]<a href="cylindreElliptique.html"><img src="../images/logoWebGL.png"  alt="../../images/logoWebGL.png"></a></td>
+<td>\[\frac{x^2}{a^2}-\frac{y^2}{b^2}=1\]<a href="cylindreHyperbolique.html"><img src="../images/logoWebGL.png"  alt="../images/logoWebGL.png"></a></td>
+<td>\[\frac{x^2}{a^2}=y\]<a href="cylindreParabolique.html"><img src="../images/logoWebGL.png"  alt="../images/logoWebGL.png"></a></td>
+</tr>
+</table>
+</div>
+
+<div class="bas">
+<p class="center"><a href="quadriques.html#gotop">Haut</a></p>
+</div>
+
+</div>
+<a id="bottom"></a>
+</body>
+</html>

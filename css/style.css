@@ -97,13 +97,13 @@ a:hover{
 
 .gauche{
     float:left;
-    width : 20%;
+    width : 24%;
     font-size : 10pt;
 }
 
 .droit{
     float:right;
-    width : 74%;
+    width : 70%;
     border-left:1px solid #AAA;
 }
 
