@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Pavages sphériques</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <meta content="povray,WebGL,pavages sphériques,TeXgraph" name="keywords">
+    <style>
+    img { border: 1px solid blue; }
+    .tegcomment {text-align : justify;}
+    table {width:100%;}
+    table td {width:50%; text-align:center;}
+    table td {vertical-align:top;}
+    .galerie {
+    padding:3px;
+    color: black;
+    text-align : center;
+    }
+    </style>    
+</head>
+
+<body>
+<div class="contenu" id="gotop">
+
+<div class="haut">
+<div id="titre">
+<h1 class="center">Pavages sphériques</h1>
+<p class="center"> <a href="../index.html">Accueil</a></p>
+</div>
+<div id="logo">
+<p><img src="../images/logoTeXgraph.png" alt=""></p>
+</div>
+</div>
+
+<div class="tegcomment">
+<p>Cette page propose une visualisation des pavages réguliers de la sphère par des polyèdres IFR. Un clic sur l'image (export povray) ouvrira une page contenant la figure au format WebGL permettant la manipulation à la souris de la figure. À l'intérieur de la sphère on trouvera le solide qui sert de base au pavage (en enlevant les objets dont le numéro est impair). Votre navigateur doit pour cela autoriser le javascript.</p>
+</div>
+
+<div class="galerie" id="ligne1">
+<table>
+<tr >
+<td>Pavage avec tétraèdre</td>
+<td>Pavage avec octaèdre</td>
+</tr>
+<tr >
+<td ><a href="pavageTetraedre.html"><img src="pavageTetraedre.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageOctaedre.html"><img src="pavageOctaedre.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne2">
+<table>
+<tr >
+<td>Pavage avec dodécaèdre</td>
+<td>Pavage avec icosaèdre</td>
+</tr>
+<tr >
+<td ><a href="pavageDodecaedre.html"><img src="pavageDodecaedre.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageIcosaedre.html"><img src="pavageIcosaedre.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne3">
+<table>
+<tr >
+<td>Pavage avec tétraèdre tronqué</td>
+<td>Pavage avec cube tronqué</td>
+</tr>
+<tr >
+<td ><a href="pavageTetraedreTrq.html"><img src="pavageTetraedreTrq.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageCubeTrq.html"><img src="pavageCubeTrq.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne4">
+<table>
+<tr >
+<td>Pavage avec octaèdre tronqué</td>
+<td>Pavage avec icosaèdre tronqué</td>
+</tr>
+<tr >
+<td ><a href="pavageOctaedreTrq.html"><img src="pavageOctaedreTrq.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageIcosaedreTrq.html"><img src="pavageIcosaedreTrq.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne5">
+<table>
+<tr >
+<td>Pavage avec dodécaèdre tronqué</td>
+<td>Pavage avec cuboctaèdre</td>
+</tr>
+<tr >
+<td ><a href="pavageDodecaedreTrq.html"><img src="pavageDodecaedreTrq.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageCuboctaedre.html"><img src="pavageCuboctaedre.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne6">
+<table>
+<tr >
+<td>Pavage avec icosidodécaèdre</td>
+<td>Pavage avec petit rhombicuboctaèdre</td>
+</tr>
+<tr >
+<td ><a href="pavageIcosidodecaedre.html"><img src="pavageIcosidodecaedre.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicuboctaedre.html"><img src="pavageRhombicuboctaedre.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne7">
+<table>
+<tr >
+<td>Pavage avec grand rhombicuboctaèdre</td>
+<td>Pavage avec petit rhombicosidodécaèdre</td>
+</tr>
+<tr >
+<td ><a href="pavageGdRhombicuboctaedre.html"><img src="pavageGdRhombicuboctaedre.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicosidodecaedre.html"><img src="pavageRhombicosidodecaedre.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne8">
+<table>
+<tr >
+<td>Pavage avec grand rhombicosidodécaèdre</td>
+<td>Pavage avec cube adouci</td>
+</tr>
+<tr >
+<td ><a href="pavageGdRhombicosidodecaedre.html"><img src="pavageGdRhombicosidodecaedre.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageCubeAdc.html"><img src="pavageCubeAdc.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne9">
+<table>
+<tr >
+<td>Pavage avec cube adouci forme chirale</td>
+<td>Pavage avec dodécaèdre adouci</td>
+</tr>
+<tr >
+<td ><a href="pavageCubeAdcSym.html"><img src="pavageCubeAdcSym.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageDodecaedreAdc.html"><img src="pavageDodecaedreAdc.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne10">
+<table>
+<tr >
+<td>Pavage avec dodécaèdre adouci forme chirale</td>
+<td>Pavage avec solide de Johnson J2</td>
+</tr>
+<tr >
+<td ><a href="pavageDodecaedreAdcSym.html"><img src="pavageDodecaedreAdcSym.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageIcosa_J2.html"><img src="pavageIcosa_J2.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne11">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J11</td>
+<td>Pavage avec solide de Johnson J62</td>
+</tr>
+<tr >
+<td ><a href="pavageIcosa_J11.html"><img src="pavageIcosa_J11.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageIcosa_J62.html"><img src="pavageIcosa_J62.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne12">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J63</td>
+<td>Pavage avec antiprisme</td>
+</tr>
+<tr >
+<td ><a href="pavageIcosa_J63.html"><img src="pavageIcosa_J63.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageIcosa_Antiprisme.html"><img src="pavageIcosa_Antiprisme.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne13">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J1</td>
+<td>Pavage avec solide de Johnson J3</td>
+</tr>
+<tr >
+<td ><a href="pavageOcta_J1.html"><img src="pavageOcta_J1.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageCubocta_J3.html"><img src="pavageCubocta_J3.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne14">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J27</td>
+<td>Pavage avec solide de Johnson J4</td>
+</tr>
+<tr >
+<td ><a href="pavageCubocta_J27.html"><img src="pavageCubocta_J27.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicubo_J4.html"><img src="pavageRhombicubo_J4.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne15">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J19</td>
+<td>Pavage avec solide de Johnson J37</td>
+</tr>
+<tr >
+<td ><a href="pavageRhombicubo_J19.html"><img src="pavageRhombicubo_J19.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicubo_J37.html"><img src="pavageRhombicubo_J37.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne16">
+<table>
+<tr >
+<td>Pavage avec prisme</td>
+<td>Pavage avec solide de Johnson J6</td>
+</tr>
+<tr >
+<td ><a href="pavageRhombicubo_Prisme.html"><img src="pavageRhombicubo_Prisme.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageIcosidode_J6.html"><img src="pavageIcosidode_J6.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne17">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J34</td>
+<td>Pavage avec solide de Johnson J5</td>
+</tr>
+<tr >
+<td ><a href="pavageIcosidode_J34.html"><img src="pavageIcosidode_J34.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicosidode_J5.html"><img src="pavageRhombicosidode_J5.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne18">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J72</td>
+<td>Pavage avec solide de Johnson J73</td>
+</tr>
+<tr >
+<td ><a href="pavageRhombicosidode_J72.html"><img src="pavageRhombicosidode_J72.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicosidode_J73.html"><img src="pavageRhombicosidode_J73.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne19">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J74</td>
+<td>Pavage avec solide de Johnson J75</td>
+</tr>
+<tr >
+<td ><a href="pavageRhombicosidode_J74.html"><img src="pavageRhombicosidode_J74.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicosidode_J75.html"><img src="pavageRhombicosidode_J75.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne20">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J76</td>
+<td>Pavage avec solide de Johnson J77</td>
+</tr>
+<tr >
+<td ><a href="pavageRhombicosidode_J76.html"><img src="pavageRhombicosidode_J76.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicosidode_J77.html"><img src="pavageRhombicosidode_J77.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne21">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J78</td>
+<td>Pavage avec solide de Johnson J79</td>
+</tr>
+<tr >
+<td ><a href="pavageRhombicosidode_J78.html"><img src="pavageRhombicosidode_J78.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicosidode_J79.html"><img src="pavageRhombicosidode_J79.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne22">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J80</td>
+<td>Pavage avec solide de Johnson J81</td>
+</tr>
+<tr >
+<td ><a href="pavageRhombicosidode_J80.html"><img src="pavageRhombicosidode_J80.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicosidode_J81.html"><img src="pavageRhombicosidode_J81.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+<div class="galerie" id="ligne23">
+<table>
+<tr >
+<td>Pavage avec solide de Johnson J82</td>
+<td>Pavage avec solide de Johnson J83</td>
+</tr>
+<tr >
+<td ><a href="pavageRhombicosidode_J82.html"><img src="pavageRhombicosidode_J82.png" alt="../images/logoWebGL.png"></a> </td>
+<td ><a href="pavageRhombicosidode_J83.html"><img src="pavageRhombicosidode_J83.png" alt="../images/logoWebGL.png"></a> </td>
+</tr>
+</table>
+</div>
+
+<div class="bas" id="bottom">
+<p class="center"><a href="pavagesSphere.html#gotop">Haut</a></p>
+</div>
+
+</div>
+</body>
+</html>
