@@ -1,4 +1,4 @@
-# TeXgraph
+# TeXgraph 2.0
 
 Logiciel de dessin pour TeX.
 

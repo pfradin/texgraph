@@ -33,6 +33,11 @@
 <div class="corps">
 <div class="gauche">
     
+<h3> Version stable 2.0</h3>
+<ul>
+<li> <a href="telechargement/TeXgraph2.0-Linux-64bits.tar.gz">Linux 64b</a></li>
+<li> <a href="telechargement/TeXgraph2.0-Windows-64bits.zip">Windows 64b</a></li></ul>
+    
 <h3> Version stable 1.995</h3>
 <ul>
 <li> <a href="telechargement/TeXgraph1.995-Linux-64bits.tar.gz">Linux 64b</a></li>
@@ -40,12 +45,6 @@
 <li> <a href="telechargement/TeXgraph1.995-Mac-OS-X-intel-64bits.dmg.zip">Mac OS X intel 64b</a></li>
 </ul>    
     
-<h3> Version stable 1.99</h3>
-<ul>
-<li> <a href="https://download.tuxfamily.org/texgraph/version_stable/windows/TeXgraph1.99.zip">Windows 32b</a></li>
-<li> <a href="https://download.tuxfamily.org/texgraph/version_stable/linux/TeXgraph1.99-64bits.tar.gz">Linux 64b</a></li>
-<li> <a href="https://download.tuxfamily.org/texgraph/version_stable/mac/TeXgraph1.99-64bits.dmg.zip">Mac OS X intel 64b</a></li>
-</ul>
 </div>
 
 <div class="droit">
@@ -55,30 +54,30 @@
 </li>
 
 <li>
-<b>Note</b>: La version 1.995 a été écrite en Free pascal et développée avec <a href="https://pascal.developpez.com/telecharger/detail/id/6209/FPCUpDeluxe"> Lazarus fpcupdeluxe</a>. La version en ligne de commande (TeXgraphCmd) a également été écrite et compilée en Free Pascal.
+<b>Note</b>: La version 2.0 a été écrite en Free pascal et développée avec <a href="https://pascal.developpez.com/telecharger/detail/id/6209/FPCUpDeluxe"> Lazarus fpcupdeluxe</a>. La version en ligne de commande (TeXgraphCmd) a également été écrite et compilée en Free Pascal.
 </li>
 
 <li>
-<b>Installation sous windows</b>:  décompresser l'archive dans un répertoire, un nouveau répertoire est créé: TeXgraph+n°version (par exemple: TeXgraph1.995). Celui-ci contient un script d'installation (install.bat) et le fichier LisezMoi.txt, reportez-vous aux instructions de ce fichier.
+<b>Installation sous windows</b>:  décompresser l'archive dans un répertoire, un nouveau répertoire est créé: TeXgraph+n°version (par exemple: TeXgraph2.0). Celui-ci contient un script d'installation (install.bat) et le fichier LisezMoi.txt, reportez-vous aux instructions de ce fichier.
 </li> 
 
 <li>
-<b>Installation sous linux</b>: décompresser l'archive dans votre home, un nouveau répertoire est créé: TeXgraph+n°version (par exemple: TeXgraph1.995). Celui-ci contient un script d'installation (install.sh) et le fichier LisezMoi.txt, reportez-vous aux instructions de ce fichier.
+<b>Installation sous linux</b>: décompresser l'archive dans votre home, un nouveau répertoire est créé: TeXgraph+n°version (par exemple: TeXgraph2.0). Celui-ci contient un script d'installation (install.sh) et le fichier LisezMoi.txt, reportez-vous aux instructions de ce fichier.
 </li> 
 
 <li>
-<b>Installation du mode commande</b>: l'archive contient également une version sans interface graphique permettant d'utiliser du code texgraph directement dans un document LaTeX par le biais du package <b>texgraph.sty</b> qui est dans le dossier <b>TeXgraph1.995</b> . Sous linux cette version est automatiquement installée. Mais sous Windows, il vous faudra copier le fichier texgraph.sty (qui est dans le dossier TeXgraph1.995) dans votre texmf local et rafraîchir la base de données de TeX (texhash).
+<b>Installation du mode commande</b>: l'archive contient également une version sans interface graphique permettant d'utiliser du code texgraph directement dans un document LaTeX par le biais du package <b>texgraph.sty</b> qui est dans le dossier <b>TeXgraph2.0</b> . Sous linux cette version est automatiquement installée. Mais sous Windows, il vous faudra copier le fichier texgraph.sty (qui est dans le dossier TeXgraph2.0) dans votre texmf local et rafraîchir la base de données de TeX (texhash).
 </li>
 
 <li>
 <b>IMPORTANT: sous les deux OS, la compilation doit se faire avec l'option --shell-escape (ou --enable-write18 suivant la distribution).</b>
-Reportez-vous au fichier d'aide <i>TeXgraph-fr.pdf</i> (chapitre 12) pour avoir les détails du mode commande et des exemples.
+Reportez-vous au fichier d'aide <b>TeXgraph-fr.pdf</b> (chapitre 12) pour avoir les détails du mode commande et des exemples.
 </li>
 
 
 <li>
-<b>PolyedresII.pdf</b>: pour des raisons de volume, l'archive contient seulement un memo concernant le fichier de macros <i>PolyedresII.mac</i> 
-d'<i>Alphonse Capriani</i>. Un document plus complet et très illustré peut être chargé (34Mo!) <a href="https://www.mediafire.com/file/qtygtmvzwjh/PolyedresII.pdf">à cette addresse</a>.
+<b>PolyedresII.pdf</b>: pour des raisons de volume, l'archive contient seulement un memo concernant le fichier de macros <b>PolyedresII.mac</b> 
+d'<b>Alphonse Capriani</b>. Un document plus complet et très illustré peut être chargé (34Mo!) <a href="https://www.mediafire.com/file/qtygtmvzwjh/PolyedresII.pdf">à cette addresse</a>.
 </li> 
 
 <li>
@@ -89,10 +88,28 @@ d'<i>Alphonse Capriani</i>. Un document plus complet et très illustré peut êt
 <h3> Changements </h3>
 <ul>
     
+<li>Version 2.0
+    <ul>
+    <li> L'opérateur + s'applique aussi désormais aux chaînes de caractères (concaténation).</li>
+    <li> L'opérateur * peut s'appliquer désormais entre une chaîne et un entier positif, par exemple : "ab"*3 donnera la chaîne "ababab" (répétition).</li>
+    <li> On peut ajouter, multiplier, diviser deux listes (opérations termes à termes).</li>
+    <li> Dans la fonction <b>Insert</b> on peut désormais utiliser des indices négatifs, comme pour la fonction <b>Del</b>.</li>
+    <li> La fonction <b>Nops</b> s'appelle aussi <b>Len</b>, et <b>StrLength</b> s'appelle aussi <b>StrLen</b>.</li>
+    <li> Nouvelle fonction : <b>Subs(variable, indice, nombre, par)</b>, qui permet de remplacer <b>nombre</b> éléments à partir de la position <b>indice</b>, par l'argument <b>par</b>, la <b>variable</b> peut être une liste ou une chaîne de caractères. Cette fonction est plus efficace que la macro <b>replace()</b>.</li>
+    <li> Nouvelle fonction : <b>Range(début, fin [, pas])</b>, qui génère une liste de valeurs allant de <b>début</b> à <b>fin</b> avec le <b>pas</b> souhaité. Par défaut le <b>pas</b> vaut 1 et il peut être négatif. Si l'argument <b>début</b> est omis (syntaxe <b>Range(fin)</b>) c'est la liste des entiers de 1 à <b>fin</b> qui est générée (si <b>fin</b> est supérieure ou égale à 1).</li>
+    <li>  Nouvelle fonction : <b>Str2List(chaîne)</b>, qui renvoie la <b>chaîne</b> sous forme d'une liste de caractères. Cela peut permettre par exemple de parcourir une chaîne par caractère dans une boucle <b>for</b>.</li>
+    <li> Nouvelle macro : <b>list(liste, nombre)</b>, qui renvoie une liste composée de <b>nombre</b> répétitions de <b>liste</b>.</li>
+    <li> Nouvelle macro : <b>StrReverse(chaîne)</b>, qui renvoie la chaîne inversée.</li>
+    <li> Modification de la fonction <b>Str(arg1, arg2, ...)</b> : elle renvoie la liste des arguments mis en chaînes de caractères, chaque argument est évalué et le résultat est transformé en chaîne, si l'argument est un nom de macro (sans parenthèses) c'est le corps de la macro qui est renvoyé. Si le résultat de l'évaluation est Nil, c'est une chaîne vide qui est renvoyée.</li>
+    <li> Modification de la fonction <b>Message(arg1, arg2,...)</b> : cette fonction peut prendre maintenant plusieurs arguments, chacun est évalué, le résultat est transformé en chaîne pour être affiché. Cette fonction s'appelle aussi <b>Print(arg1, arg2,...)</b>.</li>
+    <li> Correction de divers bogues.</li>
+   </ul> 
+</li>   
+    
 <li>Version 1.995
     <ul>
     <li> La version windows est maintenant une version en 64 bits.</li>
-    <li>Correction de divers bogues.</li>
+    <li> Correction de divers bogues.</li>
    </ul> 
 </li>   
      
@@ -115,9 +132,9 @@ d'<i>Alphonse Capriani</i>. Un document plus complet et très illustré peut êt
 <li>Version 1.98
     <ul>
     <li>Internationalisation de l'interface graphique (un sous-dossier languages fait son apparition dans le dossier src de TeXgraph). Certaines commandes prédéfinies ont maintenant leur équivalent en anglais (Ligne/Line, Droite/StraightL, Point/Dot, Sommets/Vertices, Aretes/Edges, Bord/Outline...). Il y a désormais deux fichiers d'aide en pdf: la version française TeXgraph-fr.pdf, et la version anglaise TeXgraph.pdf fournie par jean23 que je remercie vivement !</li>
-    <li> Le paquet texgraph.sty propose en plus l'environnement <i>tegprog</i> et la macro <i>\tegrun{nom}{param1 param2 ...}</i> qui vont de paire. L'environnement crée un programme (fichier) texgraph, celui-ci est capable de lire des paramètres, et dispose d'une macro <i>Return</i> qui permet d'écrire dans un fichier de sortie. La macro <i>tegrun{nom}{param1 param2 ...}</i> écrit les paramètres dans un fichier, demande à TeXgraph d'exécuter le fichier nom.teg, et inclut le fichier de sortie.</li>
-    <li>Une nouvelle option globale fait son apparition dans le paquet texgraph.sty, c'est l'option server. Lorsqu'elle est activée, le programme n'est exécuté qu'une seule fois lors de la compilation du document, il est lancé lors du chargement du paquet, et fermé à la fin de la compilation du document. En mode "server", le paquet définit la macro <i>\directTeg{commande TeXgraph}</i> qui demande à TeXgraph d'exécuter une commande et de récupérer un résultat. Toujours en mode "server", le paquet fournit l'environnement tegcode, cet environnement doit contenir du code texgraph, celui-ci est lu, et reste en mémoire jusqu'à la fin de la compilation.</li>
-    <li>La commande <i>ReadData( file, type, séparateur)</i> s'est enrichie d'un nouveau type, le type 4, qui permet de lire des fichiers csv.
+    <li> Le paquet texgraph.sty propose en plus l'environnement <b>tegprog</b> et la macro <b>\tegrun{nom}{param1 param2 ...}</b> qui vont de paire. L'environnement crée un programme (fichier) texgraph, celui-ci est capable de lire des paramètres, et dispose d'une macro <b>Return</b> qui permet d'écrire dans un fichier de sortie. La macro <b>tegrun{nom}{param1 param2 ...}</b> écrit les paramètres dans un fichier, demande à TeXgraph d'exécuter le fichier nom.teg, et inclut le fichier de sortie.</li>
+    <li>Une nouvelle option globale fait son apparition dans le paquet texgraph.sty, c'est l'option server. Lorsqu'elle est activée, le programme n'est exécuté qu'une seule fois lors de la compilation du document, il est lancé lors du chargement du paquet, et fermé à la fin de la compilation du document. En mode "server", le paquet définit la macro <b>\directTeg{commande TeXgraph}</b> qui demande à TeXgraph d'exécuter une commande et de récupérer un résultat. Toujours en mode "server", le paquet fournit l'environnement tegcode, cet environnement doit contenir du code texgraph, celui-ci est lu, et reste en mémoire jusqu'à la fin de la compilation.</li>
+    <li>La commande <b>ReadData( file, type, séparateur)</b> s'est enrichie d'un nouveau type, le type 4, qui permet de lire des fichiers csv.
     <li>Correction de bogues.</li>
    </ul> 
 </li>   
@@ -132,7 +149,7 @@ d'<i>Alphonse Capriani</i>. Un document plus complet et très illustré peut êt
 <li>Version 1.95
     <ul>
     <li>Changement de syntaxe dans les fichiers sources (l'ancienne syntaxe reste lisible).</li>
-    <li>Ajout du modèle <b>draw2d.mod</b> amenant une nouvelle syntaxe plus homogène: <i>draw("type", données, options)</i>, et permettant notamment la prise en compte du gradient et de nombreux types de marqueurs de lignes.</li>
+    <li>Ajout du modèle <b>draw2d.mod</b> amenant une nouvelle syntaxe plus homogène: <b>draw("type", données, options)</b>, et permettant notamment la prise en compte du gradient et de nombreux types de marqueurs de lignes.</li>
     <li>De nombreuses macros supplémentaires notamment pour la gestion de listes de chaînes.</li>
     <li>Correction de bogues.</li>
    </ul> 
@@ -146,7 +163,7 @@ d'<i>Alphonse Capriani</i>. Un document plus complet et très illustré peut êt
     <li>Styles de lignes personnalisables (style <b>userdash</b>). Nouvelles variables: <b>DashPattern</b>, <b>LineCap</b>, <b>LineJoin</b>, <b>MiterLimit</b> </li>
     <li>Ajout de nouveaux style de points. Nouvelles variables: <b>DotScale</b>, <b>DotSize</b>, <b>DotAngle</b></li>
     <li>De nombreuses macros supplémentaires notamment pour la 3D.</li>
-    <li>Ajout de très nombreux polyèdres dans le fichier PolyedresII.mac par <i>Alphonse Capriani</i>.</li>
+    <li>Ajout de très nombreux polyèdres dans le fichier PolyedresII.mac par <b>Alphonse Capriani</b>.</li>
     <li>Correction de bogues.</li>
    </ul> 
 </li>
