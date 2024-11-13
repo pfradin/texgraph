@@ -1,4 +1,4 @@
 nom="TeXgraph"
-ver="1.995"
-date="04/08/2021"
+ver="2.0"
+date="12/11/2024"
 statut="stable"

@@ -1,17 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Polyèdres</title>
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
-    <meta name="description" content="Galerie de polyèdres avec TeXgraph, povray et javaview"/>
-    <meta name="keywords" content="Povray, WebGL, Polyèdres, Polyèdres uniformes, Solides de Johnson, Stellations, Polyèdres duaux, TeXgraph"/>
-    <meta name="author" content="Patrick Fradin"/> 
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <meta name="description" content="Galerie de polyèdres avec TeXgraph, povray et WebGL">
+    <meta name="keywords" content="Povray, WebGL, Polyèdres, Polyèdres uniformes, Solides de Johnson, Stellations, Polyèdres duaux, TeXgraph">
+    <meta name="author" content="Patrick Fradin"> 
+    <style>
+    img { border: 1px solid blue; }
+    .tegcomment {text-align : justify;}
+    table {width:100%;}
+    table td {width:20%; text-align:center;}
+    table tr {vertical-align:top;}
+     .galerie {
+    padding:3px;
+    color: black;
+    text-align : center;
+    }
+    </style> 
 </head>
 
 <body>
-<a name="gotop"></a>
+<a id="gotop"></a>
 
 <div class="contenu">
 
@@ -21,124 +32,126 @@
 <p class="center"> <a href="../index.html">Accueil</a></p>
 </div>
 <div id="logo">
-<p><img src="../images/logoTeXgraph.png" border="1" alt=""/></p>
+<p><img src="../images/logoTeXgraph.png" alt=""></p>
 </div>
 </div>
 
 
-<div class="tegpresentation">
+<div class="tegcomment">
 <p>TeXgraph propose un fichier modèle <b>PolyedresII.mod</b> grâce au travail d'<i>Alphonse Capriani</i>. Ce modèle permet le dessin d'un grand nombre de polyèdres.</p>
-<p>Les pages qui suivent proposent une visualisation de ces polyèdres sous forme de vignettes. Un clic sur une vignette permet de voir l'image en grand (export povray), et un clic sur le logo <img src="../images/logoWebGL.png" border="0" width="24" alt=""/> ouvrira une page permettant la manipulation à la souris de la figure. Votre navigateur doit pour cela autoriser javascript.</p>
+<p>Les pages qui suivent proposent une visualisation de ces polyèdres sous forme de vignettes. Un clic sur une vignette permet de voir l'image en grand (export povray), et un clic sur le logo <img src="../images/logoWebGL.png" width="24" alt=""> ouvrira une page permettant la manipulation à la souris de la figure. Votre navigateur doit pour cela autoriser javascript.</p>
 </div>
 
-<h2>Polyèdres Uniformes <a name="uniform"></a></h2>
-<div class="tegpresentation" align="center">
-
-<table width="100%">
-<tr valign="top">
-<td width="20%" align="center"><a href="uniform.html"><img src="uniform/uniform48Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="platon.html"><img src="uniform/uniform1Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="keplerpoinsot.html"><img src="uniform/uniform34Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="archimede.html"><img src="uniform/uniform2Bis.png" border="1" alt=""/></a></td>
+<h2>Polyèdres Uniformes <a id="uniform"></a></h2>
+<div class="galerie">
+<table>
+<tr>
+<td><a href="uniform.html"><img src="uniform/uniform48Bis.png" alt=""></a></td>
+<td><a href="platon.html"><img src="uniform/uniform1Bis.png" alt=""></a></td>
+<td><a href="keplerpoinsot.html"><img src="uniform/uniform34Bis.png" alt=""></a></td>
+<td><a href="archimede.html"><img src="uniform/uniform2Bis.png" alt=""></a></td>
 </tr>
-<tr valign="top">
-<td width="20%" align="center">Liste complète (81)</td>
-<td width="20%" align="center">Solides de Platon (5)</td>
-<td width="20%" align="center">Solides de Kepler-Poinsot (4)</td>
-<td width="20%" align="center">Solides d'Archimède (13)</td>
-</tr>
-</table>
-
-
-<table width="100%">
-<tr valign="top">
-<td width="20%" align="center"><a href="prismeantiprisme.html"><img src="uniform/uniform76Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="uniffc.html"><img src="uniform/uniform10Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="uniffnc.html"><img src="uniform/uniform14Bis.png" border="1" alt=""/></a></td>
-</tr>
-<tr valign="top">
-<td width="20%" align="center">Prismes et anti-prismes uniformes p/q-gonaux</td>
-<td width="20%" align="center">Polyèdres uniformes à faces convexes (37)</td>
-<td width="20%" align="center">Polyèdres uniformes à faces non convexes (44)</td>
+<tr>
+<td>Liste complète (81)</td>
+<td>Solides de Platon (5)</td>
+<td>Solides de Kepler-Poinsot (4)</td>
+<td>Solides d'Archimède (13)</td>
 </tr>
 </table>
 </div>
 
-<h2>Solides de Johnson <a name="johnson"></a></h2>
-<div class="tegpresentation" align="center">
-<table width="100%">
-<tr valign="top">
-<td width="20%" align="center"><a href="johnson.html"><img src="johnson/johnson91Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="prismatoiderotonde.html"><img src="johnson/johnson1Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="pyramidedipyramide.html"><img src="johnson/johnson7Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="coupolerotonde.html"><img src="johnson/johnson18Bis.png" border="1" alt=""/></a></td>
+<div class="galerie">
+<table>
+<tr>
+<td><a href="prismeantiprisme.html"><img src="uniform/uniform76Bis.png" alt=""></a></td>
+<td><a href="uniffc.html"><img src="uniform/uniform10Bis.png" alt=""></a></td>
+<td><a href="uniffnc.html"><img src="uniform/uniform14Bis.png" alt=""></a></td>
 </tr>
-<tr valign="top">
-<td width="20%" align="center">Liste complète (92)</td>
-<td width="20%" align="center">Prismatoïdes et rotondes (6)</td>
-<td width="20%" align="center">Pyramides et dipyramides (11)</td>
-<td width="20%" align="center">Coupoles et rotondes modifiées (31)</td>
-</tr>
-</table>
-
-<table width="100%">
-<tr valign="top">
-<td width="20%" align="center"><a href="prismeaugmente.html"><img src="johnson/johnson49Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="platonmodifie.html"><img src="johnson/johnson58Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="archimedemodifie.html"><img src="johnson/johnson65Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="autrejohnson.html"><img src="johnson/johnson84Bis.png" border="1" alt=""/></a></td>
-</tr>
-<tr valign="top">
-<td width="20%" align="center">Prismes augmentés (9)</td>
-<td width="20%" align="center">Solides de Platon modifiés (7)</td>
-<td width="20%" align="center">Solides d'Archimède modifiés (19)</td>
-<td width="20%" align="center">Autres (9)</td>
+<tr>
+<td>Prismes et anti-prismes uniformes p/q-gonaux</td>
+<td>Polyèdres uniformes à faces convexes (37)</td>
+<td>Polyèdres uniformes à faces non convexes (44)</td>
 </tr>
 </table>
 </div>
 
-<h2>Duaux des polyèdres uniformes <a name="dualunif"></a></h2>
-<div class="tegpresentation" align="center">
-<table width="100%">
-<tr valign="top">
-<td width="20%" align="center"><a href="dualunif.html"><img src="dualunif/dualunif43Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="catalan.html"><img src="dualunif/dualunif2Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="diamantantidiamant.html"><img src="dualunif/dualunif76Bis.png" border="1" alt=""/></a></td>
+<h2>Solides de Johnson <a id="johnson"></a></h2>
+<div class="galerie">
+<table>
+<tr>
+<td><a href="johnson.html"><img src="johnson/johnson91Bis.png" alt=""></a></td>
+<td><a href="prismatoiderotonde.html"><img src="johnson/johnson1Bis.png" alt=""></a></td>
+<td><a href="pyramidedipyramide.html"><img src="johnson/johnson7Bis.png" alt=""></a></td>
+<td><a href="coupolerotonde.html"><img src="johnson/johnson18Bis.png" alt=""></a></td>
 </tr>
-<tr valign="top">
-<td width="20%" align="center">Liste complète (80)</td>
-<td width="20%" align="center">Solides de Catalan (13)</td>
-<td width="20%" align="center">Diamants et anti-diamants</td>
+<tr>
+<td>Liste complète (92)</td>
+<td>Prismatoïdes et rotondes (6)</td>
+<td>Pyramides et dipyramides (11)</td>
+<td>Coupoles et rotondes modifiées (31)</td>
+</tr>
+</table>
+</div>
+<div class="galerie">
+<table>
+<tr>
+<td><a href="prismeaugmente.html"><img src="johnson/johnson49Bis.png" alt=""></a></td>
+<td><a href="platonmodifie.html"><img src="johnson/johnson58Bis.png" alt=""></a></td>
+<td><a href="archimedemodifie.html"><img src="johnson/johnson65Bis.png" alt=""></a></td>
+<td><a href="autrejohnson.html"><img src="johnson/johnson84Bis.png" alt=""></a></td>
+</tr>
+<tr>
+<td>Prismes augmentés (9)</td>
+<td>Solides de Platon modifiés (7)</td>
+<td>Solides d'Archimède modifiés (19)</td>
+<td>Autres (9)</td>
 </tr>
 </table>
 </div>
 
-<h2>Stellations <a name="stellation"></a></h2>
-<div class="tegpresentation" align="center">
-<table width="100%">
-<tr valign="top">
-<td width="20%" align="center"><a href="sticosaedre.html"><img src="uniform/uniform22Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="stcuboctaedre.html"><img src="uniform/uniform7Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="stdodecaedreRhb.html"><img src="dualunif/dualunif7Bis.png" border="1" alt=""/></a></td>
-<td width="20%" align="center"><a href="sttriacontaedreRhb.html"><img src="dualunif/dualunif24Bis.png" border="1" alt=""/></a></td>
+<h2>Duaux des polyèdres uniformes <a id="dualunif"></a></h2>
+<div class="galerie">
+<table>
+<tr>
+<td><a href="dualunif.html"><img src="dualunif/dualunif43Bis.png" alt=""></a></td>
+<td><a href="catalan.html"><img src="dualunif/dualunif2Bis.png" alt=""></a></td>
+<td><a href="diamantantidiamant.html"><img src="dualunif/dualunif76Bis.png" alt=""></a></td>
 </tr>
-<tr valign="top">
-<td width="20%" align="center">De l'Icosaèdre (58)</td>
-<td width="20%" align="center">Du Cuboctaèdre (17)</td>
-<td width="20%" align="center">Du Dodécaèdre Rhombique (3)</td>
-<td width="20%" align="center">Du Triacontaèdre Rhombique (226)</td>
+<tr>
+<td>Liste complète (80)</td>
+<td>Solides de Catalan (13)</td>
+<td>Diamants et anti-diamants</td>
 </tr>
 </table>
 </div>
 
-<h2>Zonoèdres <a name="zonoedre"></a></h2>
-<div class="tegpresentation" align="center">
-<table width="100%">
-<tr valign="top">
-<td width="20%" align="center"><a href="zonoedre.html"><img src="zonoedre/zonoedre1Bis.png" border="1" alt=""/></a></td>
+
+<h2>Stellations <a id="stellation"></a></h2>
+<div class="galerie">
+<table>
+<tr>
+<td><a href="sticosaedre.html"><img src="uniform/uniform22Bis.png" alt=""></a></td>
+<td><a href="stcuboctaedre.html"><img src="uniform/uniform7Bis.png" alt=""></a></td>
+<td><a href="stdodecaedreRhb.html"><img src="dualunif/dualunif7Bis.png" alt=""></a></td>
+<td><a href="sttriacontaedreRhb.html"><img src="dualunif/dualunif24Bis.png" alt=""></a></td>
 </tr>
-<tr valign="top">
-<td width="20%" align="center">Exemples de zonoèdres</td>
+<tr>
+<td>De l'Icosaèdre (58)</td>
+<td>Du Cuboctaèdre (17)</td>
+<td>Du Dodécaèdre Rhombique (3)</td>
+<td>Du Triacontaèdre Rhombique (226)</td>
+</tr>
+</table>
+</div>
+
+<h2>Zonoèdres <a id="zonoedre"></a></h2>
+<div class="galerie">
+<table>
+<tr>
+<td><a href="zonoedre.html"><img src="zonoedre/zonoedre1Bis.png" alt=""></a></td>
+</tr>
+<tr>
+<td>Exemples de zonoèdres</td>
 </tr>
 </table>
 </div>
@@ -148,6 +161,6 @@
 </div>
 
 </div>
-<a name="bottom"></a>
+<a id="bottom"></a>
 </body>
 </html>
