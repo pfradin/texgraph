@@ -1,6 +1,6 @@
 # TeXgraph 2.0
 
-Logiciel de dessin pour TeX.
+Logiciel de dessin pour (La)TeX.
 
 Ce dépôt contient les pages web du site consacré à TeXgraph.
 
