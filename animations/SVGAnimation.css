@@ -1,5 +1,7 @@
-body {
-    background-image : url(../images/webFond.jpg) ;
+body{
+    background-color:#EDEEEE;
+    background-image:url(webFond.jpg);
+    font-family : Arial, Verdana, Helvetica, sans-serif;
 }
 
 .message {
@@ -31,7 +33,7 @@ body {
     font-size     : 120%;
 }
 
-#anim1_boutons{
+#anim_boutons{
     text-align:center;
 }
 
@@ -42,9 +44,8 @@ body {
 
 button.SVGplay {
     color: #fff;
-    box-shadow: 0px 1px 3px black;
+    box-shadow: 3px 3px 3px black;
     background: #6e6e6e;
-    /*padding: 5px 10px 5px 10px;*/
     border: solid white 2px;
     text-decoration: none;
     float:none;
@@ -53,18 +54,26 @@ button.SVGplay {
     border-radius : 5px;
 }
 
+button.enfoncer {
+    background: #951515;
+    box-shadow: 1px 1px 3px black;
+}
+
 button.SVGplay:hover {
     background: #951515;
     text-decoration: none;
-    transition:0.4s;
     color:white;
+    cursor:pointer;
+    box-shadow: 1px 1px 3px black;
+    transition:0.4s;
 }
 
 img.boutonSVG{
     /*vertical-align:middle;*/
+    margin-top:2px;
     margin-bottom:2px;
-    height:10px;
-    width:10px;
+    height:12px;
+    width:12px;
     padding:0px;
     box-shadow: none;
     border:0px;
