@@ -2,10 +2,6 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg11.dtd">
 <svg width="10cm" height="10cm" viewBox="0 0 378 378" overflow="hidden"
  version="1.1" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
-<!--fond  (Utilisateur) -->
-<g  stroke-linejoin="round" >
-<polygon fill="rgb(0,0,139)" points="0,0,0,378,378,378,378,0"/>
-</g>
 <!--tangram  (Utilisateur) -->
 <g stroke="rgb(0,0,139)" stroke-width="1.0627" stroke-linejoin="round" >
 <path d="M160.1577 238.7368 L134.259 199.9768 L131.2978 202.1283 L128.5145 204.5055 L125.9263 207.0937 L123.5491 209.877 L121.3976 212.8382

@@ -9,21 +9,24 @@
   </head>
 
   <body>
-    <div style="width:100%; text-align:center;"> <a href="../GalerieAnim.html#tangram">Retour</a> </div>   
+    <div style="width:100%; text-align:center;"> <a href="../GalerieAnim.html#tangram">Retour</a> </div>     
     <div id="anim" style="width:378px;" class="SVGanimation" >
       <div class="titre" id="anim_titre">Le titre</div>
-      <img src="../fond.svg" id="img" class="img_anim" alt="animation">
+      <div id="frames" class="frames">
+        <img src="no" id="bg" class="img_anim" alt="">
+        <img src="no" id="img" class="img_anim" alt="">
+      </div>
       <div id="anim_message" class="message" >Chargement en cours ...</div>
       <div id="anim_boutons" class="SVGbutton">
-        <button id="play" title="play/stop" class="SVGplay" onClick="demarrer()"> <img src="../player-1.svg" class="boutonSVG" alt=""> </button>
-        <!--<button title="stop" class="SVGplay" onClick="arreter()"> <img src="../player-2.svg" class="boutonSVG" alt=""> </button>-->
+        <button id="Bt_play" title="play/stop" class="SVGplay" onClick="demarrer()"> <img src="../player-1.svg" class="boutonSVG" alt=""> </button>
         <button title="last" class="SVGplay" onClick="toLast()"> <img src="../player-3.svg" class="boutonSVG" alt=""> </button>
         <button title="first" class="SVGplay" onClick="toFirst()"> <img src="../player-4.svg" class="boutonSVG" alt=""> </button>
         <button title="next" class="SVGplay" onClick="avancer()"> <img src="../player-5.svg" class="boutonSVG" alt=""> </button>
         <button title="prev." class="SVGplay" onClick="reculer()"> <img src="../player-6.svg" class="boutonSVG" alt=""> </button>
         <button title="slower" class="SVGplay" onClick="ralentir()"> <img src="../player-7.svg" class="boutonSVG" alt=""> </button>
         <button title="faster" class="SVGplay" onClick="accelerer()"> <img src="../player-8.svg" class="boutonSVG" alt=""> </button>
-        <button id="Bboucle" title="loop" class="SVGplay" onClick="boucler()"> <img src="../player-9.svg" class="boutonSVG" alt=""> </button>
+        <button id="Bt_loop" title="loop" class="SVGplay" onClick="boucler()"> <img src="../player-9.svg" class="boutonSVG" alt=""> </button>
+        <button title="palindrome" id="Bt_palin" class="SVGplay" onClick="palin()"> <img src="../player-2.svg" class="boutonSVG" alt=""> </button>
       </div> 
     </div>
     <script src="data.js"></script> <!-- paramètres de l'animation dans un tableau nommé info-->

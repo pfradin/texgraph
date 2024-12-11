@@ -1,5 +1,5 @@
 TeXgraph#
-{version 2.0}
+{version 2.1}
 Cmd
 	Window(-4.75+5.75*i, 4.75-3.75*i, 1.05263157894737+1.05263157894737*i); 
 	Margin(0, 0, 0, 0);
@@ -21,6 +21,7 @@ Var
     pt = 5;
     nbposes = 7;
     AnimationVer = 1.3;
+    TitreAnimation = "Tangram";
 
 Include
 	"MacrosAnim.mac";
@@ -174,7 +175,7 @@ Mac
 	];
 
 Cmd	[tMin:=-5,tMax:=5,DotScale:=1+i];
-Graph fond = [
+Graph backGround = [
 	view(-4.75,4.75,-3.75,5.75), Marges(0,0,0,0), size(10,1),
 	background(full,darkblue)
 	];

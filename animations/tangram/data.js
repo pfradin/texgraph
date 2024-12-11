@@ -1,6 +1,6 @@
 info = {
 "titre" : "Tangram",
-"nbMin" : 1,
+"nbMin" : 0,
 "nbMax" : 210,
 "delai" : 100,
 "ext" : "svg" }

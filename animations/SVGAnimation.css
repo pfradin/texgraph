@@ -4,6 +4,23 @@ body{
     font-family : Arial, Verdana, Helvetica, sans-serif;
 }
 
+.frames {
+    position: relative;
+}
+
+.img_anim {
+    position: absolute;
+    border : 1px solid black;
+}
+
+#img {
+    z-index: 2;
+}
+
+#bg {
+    z-index: 1;
+}
+
 .message {
   background    : #6e6e6e;
   color         : white;
@@ -20,11 +37,6 @@ body{
     border:2px solid #AAA;
     border-radius:4px;
     box-shadow: #343434 10px 10px 10px ;
-}
-
-.img_anim {
-    border:1px solid black;
-    background-color:white;
 }
 
 .titre {
@@ -70,10 +82,10 @@ button.SVGplay:hover {
 
 img.boutonSVG{
     /*vertical-align:middle;*/
-    margin-top:2px;
-    margin-bottom:2px;
-    height:12px;
-    width:12px;
+    margin-top:1px;
+    margin-bottom:1px;
+    height:14px;
+    width:14px;
     padding:0px;
     box-shadow: none;
     border:0px;

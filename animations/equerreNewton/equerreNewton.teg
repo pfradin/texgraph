@@ -1,5 +1,5 @@
 TeXgraph#
-{version 2.0}
+{version 2.1}
 Cmd
 	Window(-1.1+1.6*i, 2.1-1.6*i, 3.125+3.125*i); 
 	Margin(0, 0, 0, 0);
@@ -14,6 +14,7 @@ Var
     courbe = Nil;
     AnimationVer = 1.3;
     instrumentsDessinVer = 0.2;
+    TitreAnimation = "Équerre de Newtion et strophoïde";
 
 Include
 	"MacrosAnim.mac";
@@ -49,14 +50,14 @@ Mac
 	];
 
 Cmd	[DotScale:=1+i];
-Graph fond = [
+Graph backGround = [
 	  background(full,beige), dollar:=0,
 	  Width:=6, Arrows:=1, Axes(0,i,0), Arrows:=0,
 	  Droite(1,0,1), Droite(1,0,2),
 	  DotStyle:=cross,
 	  LabelAxe(x, 1,"1",1+i,1), LabelAxe(x, 2,"2",1+i,1),
 	  LabelAxe(x, -1,"-1",1,1),
-	  DotStyle:=bigdot, LabelDot(0,"O","NO",1)
+	  DotStyle:=bigdot, LabelDot(0,"O","NO",1),
 	];
 Graph dessin = [
 	 Color:=red, Width:=12, Ligne(courbe,0),
@@ -64,7 +65,9 @@ Graph dessin = [
 	 if stock<>Nil then
 	    N:= [1,1+i] Inter perp([0,M],M),
 	    Droite(0,M), Droite(N,M),
-	    DotStyle:=bigdot, Point(N,M),
+	    DotStyle:=bigdot,
+	    LabelDot(N,"B", "E", 1), LabelDot(M, "A", "NE", 1),
+	    if N<>Nil then LabelDot(-1+i*1.5,"AB = 1", "E") fi,
 	    LabelSize:=tiny,
 	    equerre(M, [labels:=0, unit:=0.5, dir:=-M, sens:= if Im(N)>0 then -1 else 1 fi]),
 	    crayon(M, [mine:=red, long:=2, angle:=-150])
